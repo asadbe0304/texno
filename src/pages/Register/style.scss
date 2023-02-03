@@ -1,0 +1,15 @@
+.login-top{
+    margin-top: 150px;
+}
+
+@media screen and (max-width:850px) {
+    .sign-form{
+        width: 80%!important;
+    }
+    .btn-sign{
+        width: 200px!important;
+    }
+    .login-top{
+        width: 100%;
+    }
+}

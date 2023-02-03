@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #eeeeee;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(117, 117, 117);
+  border-radius: 5px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+.container {
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 1440px;
+}
+
+.app-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 55;
+  margin: 0 auto;
+  width: 100%;
+  /* transition: all 0.8s both; */
+}
+.sticky {
+  position: fixed;
+  z-index: 55;
+  animation: smoothScroll 0.5s both;
+  /* transform: translateY(100%); */
+}
+.sticky-active {
+  transform: translateY(0);
+}
+
+@keyframes smoothScroll {
+	0% {
+		transform: translateY(-10px);
+	}
+	100% {
+		transform: translateY(0px);
+	}
+}
+
+@keyframes stick {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  12.5% {
+    opacity: 0.1;
+    transform: translateY(-80%);
+  }
+  25% {
+    opacity: 0.3;
+    transform: translateY(-65%);
+  }
+  37.5% {
+    opacity: 0.41;
+    transform: translateY(-45%);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(-30%);
+    /* height: 25%; */
+  }
+  62.5% {
+    opacity: 0.6;
+    /* height: 50%;
+ */
+    transform: translateY(-20%);
+  }
+  75% {
+    opacity: 0.7;
+    /* height: 75%; */
+    transform: translateY(-15%);
+  }
+  82.5% {
+    opacity: 0.85;
+    /* height: 100%; */
+    transform: translateY(-10%);
+  }
+  100% {
+    opacity: 1;
+    /* height: 100%; */
+    transform: translateY(0%);
+  }
+}

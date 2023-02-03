@@ -1,0 +1,44 @@
+.card__popular {
+  position: relative;
+  width: 272px;
+  h6 {
+    padding-top: 250px;
+  }
+  img {
+    top: 0;
+    z-index: 233;
+  }
+  transition: all 3s cubic-bezier(0.215, 0.610, 0.355, 1);
+
+}
+
+.card__popular::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  content: "  ";
+  z-index: 0;
+  width: 275px;
+  display: none;
+  height: 100%;
+ 
+  background: #eba000;
+  transition: all .3s ease-in-out;
+
+}
+.card__popular:hover::before{
+    display: block;
+    animation: after .2s both;
+}
+
+@keyframes after{
+    0%{
+        clip-path: circle(8% at 5% 6%);
+    }
+    50%{
+        clip-path: circle(40% at 50% 3%);
+    }
+    100%{
+        clip-path: circle(98.8% at 150% 25%);
+    }
+}

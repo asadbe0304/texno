@@ -1,0 +1,38 @@
+.warrant {
+  padding: 20px 0px;
+  width: 250px;
+  p {
+    margin: 20px 0;
+    font-size: 15px;
+    color: #2d2e30;
+    line-height: 22px;
+  }
+}
+.warant-icon{
+    width: 35px;
+    height: 35px;
+}
+
+@media screen and (max-width: 1145px) {
+  .warranty{
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center!important;
+    align-items: center;
+    gap: 10px;
+  }
+.warrant{
+  align-items: flex-start;
+}
+}
+@media screen and (max-width:930px) {
+  .warrant{
+    display: flex;
+    flex-direction: row!important;
+    gap: 20px;
+  p{
+    margin: 0;
+  }
+  }
+
+}

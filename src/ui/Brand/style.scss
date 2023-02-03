@@ -1,0 +1,17 @@
+@media screen and (max-width:580px) {
+    .brand-title{
+        font-size: 18px;
+    }
+}
+@media screen and (max-width:464px) {
+    .brands-card{
+        padding: 0!important;
+    }
+    .card-brand{
+        padding: 5px!important;
+        img{
+            width: 120px!important;
+            height: auto!important;
+        }
+    }
+}

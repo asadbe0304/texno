@@ -1,0 +1,147 @@
+.underline-none {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 25px;
+}
+.navbar {
+  padding: 0;
+  background: #2D2E30;
+}
+.list-group {
+  list-style: none;
+  padding: 0;
+  li {
+    border-left: 1px solid #555;
+  }
+}
+.menu__category {
+  width: 25px;
+  height: 25px;
+  color: black;
+}
+.modal-layer {
+  position: fixed;
+  top: 130px;
+  // bottom: 0;
+  left: 0;
+  z-index: 33;
+  padding: 0px 20px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.852);
+  height: 100vh;
+}
+.archer {
+  width: 30px;
+  height: 30px;
+}
+
+.search-mobile-bar{
+  display: none;
+  width: 100%;
+}
+.search-mobile{
+  display: none!important;
+  width: 100%;
+  border:1px solid #fac212;
+}
+.category-modal {
+  
+  .modal-left {
+    width: 450px;
+    padding: 0;
+    background: #e4e4e4;
+    // border-right: 1px solid gray;
+    overflow-x: scroll;
+  }
+}
+.modal-list {
+  padding: 0;
+  width: 100%;
+  list-style: none;
+  li{
+    width: 100%;
+    padding: 10px 20px;
+    transition: all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  li:hover {
+    background: #fff;
+  }
+}
+::-webkit-scrollbar{
+  width: 0;
+}
+.category__tab{
+  display: none;
+}
+@media screen and (max-width :1280px) {
+    .underline-none{
+    padding: 10px 18px;
+    }
+  
+}
+@media screen and (max-width :1157px) {
+    .underline-none{
+    padding: 10px 15px;
+    font-size: 14px;
+    }
+}
+@media screen and (max-width:1010px){
+  .underline-none{
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+}
+@media screen and (max-width:853px){
+  .underline-none{
+    font-size: 12px;
+    font-weight: 300!important;
+    padding: 8px 12px;
+  }
+  .navbar{
+    padding: 0px!important;
+    gap: 10px!important;
+  }
+  .nav{
+    gap: 5px!important;
+  }
+}
+@media screen and (max-width:805px) {
+  .modal-layer{
+    top: 156px;
+  }
+  .nav{
+    display: flex!important;
+    flex-direction: column!important;
+    gap: 20px;
+  }
+  .search-mobile-bar{
+    display: flex!important;
+  }
+  .search-mobile{
+    display: block!important;
+  }
+  .nav-list{
+    display: none!important;
+  }
+  nav{
+    flex-direction: column!important;
+  }
+  .category__tab{
+    display: block;
+    width: 100%!important;
+  }
+  nav{
+    width: 100%;
+  }
+  .navbar{
+    padding: 10px 0px;
+    background:#fff;
+  }
+}
+
+@media screen and (max-width:530px) {
+  .modal-layer{
+    top: 133px;
+  }
+
+}

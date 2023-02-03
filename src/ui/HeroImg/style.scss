@@ -1,0 +1,16 @@
+.rounde{
+    width: 100%;
+}
+.hero-round{
+    width: 100%;
+}
+@media screen and (max-width:1230px) {
+    .hero-round{
+        display: none;
+    }
+}
+@media screen and (max-width:900px) {
+    .rounde{
+        display: none;
+    }
+}

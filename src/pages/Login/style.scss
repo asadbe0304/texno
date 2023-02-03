@@ -1,0 +1,15 @@
+.login-top{
+    margin-top: 150px;
+}
+
+@media screen and (max-width:850px) {
+    .form-admin{
+        width: 80%!important;
+    }
+    .btn-submit{
+        width: 200px!important;
+    }
+    .login-top{
+        width: 100%!important;
+    }
+}
