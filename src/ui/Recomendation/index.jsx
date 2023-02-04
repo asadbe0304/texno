@@ -178,7 +178,7 @@ const index = () => {
           className="mySwiper px-4 d-flex justify-content-center py-3 gap-1 align-items-center"
         >
           {data.length > 0 ? (
-            data.slice(0,4).map((e) => {
+            data.map((e) => {
               return (
                 <SwiperSlide
                   // item={item}
