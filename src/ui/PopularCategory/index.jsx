@@ -12,7 +12,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
-import { Pagination, FreeMode, Navigation } from "swiper";
+import { Pagination, Navigation } from "swiper";
 
 export default function App() {
   const [data, setData] = useState([]);
@@ -41,10 +41,10 @@ export default function App() {
           pagination={{
             clickable: false,
           }}
-          freeMode={true}
+          // freeMode={true}
           grabCursor={true}
           navigation={false}
-          modules={[Pagination, FreeMode, Navigation]}
+          modules={[Pagination, Navigation]}
           breakpoints={{
             1210: {
               width: 1210,

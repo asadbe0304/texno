@@ -6,7 +6,7 @@ import { BiHeart } from "react-icons/bi";
 import { FcLike } from "react-icons/fc";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useSelector } from "react-redux";
-import { FreeMode, Navigation } from "swiper";
+import { Navigation } from "swiper";
 import Img from "./../../assets/images/im.jpg";
 import Load from "./../Loader/index";
 import Spin from "./../../components/Spin/spin";
@@ -49,6 +49,7 @@ const index = () => {
           slidesPerView={4}
           spaceBetween={20}
           // slidesPerGroup={false}
+          centeredSlides={false}
           loop={false}
           loopFillGroupWithBlank={false}
           pagination={{
@@ -173,8 +174,8 @@ const index = () => {
           }}
           grabCursor={true}
           navigation={false}
-          freeMode={true}
-          modules={[FreeMode, Navigation]}
+          // freeMode={true}
+          modules={[Navigation]}
           className="mySwiper px-4 d-flex justify-content-center py-3 gap-1 align-items-center"
         >
           {data.length > 0 ? (
