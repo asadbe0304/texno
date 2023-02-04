@@ -6,7 +6,7 @@ import { BiHeart } from "react-icons/bi";
 import { FcLike } from "react-icons/fc";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useSelector } from "react-redux";
-import { Navigation } from "swiper";
+import { FreeMode, Navigation } from "swiper";
 import Img from "./../../assets/images/im.jpg";
 import Load from "./../Loader/index";
 import Spin from "./../../components/Spin/spin";
@@ -49,7 +49,7 @@ const index = () => {
           slidesPerView={4}
           spaceBetween={20}
           // slidesPerGroup={false}
-          centeredSlides={false}
+          // centeredSlides={true}
           loop={false}
           loopFillGroupWithBlank={false}
           pagination={{
@@ -82,11 +82,11 @@ const index = () => {
               width: 520,
             },
             565: {
-              width: 500,
+              width: 480,
               slidesPerView: 1,
             },
             550: {
-              width: 480,
+              width: 475,
               slidesPerView: 1,
             },
             540: {
@@ -119,17 +119,16 @@ const index = () => {
               spaceBetween: 20,
             },
             400: {
+              width: 320,
+              slidesPerView: 1,
+            },
+            390: {
               width: 310,
               spaceBetween: 20,
               slidesPerView: 1,
             },
-            390: {
-              width: 300,
-              spaceBetween: 20,
-              slidesPerView: 1,
-            },
             380: {
-              width: 290,
+              width: 300,
               spaceBetween: 20,
               slidesPerView: 1,
             },
@@ -174,12 +173,12 @@ const index = () => {
           }}
           grabCursor={true}
           navigation={false}
-          // freeMode={true}
-          modules={[Navigation]}
+          freeMode={true}
+          modules={[FreeMode, Navigation]}
           className="mySwiper px-4 d-flex justify-content-center py-3 gap-1 align-items-center"
         >
           {data.length > 0 ? (
-            data.map((e) => {
+            data.slice(0,4).map((e) => {
               return (
                 <SwiperSlide
                   // item={item}
