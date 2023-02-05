@@ -35,7 +35,7 @@ body {
   max-width: 1440px;
 }
 
-.app-header {
+/* .app-header {
   position: absolute;
   top: 0;
   left: 0;
@@ -44,13 +44,15 @@ body {
   margin: 0 auto;
   width: 100%;
   /* transition: all 0.8s both; */
-}
+
 .sticky {
   position: fixed;
-  z-index: 55;
+  z-index: 555;
+  top: 0;
   animation: smoothScroll 0.5s both;
   /* transform: translateY(100%); */
 }
+
 .sticky-active {
   transform: translateY(0);
 }

@@ -14,6 +14,14 @@
     border-left: 1px solid #555;
   }
 }
+.navsticky {
+  position: fixed !important;
+  z-index: 553;
+  top: 85px;
+  width: 100%;
+  animation: smoothScroll 1s both;
+  /* transform: translateY(100%); */
+}
 .menu__category {
   width: 25px;
   height: 25px;
@@ -24,7 +32,7 @@
   top: 130px;
   // bottom: 0;
   left: 0;
-  z-index: 33;
+  z-index: 3333;
   padding: 0px 20px;
   width: 100%;
   background: rgba(0, 0, 0, 0.852);
@@ -105,9 +113,17 @@
     gap: 5px!important;
   }
 }
+@media screen and (max-width:830px){
+  .navsticky{
+    top: 70px;
+  }
+}
 @media screen and (max-width:805px) {
   .modal-layer{
     top: 156px;
+  }
+  .navsticky{
+    top: 72px;
   }
   .nav{
     display: flex!important;
@@ -143,5 +159,18 @@
   .modal-layer{
     top: 133px;
   }
+.navsticky{
+  top: 50px;
+}
+}
 
+
+
+@keyframes smoothScroll {
+	0% {
+		transform: translateY(-85px);
+	}
+	100% {
+		transform: translateY(0px);
+	}
 }

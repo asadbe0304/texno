@@ -22,10 +22,11 @@ export default function App() {
   //   console.log(item);
   // };
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((json) => setData(json));
+    fetch("https://dummyjson.com/products/categories")
+    .then((res) => res.json())
+    .then(json => setData(json));
   }, []);
+ console.log(data)
   return (
     <>
       <div className="container">
@@ -39,11 +40,11 @@ export default function App() {
           loop={false}
           loopFillGroupWithBlank={false}
           pagination={{
-            clickable: false,
+            clickable: true,
           }}
           // freeMode={true}
           grabCursor={true}
-          navigation={false}
+          navigation={true}
           modules={[Pagination, Navigation]}
           breakpoints={{
             1210: {
@@ -77,7 +78,7 @@ export default function App() {
           {data.length > 0
             ? data.map((e) => {
                 return (
-                  <SwiperSlide key={e.id}>
+                  <SwiperSlide key={e}>
                     <div  className="card__popular d-flex align-items-center gap-2 flex-column justify-content-between bg-dark p-2">
                       <img
                         src={Img}
@@ -85,8 +86,8 @@ export default function App() {
                         alt="images"
                       />
                       <div className="d-flex justify-content-center px-4 align-items-center w-100 flex-row">
-                        <h6 className="fw-bold text-white text-end m-0 my-2">
-                        {e.category}
+                        <h6 className="fw-bold text-white text-end m-0 my-2 text-capitalize">
+                        {e}
                         </h6>
                       </div>
                     </div>

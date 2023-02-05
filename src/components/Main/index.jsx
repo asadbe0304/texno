@@ -10,6 +10,7 @@ import XitProduct from "./../../ui/XitProduct/index";
 import { Outlet, Link } from "react-router-dom";
 import "./style.scss";
 const index = () => {
+
   return (
     <>
       <Tel />
@@ -39,7 +40,9 @@ const index = () => {
           <Brand />
         </div>
         <div className="px-3">
-          <XitProduct />
+          <div className="container">
+            <XitProduct />
+          </div>
         </div>
         <div className="container">
           <div className="d-flex w-75 px-2 py-4 mx-auto justify-content-center align-items-start flex-column gap-1">

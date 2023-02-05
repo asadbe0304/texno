@@ -1,0 +1,28 @@
+.category-top{
+  margin-top: 20px;
+  margin-bottom: 100px;
+  max-width: 1440px;
+}
+.drop{
+  position: absolute;
+  z-index: 4!important;
+}
+#dropdown-basic{
+  padding: 0;
+  outline: none;
+  border: none;
+}
+.drop-menu{
+  height: 150px;
+  border-radius: 0px;
+  overflow-y: scroll;
+}
+.slid{
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  flex-direction: row;
+  height: 500px;
+  overflow-y: hidden;
+}
+

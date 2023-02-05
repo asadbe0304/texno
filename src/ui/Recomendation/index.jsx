@@ -1,11 +1,13 @@
 import React from "react";
-// import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
+import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { BiHeart } from "react-icons/bi";
+import { BiHeart } from "react-icons/bi"
+// import { BsArrowBarLeft, BsArrowBarRight } from "react-icons/bs";
 import { FcLike } from "react-icons/fc";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useSelector } from "react-redux";
+import { useSwiper } from "swiper/react";
 import { FreeMode, Navigation } from "swiper";
 import Img from "./../../assets/images/im.jpg";
 import Load from "./../Loader/index";
@@ -23,6 +25,8 @@ const index = () => {
   const [spin, setSpin] = useState(false);
   // const [item, setItem] = useState([])
   // )
+
+  const swiper=useSwiper()
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
@@ -38,10 +42,10 @@ const index = () => {
       <div className="recomendation d-flex flex-column w-100 justify-content-between align-items-center">
         <div className="recomendation__top py-1 d-flex justify-content-between align-items-center w-100">
           <h3 className="recomendation__title">Наши рекомендации</h3>
-          {/* <div className="d-flex justify-content-between align-items-center gap-3">
-            <BsArrowLeft />
-            <BsArrowRight />
-          </div> */}
+          <div className="d-flex justify-content-between align-items-center gap-3">
+            {/* <BsArrowLeft  className="swiper-button-next"/>
+            <BsArrowRight className="swiper-button-prev"/> */}
+          </div>
         </div>
       </div>
       <div className="recomendation__card w-100 ">

@@ -1,0 +1,47 @@
+.product-info {
+  max-width: 1440px;
+}
+.product-all{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+}
+.product-card{
+  padding: 20px;
+  width: 260px;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  img{
+    width: 85%;
+    height: auto;
+  }
+}
+.popular-title{
+  margin: 10px 0px;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: normal;
+  color: #202c3b;
+}
+.otziv{
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: normal;
+  color: #707070;
+}
+.nalichka{
+  width: 80px;
+  font-weight: 700;
+}
+.price-title{
+  font-size: 18px;
+  line-height: 24px ;
+  color: #2d2e30;
+  font-weight: 700;
+}
+.product__footer{
+  margin-top: 40px;
+}

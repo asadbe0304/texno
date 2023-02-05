@@ -12,15 +12,30 @@ import { FcLike } from "react-icons/fc";
 import { Badge } from "react-bootstrap";
 import Cart from "../../ui/Cart/index";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { IoMdClose } from "react-icons/io";
 const index = () => {
   const [show, setShow] = useState(false);
   const [open, setOpen] = useState(false);  
+
+  // const data = useDispatch();
+  const [sticky, setSticky] = useState("");
+  useEffect(() => {
+    window.addEventListener("scroll", stickNavbar);
+    return () => window.removeEventListener("scroll", stickNavbar);
+  }, []);
+  const stickNavbar = () => {
+    if (window !== undefined) {
+      let windowHeight = window.scrollY;
+      windowHeight > 120 ? setSticky("sticky") : setSticky("");
+    }
+  };
+
+
   return (
     <>
-      <header className="w-100 bg-white">
+      <header className={`w-100 bg-white ${sticky}`}>
         <div className="container">
           <Cart show={show} />
           {/* <Cart/> */}
@@ -109,7 +124,7 @@ const index = () => {
               </div> */}
               <div className="header__like--order d-flex justify-content between">
                 <div className="admin">
-                  <NavLink to="/login">
+                  <NavLink to="/login" className={"text-black"}>
                     <RiAdminFill className="admin__icon" />
                   </NavLink>
                 </div>
