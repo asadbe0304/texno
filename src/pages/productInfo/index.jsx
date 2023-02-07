@@ -34,7 +34,7 @@ const index = () => {
     <>
       <div className="container">
         <div className="product-info d-flex flex-column align-itmes-start justify-content-between">
-          <div className="info-top my-3 text-secondary">
+          <div className="info-top my-3 text-secondaryflex-wrap  w-100">
             <Dropdown className="drop">
               <Link to={"/"} className="underline-none text-secondary m-0 p-0">
                 Home
@@ -67,6 +67,7 @@ const index = () => {
             {currentPosts.length > 0 ? (
               currentPosts.map((e) => {
                 return (
+                  <Link  to={"/:pro"} className="underline-none">
                   <div
                     key={e}
                     className="product-card d-flex flex-column align-items-center justify-content-center "
@@ -103,6 +104,7 @@ const index = () => {
                       </div>
                     </div>
                   </div>
+                  </Link>
                 );
               })
             ) : (

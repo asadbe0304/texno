@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Load from "./../Loader/index";
+import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { BiHeart } from "react-icons/bi";
 import { FcLike } from "react-icons/fc";
@@ -761,38 +762,40 @@ const index = () => {
                   key={e.id}
                 >
                   {/* <div className="card rounded-0 p-0 align-items-center py-4 position-relative"> */}
-                  <img
-                    src={e.image}
-                    alt={e.description}
-                    className="imgcard mb-4"
-                  />
-                  <div className="card__body w-100">
-                    <div className="card__body--top d-flex gap-3 justify-content-between align-items-center w-100">
-                      <h4 className="fs-6 fw-medium art-title my-3">
-                        Art televison
-                      </h4>
-                      <span className="text-success nalichka fw-bold">
-                        Рате: {e.rating.rate}
-                      </span>
-                    </div>
-                    <h4 className="card-title">{e.title}</h4>
-                    <div className="card__footer w-100 d-flex justify-content-between align-items-center gap-2">
-                      <h5 className="card__footer--title m-0">{e.price} $</h5>
-                      <div className="bg-warning px-2 py-1 rounded-2">
-                        <AiOutlineShoppingCart
-                          className="shop-cart"
-                          onClick={() => handleClick(e)}
-                        />
+                  <Link to={"/:pro"} className="underline-none">
+                    <img
+                      src={e.image}
+                      alt={e.description}
+                      className="imgcard mb-4"
+                    />
+                    <div className="card__body w-100">
+                      <div className="card__body--top d-flex gap-3 justify-content-between align-items-center w-100">
+                        <h4 className="fs-6 fw-medium art-title my-3">
+                          Art televison
+                        </h4>
+                        <span className="text-success nalichka fw-bold">
+                          Рате: {e.rating.rate}
+                        </span>
                       </div>
-                      <div onClick={() => setLike((e) => !e)}>
-                        {like ? (
-                          <BiHeart className="position-absolute like-heart" />
-                        ) : (
-                          <FcLike className="position-absolute like-heart" />
-                        )}
+                      <h4 className="card-title">{e.title}</h4>
+                      <div className="card__footer w-100 d-flex justify-content-between align-items-center gap-2">
+                        <h5 className="card__footer--title m-0">{e.price} $</h5>
+                        <div className="bg-warning px-2 py-1 rounded-2">
+                          <AiOutlineShoppingCart
+                            className="shop-cart"
+                            onClick={() => handleClick(e)}
+                          />
+                        </div>
+                        <div onClick={() => setLike((e) => !e)}>
+                          {like ? (
+                            <BiHeart className="position-absolute like-heart" />
+                          ) : (
+                            <FcLike className="position-absolute like-heart" />
+                          )}
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                   {/* </div>   */}
                 </SwiperSlide>
               );

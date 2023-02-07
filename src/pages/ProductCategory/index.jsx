@@ -54,23 +54,23 @@ const index = () => {
             </h3>
           </div>
           <div className="w-100 d-flex justify-content-center align-items-center flex-wrap gap-3">
-            <NavLink to={"/info"}>
+            <NavLink to={"/info"} className="underline-none">
               <Card />
             </NavLink>
            
-            <NavLink to={"/info"}>
+            <NavLink to={"/info"} className="underline-none">
               <Card />
             </NavLink>
            
-            <NavLink to={"/info"}>
+            <NavLink to={"/info"} className="underline-none">
               <Card />
             </NavLink>
            
-            <NavLink to={"/info"}>
+            <NavLink to={"/info"} className="underline-none">
               <Card />
             </NavLink>
            
-            <NavLink to={"/info"}>
+            <NavLink to={"/info"} className="underline-none">
               <Card />
             </NavLink>
            

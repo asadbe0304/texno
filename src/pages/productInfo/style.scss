@@ -10,6 +10,7 @@
   justify-content: center;
 }
 .product-card{
+  margin-top: 30px;
   padding: 20px;
   width: 260px;
   background: #fff;
@@ -18,7 +19,19 @@
     width: 85%;
     height: auto;
   }
+  transition: all .3s ease-in-out;
 }
+.product-card:hover{
+  transform: scale(1.1);
+  box-shadow: 1px 5px 5px 2px #ededed;
+}
+// .product-card::before{
+//   content: "";
+//   width: 260px;
+//   height: 450px;
+//   background: #000;
+//   transform: scale(1.1);
+// }
 .popular-title{
   margin: 10px 0px;
   font-size: 14px;

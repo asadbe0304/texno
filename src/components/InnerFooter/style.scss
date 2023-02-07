@@ -1,0 +1,18 @@
+.page-sub{
+  width: 70%;
+}
+@media screen and (max-width:951px) {
+  .page-sub{
+    width: 60%!important;
+    display: flex;
+    flex-direction: column!important;
+  }
+}
+@media screen and (max-width:660px) {
+  .page-sub{
+    width: 100%!important;
+  }
+  .page-footer-sub{
+   flex-direction: column!important;
+  }
+}

@@ -9,6 +9,7 @@ import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 const index = () => {
+
   const [modal, setModal] = useState(false);
   const [categrory, setCategory] = useState([]);
   useEffect(() => {
@@ -28,6 +29,7 @@ const index = () => {
       let windowHeight = window.scrollY;
       windowHeight > 120 ? setSticky("navsticky") : setSticky("");
     }
+
   };
 
   return (
