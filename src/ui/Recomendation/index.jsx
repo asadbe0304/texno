@@ -190,12 +190,12 @@ const index = () => {
                   className="d-flex justify-content-center border rounded-2 swipe-card flex-column align-items-center px-3"
                   key={e.id}
                 >
-                  <Link to={"/:pro"} className="underline-none">
+                  <Link to={"/:pro"} className="underline-none p-0 d-flex justify-content-between align-items-center flex-column">
                     {/* <div className="card rounded-0 p-0 align-items-center py-4 position-relative"> */}
                     <img src={e.image} alt="images" className="imgcard mb-4" />
                     <div className="card__body w-100">
                       <div className="card__body--top d-flex gap-3 justify-content-between align-items-center w-100">
-                        <h4 className="fs-6 fw-medium art-title my-3">
+                        <h4 className="fs-6 text-black fw-medium art-title my-3">
                           Art televison
                         </h4>
                         <span className="text-success nalichka fw-bold">
@@ -204,7 +204,7 @@ const index = () => {
                       </div>
                       <h4 className="card-title">{e.title}</h4>
                       <div className="card__footer w-100 d-flex justify-content-between align-items-center gap-2">
-                        <h5 className="card__footer--title m-0">{e.price} $</h5>
+                        <h5 className="card__footer--title text-black m-0">{e.price} $</h5>
                         <div className="bg-warning px-2 py-1 rounded-2">
                           <AiOutlineShoppingCart
                             className="shop-cart"
