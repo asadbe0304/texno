@@ -67,7 +67,6 @@ const index = () => {
             {currentPosts.length > 0 ? (
               currentPosts.map((e) => {
                 return (
-                  <Link  to={"/:pro"} className="underline-none p-0 d-flex justify-content-between align-items-center flex-column">
                   <div
                     key={e}
                     className="product-card d-flex flex-column align-items-center justify-content-center "
@@ -89,14 +88,21 @@ const index = () => {
                       </a>
                     </div>
                     <div className="d-flex justify-content-between align-items-center w-100">
-                      <span className="fw-small otziv text-black">Арт:283773</span>
+                      <span className="fw-small otziv text-black">
+                        Арт:283773
+                      </span>
                       <span className="text-success fw-bold m-0 p-0 nalichka ">
                         В наличии
                       </span>
                     </div>
-                    <h5 className="text-black popular-title w-100">
-                      Холодильник ATLANT 4208-000
-                    </h5>
+                    <Link
+                      to={"/:pro"}
+                      className="underline-none p-0 d-flex justify-content-between align-items-start flex-column"
+                    >
+                      <h5 className="text-black popular-title w-100">
+                        Холодильник ATLANT 4208-000
+                      </h5>
+                    </Link>
                     <div className="product__footer d-flex justify-content-between w-100 align-items-center">
                       <div className="text-uppercase price-title ">213 usd</div>
                       <div className="bg-warning px-1 rounded py-0">
@@ -104,7 +110,6 @@ const index = () => {
                       </div>
                     </div>
                   </div>
-                  </Link>
                 );
               })
             ) : (
