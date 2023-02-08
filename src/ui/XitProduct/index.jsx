@@ -7,7 +7,7 @@ import { BiHeart } from "react-icons/bi";
 import { FcLike } from "react-icons/fc";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useSelector } from "react-redux";
-import { Navigation } from "swiper";
+import { Navigation, FreeMode } from "swiper";
 import Img from "./../../assets/images/im.jpg";
 import "./style.scss";
 import "swiper/css";
@@ -749,8 +749,8 @@ const index = () => {
           }}
           grabCursor={true}
           navigation={false}
-          // freeMode={true}
-          modules={[Navigation]}
+          freeMode={true}
+          modules={[Navigation, FreeMode]}
           className="mySwiper px-4 d-flex justify-content-center py-3 gap-1 align-items-center"
         >
           {data.length > 0 ? (
