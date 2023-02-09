@@ -13,10 +13,12 @@ const index = ({ show }) => {
     dispatch,
   } = CartState();
   const [total, setTotal] = useState(0);
-  
+
   useEffect(() => {
     setTotal(
-      cart.reduce((acc, curr) => {acc + Number(curr.price) * curr.quantity}, 0)
+      cart.reduce((acc, curr) => {
+        acc + Number(curr.price) * curr.quantity;
+      }, 0)
     );
   }, [cart]);
 
@@ -27,12 +29,11 @@ const index = ({ show }) => {
         <div className="cart d-flex justify-content-start flex-column align-items-start ">
           <div className="cart__head d-flex justify-content-between flex-column align-items-end">
             <div className="d-flex justify-content-between align-items-center w-100">
-              <h2 className="cart__title my-2">
+              <h2 className="cart__title my-2 p-0">
                 В корзине {cart.length} товара
               </h2>
             </div>
           </div>
-          <hr />
           <div className="cart__body w-100 d-flex  flex-column align-items-start justify-content-start">
             {cart.length > 0
               ? cart.map((e, item) => {
@@ -68,7 +69,10 @@ const index = ({ show }) => {
                               if (e.quantity > 1) {
                                 dispatch({ type: "DECREASE", payload: e });
                               } else {
-                                dispatch({ type: "REMOVE__TO__PRODUCT", payload: e });
+                                dispatch({
+                                  type: "REMOVE__TO__PRODUCT",
+                                  payload: e,
+                                });
                               }
                             }}
                           >

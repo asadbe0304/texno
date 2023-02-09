@@ -766,7 +766,7 @@ const index = () => {
               return (
                 <SwiperSlide
                   // item={item}
-                  className="d-flex justify-content-center border rounded-2 swipe-card flex-column align-items-center px-3"
+                  className="d-flex justify-content-around border rounded-2 swipe-card flex-column align-items-center px-3"
                   key={e.id}
                 >
                   {/* <div className="card rounded-0 p-0 align-items-center py-4 position-relative"> */}
