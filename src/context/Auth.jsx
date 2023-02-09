@@ -17,6 +17,7 @@ export const AuthProvider = ({ children }) => {
   //   setdata(response.data);
   //   console.log(data);
   // };
+
   const products = [...Array(20)].map(() => ({
     id: faker.datatype.uuid(),
     name: faker.commerce.productName(),

@@ -24,7 +24,7 @@ const index = ({ show }) => {
   return (
     <>
       <div className={`layer-cart ${show ? "show" : "hide"}`}>
-        <div className="cart d-flex justify-content-between flex-column align-items-start ">
+        <div className="cart d-flex justify-content-start flex-column align-items-start ">
           <div className="cart__head d-flex justify-content-between flex-column align-items-end">
             <div className="d-flex justify-content-between align-items-center w-100">
               <h2 className="cart__title my-2">

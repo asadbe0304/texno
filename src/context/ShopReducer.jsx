@@ -1,7 +1,12 @@
+const Storage = (cart)=>{
+  localStorage.setItem("cart", JSON.stringify(cart.length > 0 ? cart:[]))
+}
+
+
 export const cartReducer = (state, action) => {
   switch (action.type) {
     case "ADD__TO__PRODUCT":
-      return { ...state, cart: [...state.cart, { ...action.payload }] };
+      return { ...state, cart: [...state.cart, { ...action.payload, quantity: 1 }] };
     case "REMOVE__TO__PRODUCT":
       return {
         ...state,
