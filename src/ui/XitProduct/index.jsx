@@ -697,7 +697,7 @@ const index = () => {
               spaceBetween: 20,
             },
             415: {
-              width: 320,
+              width: 350,
               slidesPerView: 1,
               spaceBetween: 20,
             },
@@ -759,7 +759,7 @@ const index = () => {
           navigation={false}
           freeMode={true}
           modules={[Navigation, FreeMode]}
-          className="mySwiper px-4 d-flex justify-content-center py-3 gap-1 align-items-center"
+          className="mySwiper d-flex justify-content-center gap-1 align-items-center"
         >
           {product.length > 0 ? (
             product.slice(4, 14).map((e) => {
