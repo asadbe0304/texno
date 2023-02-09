@@ -1,64 +1,104 @@
 import "./style.scss";
 import Img from "./../../assets/images/im.jpg";
-import { useSelector } from "react-redux";
+import { useState, useEffect } from "react";
 import { IoMdClose } from "react-icons/io";
 import { BiTrash } from "react-icons/bi";
 import { BsArrowRight } from "react-icons/bs";
-const index = ({show}) => {
+import { Form } from "react-bootstrap";
+import { CartState } from "./../../context/Auth";
 
-  // const item= useSelector(state=>state.data)
+const index = ({ show }) => {
+  const {
+    state: { cart },
+    dispatch,
+  } = CartState();
+  const [total, setTotal] = useState(0);
+  
+  useEffect(() => {
+    setTotal(
+      cart.reduce((acc, curr) => {acc + Number(curr.price) * curr.quantity}, 0)
+    );
+  }, [cart]);
 
-  // console.log(show);
+  console.log(total);
   return (
     <>
       <div className={`layer-cart ${show ? "show" : "hide"}`}>
         <div className="cart d-flex justify-content-between flex-column align-items-start ">
           <div className="cart__head d-flex justify-content-between flex-column align-items-end">
             <div className="d-flex justify-content-between align-items-center w-100">
-              <h2 className="cart__title my-2">В корзине 0 товара</h2>
-              {/* <IoMdClose className="close-cart mx-2" /> */}
+              <h2 className="cart__title my-2">
+                В корзине {cart.length} товара
+              </h2>
             </div>
-            {/* <BsArrowRight
-              className="close-arrow"
-            /> */}
           </div>
           <hr />
-          <div className="cart__body w-100 d-flex  flex-column align-items-start justify-content-between">
-            {/* {item.length > 0
-              ? item.map((e) => { */}
-                  {/* return ( */}
-                    <div key={""} className="cart__body--card w-100 gap-2  d-flex justify-content-between align-items-start">
-                      <img src={Img} alt="images" className="product__img" />
-                      {/* <IoMdClose/> */}
+          <div className="cart__body w-100 d-flex  flex-column align-items-start justify-content-start">
+            {cart.length > 0
+              ? cart.map((e, item) => {
+                  return (
+                    <div
+                      key={e.id}
+                      className="cart__body--card w-100 gap-2  d-flex justify-content-between align-items-start"
+                    >
+                      <img
+                        src={e.image}
+                        alt="images"
+                        className="product__img"
+                      />
                       <div className="d-flex  flex-column gap-2 align-items-start justify-content-between">
-                        <h3 className="order__title m-0">Стиральная машина</h3>
+                        <h3 className="order__title m-0">{e.name}</h3>
                         <button className="btn btn-white d-flex justify-content-between flex-row align-items-center fw-medium p-1">
-                          {/* <IoMdClose className="close-cart" /> */}
-                          <BiTrash/>
+                          <BiTrash
+                            onClick={() =>
+                              dispatch({
+                                type: "REMOVE__TO__PRODUCT",
+                                payload: e,
+                              })
+                            }
+                          />
                         </button>
                       </div>
                       <div className="d-flex flex-column gap-2 align-items-center justify-content-between">
-                        <span className="fw-bold"> {"150"} $</span>
+                        <span className="fw-bold"> {e.price} $</span>
                         <div className="count d-flex flex-row align-items-center justify-content-between">
-                          <button className="btn btn-white m-0 p-0 px-1 fw-bold">
+                          <button
+                            className="btn btn-white m-0 p-0 px-1 fw-bold"
+                            onClick={() => {
+                              if (e.quantity > 1) {
+                                dispatch({ type: "DECREASE", payload: e });
+                              } else {
+                                dispatch({ type: "REMOVE__TO__PRODUCT", payload: e });
+                              }
+                            }}
+                          >
                             -
                           </button>
                           <p className=" border-1 rounded-0 p-2 m-0">1</p>
-                          <button className="btn btn-white fw-bold m-0 p-0 px-1">+</button>
+                          <button
+                            className="btn btn-white fw-bold m-0 p-0 px-1"
+                            onClick={() =>
+                              dispatch({ type: "INCREASE", payload: e })
+                            }
+                          >
+                            +
+                          </button>
                         </div>
                       </div>
                     </div>
-                  {/* );   */}
-                {/* })
-              : "not"} */}
+                  );
+                })
+              : "Cart is empty"}
           </div>
           <div className="cart__footer w-100 p-2 gap-2 d-flex align-items-end flex-column">
             <div className="d-flex justify-content-between align-items-center w-100">
               <h3 className="cart__price">Итого:</h3>
-              <p className="p-0 m-0 fw-bold"> 150 $</p>
+              <p className="p-0 m-0 fw-bold"> {total} $</p>
             </div>
             <div>
-              <button className="btn btn-warning">Оформить заказ</button>
+              <button className="btn btn-warning" disabled={cart.length === 0}>
+                Оформить заказ
+              </button>
             </div>
           </div>
         </div>

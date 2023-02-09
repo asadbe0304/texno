@@ -13,14 +13,15 @@ import { Badge } from "react-bootstrap";
 import Cart from "../../ui/Cart/index";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { CartState } from "./../../context/Auth";
 import { IoMdClose } from "react-icons/io";
 const index = () => {
   const [show, setShow] = useState(false);
   const [open, setOpen] = useState(false);  
-
-  // const data = useDispatch();
   const [sticky, setSticky] = useState("");
+ 
+ const {state: {cart}} = CartState()
+
   useEffect(() => {
     window.addEventListener("scroll", stickNavbar);
     return () => window.removeEventListener("scroll", stickNavbar);
@@ -138,10 +139,10 @@ const index = () => {
                   className="header__shopping--cart pointer"
                 />
                 <Badge bg="danger" className=" badge">
-                  0
+                  {cart.length}
                 </Badge>
                 <p className="p-0 mx-2 my-0 order__text">
-                  В корзине нет товаров
+                  В корзине {cart.length} товаров
                 </p>
                 <GiHamburgerMenu
                   className="Hambur"

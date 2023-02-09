@@ -1,18 +1,16 @@
 import React from "react";
-import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
-import { useState, useEffect } from "react";
+// import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
+import { useState, useEffect, useContext } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { BiHeart } from "react-icons/bi";
-// import { BsArrowBarLeft, BsArrowBarRight } from "react-icons/bs";
 import { FcLike } from "react-icons/fc";
-import { AiOutlineShoppingCart } from "react-icons/ai";
-import { useSelector } from "react-redux";
-import { useSwiper } from "swiper/react";
+import { BsCartPlusFill, BsCartDashFill } from "react-icons/bs";
 import { FreeMode, Navigation } from "swiper";
 import Img from "./../../assets/images/im.jpg";
 import Load from "./../Loader/index";
 import { Link } from "react-router-dom";
 import Spin from "./../../components/Spin/spin";
+import { CartState } from "./../../context/Auth";
 import "./style.scss";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -22,24 +20,30 @@ import "./style.scss";
 
 const index = () => {
   const [like, setLike] = useState(true);
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
   const [spin, setSpin] = useState(false);
   // const [item, setItem] = useState([])
   // )
+  const {
+    state: { product, cart },
+    dispatch,
+  } = CartState();
+  console.log(product);
+  // console.log(cart);
 
-  const swiper = useSwiper();
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((json) => {
-        setData(json);
-        setSpin(true);
-      })
-      .finally(setSpin(false));
-  }, []);
+  // useEffect(() => {
+  //   fetch("https://fakestoreapi.com/products")
+  //     .then((res) => res.json())
+  //     .then((json) => {
+  //       setData(json);
+  //       setSpin(true);
+  //     })
+  //     .catch(setSpin(true))
+  //     .finally(setSpin(false));
+  // }, []);
   return (
     <>
-      <Spin spin={spin} />
+      {/* <Spin spin={spin} /> */}
       <div className="recomendation d-flex flex-column w-100 justify-content-between align-items-center">
         <div className="recomendation__top py-1 d-flex justify-content-between align-items-center w-100">
           <h3 className="recomendation__title">Наши рекомендации</h3>
@@ -182,12 +186,12 @@ const index = () => {
           modules={[FreeMode, Navigation]}
           className="mySwiper px-4 d-flex justify-content-center py-3 gap-1 align-items-center"
         >
-          {data.length > 0 ? (
-            data.map((e) => {
+          {product.length > 0 ? (
+            product.map((e) => {
               return (
                 <SwiperSlide
                   // item={item}
-                  className="d-flex justify-content-center border rounded-2 swipe-card flex-column align-items-center px-3"
+                  className="d-flex justify-content-around border rounded-2 swipe-card flex-column align-items-center px-3"
                   key={e.id}
                 >
                   {/* <div className="card rounded-0 p-0 align-items-center py-4 position-relative"> */}
@@ -198,25 +202,43 @@ const index = () => {
                         Art televison
                       </h4>
                       <span className="text-success nalichka fw-bold">
-                        Рате: {e.rating.rate}
+                        Рате: {"0"}
                       </span>
                     </div>
                     <Link
                       to={"/:pro"}
                       className="underline-none p-0 d-flex justify-content-between align-items-start flex-column"
                     >
-                      <h4 className="card-title">{e.title}</h4>
+                      <h4 className="card-title">{e.name}</h4>
                     </Link>
                     <div className="card__footer w-100 d-flex justify-content-between align-items-center gap-2">
                       <h5 className="card__footer--title text-black m-0">
                         {e.price} $
                       </h5>
-                      <div className="bg-warning px-2 py-1 rounded-2">
-                        <AiOutlineShoppingCart
-                          className="shop-cart"
-                          onClick={() => handleClick(e)}
-                        />
-                      </div>
+                      {cart.some((p) => p.id === e.id) ? (
+                        <button className="bg-danger  border-0 px-2 py-1 rounded-2">
+                          <BsCartDashFill
+                            className="shop-cart"
+                            type="button"
+                            onClick={() =>
+                              dispatch({
+                                type: "REMOVE__TO__PRODUCT",
+                                payload: e,
+                              })
+                            }
+                          />
+                        </button>
+                      ) : (
+                        <button className="bg-warning  border-0 px-2 py-1 rounded-2">
+                          <BsCartPlusFill
+                            className="shop-cart"
+                            type="button"
+                            onClick={() =>
+                              dispatch({ type: "ADD__TO__PRODUCT", payload: e })
+                            }
+                          />
+                        </button>
+                      )}
                       <div onClick={() => setLike((e) => !e)}>
                         {like ? (
                           <BiHeart className="position-absolute like-heart" />

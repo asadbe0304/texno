@@ -5,8 +5,9 @@ import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { BiHeart } from "react-icons/bi";
 import { FcLike } from "react-icons/fc";
+import {BsCartDashFill, BsCartPlusFill} from "react-icons/bs"
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { useSelector } from "react-redux";
+import { CartState } from "../../context/Auth";
 import { Navigation, FreeMode } from "swiper";
 import Img from "./../../assets/images/im.jpg";
 import "./style.scss";
@@ -17,7 +18,7 @@ import "swiper/css/navigation";
 import "./style.scss";
 const index = () => {
   const [like, setLike] = useState(false);
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
   // const [item, setItem] = useState([])
   // const url = {
   //   products: [
@@ -603,12 +604,19 @@ const index = () => {
   //   skip: 0,
   //   limit: 30,
   // };
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((json) => setData(json))
-      .catch((err) => console.log(err));
-  }, []);
+
+  const {
+    state: { product, cart },
+    dispatch,
+  } = CartState();
+  // console.log(product);
+
+  // useEffect(() => {
+  //   fetch("https://fakestoreapi.com/products")
+  //     .then((res) => res.json())
+  //     .then((json) => setData(json))
+  //     .catch((err) => console.log(err));
+  // }, []);
   return (
     <>
       <div className="recomendation d-flex flex-column w-100 justify-content-between align-items-center">
@@ -753,8 +761,8 @@ const index = () => {
           modules={[Navigation, FreeMode]}
           className="mySwiper px-4 d-flex justify-content-center py-3 gap-1 align-items-center"
         >
-          {data.length > 0 ? (
-            data.slice(4, 14).map((e) => {
+          {product.length > 0 ? (
+            product.slice(4, 14).map((e) => {
               return (
                 <SwiperSlide
                   // item={item}
@@ -773,24 +781,46 @@ const index = () => {
                         Art televison
                       </h4>
                       <span className="text-success nalichka fw-bold">
-                        Рате: {e.rating.rate}
+                        Рате: {"4"}
                       </span>
                     </div>
                     <Link
                       to={"/:pro"}
                       className="underline-none p-0 d-flex justify-content-between align-items-start flex-column"
                     >
-                      <h4 className="card-title">{e.title}</h4>
+                      <h4 className="card-title">{e.name}</h4>
                     </Link>
                     <div className="card__footer w-100 d-flex justify-content-between align-items-center gap-2">
                       <h5 className="card__footer--title text-black m-0">
                         {e.price} $
                       </h5>
-                      <div className="bg-warning px-2 py-1 rounded-2">
-                        <AiOutlineShoppingCart
-                          className="shop-cart"
-                          onClick={() => handleClick(e)}
-                        />
+                        {cart.some((p) => p.id === e.id) ? (
+                          <button className="bg-danger  border-0 px-2 py-1 rounded-2">
+                            <BsCartDashFill
+                              className="shop-cart"
+                              type="button"
+                              onClick={() =>
+                                dispatch({
+                                  type: "REMOVE__TO__PRODUCT",
+                                  payload: e,
+                                })
+                              }
+                            />
+                          </button>
+                        ) : (
+                          <button className="bg-warning  border-0 px-2 py-1 rounded-2">
+                            <BsCartPlusFill
+                              className="shop-cart"
+                              type="button"
+                              onClick={() =>
+                                dispatch({
+                                  type: "ADD__TO__PRODUCT",
+                                  payload: e,
+                                })
+                              }
+                            />
+                          </button>
+                        )}
                       </div>
                       <div onClick={() => setLike((e) => !e)}>
                         {like ? (
@@ -800,8 +830,6 @@ const index = () => {
                         )}
                       </div>
                     </div>
-                  </div>
-                  {/* </div>   */}
                 </SwiperSlide>
               );
             })
