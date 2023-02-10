@@ -1,21 +1,23 @@
-import React, { useContext } from "react";
-import "./style.scss";
-import Img from "./../../assets/images/logo.png";
-import Logo from "./../../assets/images/mobile.svg";
+import { useState, useEffect, useContext } from "react";
 import { FiNavigation, FiShoppingCart } from "react-icons/fi";
 import { BsSearch } from "react-icons/bs";
-import { Link, NavLink } from "react-router-dom";
-import Form from "react-bootstrap/Form";
-import InputGroup from "react-bootstrap/InputGroup";
 import { RiAdminFill } from "react-icons/ri";
-import { FcLike } from "react-icons/fc";
-import { Badge } from "react-bootstrap";
-import Cart from "../../ui/Cart/index";
-import { BiTrash, BiHeart } from "react-icons/bi";
+import { BiHeart } from "react-icons/bi";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { useState, useEffect } from "react";
-import { CartState } from "./../../context/Auth";
 import { IoMdClose } from "react-icons/io";
+import { Link, NavLink } from "react-router-dom";
+import Logo from "./../../assets/images/mobile.svg";
+import Img from "./../../assets/images/logo.png";
+import Form from "react-bootstrap/Form";
+import { Badge } from "react-bootstrap";
+import InputGroup from "react-bootstrap/InputGroup";
+import Cart from "../../ui/Cart/index";
+import WishList from "./wishList";
+import Modal from "./modal";
+import { CartState } from "./../../context/Auth";
+import "./style.scss";
+
+
 const index = () => {
   const [show, setShow] = useState(false);
   const [open, setOpen] = useState(false);
@@ -139,36 +141,15 @@ const index = () => {
                       <h5>Like order</h5>
                     </div>
                     <ul className="like-list w-100">
-                      {like.length > 0
-                        ? like.map((e) => {
-                            return (
-                              <li key={e.id} className="d-flex justify-content-start w-100 flex-column align-items-start gap-1">
-                                <div className="p-1 gap-3 d-flex w-100 justify-content-between align-items-center">
-                                  <img src={e.image} alt="images" />
-                                  <div className="w-75">
-                                    <h5 className="text-dark w-100 text-start like-title">
-                                      {e.name}
-                                    </h5>
-                                    <p className="like-price">{e.price} $</p>
-                                    <BiTrash
-                                      className="text-start"
-                                      style={{ width: "25px", height: "25px" }}
-                                      onClick={() =>
-                                        dispatch({
-                                          type: "REMOVE__TO__LIKE",
-                                          payload: e,
-                                        })
-                                      }
-                                    />
-                                  </div>
-                                </div>
-                              </li>
-                            );
-                          })
-                        : "Not like order"}
+                      <WishList />
                     </ul>
                     <div className="like-bottom w-100 mt-0 pt-4 mb-2">
-                      <button className="btn btn-danger w-100" disabled={like.length == 0 }>Submit</button>
+                      <button
+                        className="btn btn-danger w-100"
+                        disabled={like.length == 0}
+                      >
+                        Submit
+                      </button>
                     </div>
                   </div>
                   {/* drop like menu end */}
@@ -201,98 +182,13 @@ const index = () => {
         </div>
 
         {/* modal menu */}
-        <div
-          className={`modal-menu bg-light w-100 flex-column d-flex justify-content-start align-items-start ${
-            open ? "d-flex" : "d-none"
+        <Modal open={open} />
+        <IoMdClose
+          className={`position-absolute modal-close ${
+            open ? "d-block" : "d-none"
           }`}
-        >
-          <div className="modal__top px-3 bg-black w-100 flex-row d-flex justify-content-between align-items-center gap-1">
-            <div className="header__location-mobile text-white gap-2 py-2 d-flex  align-items-start navigation">
-              <div className="d-flex justify-content-center fw-normal align-items-center gap-1 fs-6 text-black">
-                <FiNavigation className="text-danger navi" />
-                <p className="m-0 text-white ">Ваш город</p>
-              </div>
-              Sankt peterburg
-            </div>
-            <IoMdClose
-              className="text-white"
-              onClick={() => setOpen((e) => !e)}
-            />
-          </div>
-          <div
-            className="header__call py-3 d-flex
-         px-3 justify-content-between gap-2 align-items-start flex-column"
-          >
-            <a
-              href="tel:+998932502719"
-              className="fw-bold header__call--tel text-black"
-            >
-              +7 (812) 200-49-00
-            </a>
-            <div className="d-flex flex-column align-items-start justify-content-between gap-2">
-              <p className="m-0 p-0 text-secondary call__text">
-                +7 (800) 777-04-02
-              </p>
-              <p className="m-0 p-0 text-secondary call__text">
-                пн-пт, 10:00-19:00
-              </p>
-            </div>
-          </div>
-          <button
-            href="#li"
-            className="w-100 btn fw-bold btn btn-warning rounded-0 d-flex text-black gap-2 align-items-center"
-            // onClick={() => setModal((e) => !e)}
-          >
-            {/* {modal ? (
-                    <IoMdClose className="menu__category" />
-                  ) : (
-                    <GiHamburgerMenu className="menu__category" />
-                  )} */}
-            Category
-          </button>
-          <ul className="flex-row list-group d-flex flex-column justify-content-between p-0 px-3 modal-mobile-list align-items-start gap-3">
-            <li className="list-items">
-              <a href="#li" className="modal-link text-black fw-bold">
-                Акции
-              </a>
-            </li>
-            <li className="list-items">
-              <a href="#li" className="modal-link text-black fw-bold">
-                Оплата
-              </a>
-            </li>
-            <li className="list-items">
-              <a href="#li" className="modal-link text-black fw-bold">
-                Установка
-              </a>
-            </li>
-            <li className="list-items">
-              <a href="#li" className="modal-link text-black fw-bold">
-                Обмен и возврат
-              </a>
-            </li>
-            <li className="list-items">
-              <a href="#li" className="modal-link text-black fw-bold">
-                Для бизнеса
-              </a>
-            </li>
-            <li className="list-items">
-              <a href="#li" className="modal-link text-black fw-bold">
-                Контакты
-              </a>
-            </li>
-            <li className="list-items">
-              <a href="#li" className="modal-link text-black fw-bold">
-                Статус заказа
-              </a>
-            </li>
-            <li className="list-items">
-              <a href="#li" className="modal-link text-black fw-bold">
-                Доставка
-              </a>
-            </li>
-          </ul>
-        </div>
+          onClick={() => setOpen((e) => !e)}
+        />
       </header>
     </>
   );

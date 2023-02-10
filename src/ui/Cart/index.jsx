@@ -1,27 +1,23 @@
 import "./style.scss";
 import Img from "./../../assets/images/car.png";
 import { useState, useEffect } from "react";
-import { IoMdClose } from "react-icons/io";
 import { BiTrash } from "react-icons/bi";
-import { BsArrowRight } from "react-icons/bs";
-import { Form } from "react-bootstrap";
 import { CartState } from "./../../context/Auth";
 
 const index = ({ show }) => {
   const {
-    state: { cart },
+    state: { cart, cartCount, totals },
     dispatch,
   } = CartState();
-  const [total, setTotal] = useState(0);
+  const [total, setTotal] = useState();
   useEffect(() => {
     setTotal(
-      cart.reduce((acc, curr) => {
-        acc + Number(curr.price) * curr.quantity;
+      cart.reduce((acc, i) => {
+        acc + Number(i.price)*i;
       }, 0)
     );
   }, [cart]);
 
-  console.log(total);
   return (
     <>
       <div className={`layer-cart ${show ? "show" : "hide"}`}>
@@ -29,7 +25,7 @@ const index = ({ show }) => {
           <div className="cart__head d-flex justify-content-between flex-column align-items-end">
             <div className="d-flex justify-content-between align-items-center w-100">
               <h2 className="cart__title my-2 p-0">
-                В корзине {cart.length} товара
+                В корзине {cartCount} товара
               </h2>
             </div>
           </div>
@@ -71,7 +67,7 @@ const index = ({ show }) => {
                           onClick={() => {
                             if (e.quantity > 1) {
                               dispatch({
-                                type: "ADD__TO__PRODUCT",
+                                type: "DECREASE",
                                 payload: e,
                               });
                             } else {
@@ -85,12 +81,12 @@ const index = ({ show }) => {
                           -
                         </button>
                         <p className=" border-1 rounded-0 py-1 px-2 m-0 border ">
-                          1
+                          {e.quantity}
                         </p>
                         <button
                           className="btn btn-white fw-bold m-0 p-0 px-1"
                           onClick={() =>
-                            dispatch({ type: "ADD__TO__PRODUCT", payload: e })
+                            dispatch({ type: "INCREASE", payload: e })
                           }
                         >
                           +
@@ -109,7 +105,7 @@ const index = ({ show }) => {
           <div className="cart__footer w-100 p-2 gap-2 d-flex align-items-end flex-column">
             <div className="d-flex justify-content-between align-items-center w-100">
               <h3 className="cart__price">Итого:</h3>
-              <p className="p-0 m-0 fw-bold"> {total} $</p>
+              <p className="p-0 m-0 fw-bold"> {totals} $</p>
             </div>
             <div>
               <button className="btn btn-warning" disabled={cart.length === 0}>

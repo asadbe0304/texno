@@ -24,6 +24,7 @@ export const sumLike = (like) => {
 
 export const cartReducer = (state, action) => {
   switch (action.type) {
+
     case "ADD__TO__PRODUCT":
       if (!state.cart.find((e) => e.id === action.payload.id)) {
         state.cart.push({ ...action.payload, quantity: 1 });

@@ -1,10 +1,4 @@
-import {
-  createContext,
-  useState,
-  useReducer,
-  useContext,
-  useEffect,
-} from "react";
+import { createContext, useState, useReducer, useContext } from "react";
 import { faker } from "@faker-js/faker";
 import { cartReducer, sumCart, sumLike } from "./ShopReducer";
 const AuthContext = createContext({});
@@ -40,8 +34,6 @@ export const AuthProvider = ({ children }) => {
     ...sumCart,
     auth: {},
   });
-
-  console.log(sumCart);
 
   return (
     <AuthContext.Provider value={{ auth, setAuth, state, dispatch }}>

@@ -31,6 +31,15 @@ $zindex-modal: 223;
     // height: 50px;
   }
 }
+.modal-close{
+  top: 20px;
+  z-index: 4444;
+  right: 20px;
+  color: #fff;
+  width: 24px;
+  height: 24px;
+
+}
 .like-title{
   font-size: 14px;
   line-height: 16px;
@@ -43,7 +52,7 @@ $zindex-modal: 223;
   padding: 0;
   overflow-y: scroll;
   list-style: none;
-  height: 95px;
+  height: 105px;
   li{
     border-top:1px solid #555;
     border-bottom: 1px solid #555;
@@ -192,12 +201,7 @@ $zindex-modal: 223;
   .header__call {
     display: none;
   }
-  // .header__logo--img {
-  //   display: none;
-  // }
-  // .mobile_logo {
-  //   display: block;
-  // }
+
   .header__location {
     display: none !important;
   }
@@ -222,6 +226,15 @@ $zindex-modal: 223;
   .admin {
     padding: 0;
     border: 0;
+  }
+  .drop__like{
+    top: 40px;
+    right: -10px;
+  }
+  .like-badge{
+    top: 4px;
+    right: -10px;
+    font-size: 11px;
   }
   .like {
     padding: 0;
@@ -260,11 +273,21 @@ $zindex-modal: 223;
     height: 38px;
   }
 }
-
+@media screen and (max-width:412px) {
+  .drop__like{
+    top: 35px;
+    right: -60px;
+  }
+}
 @media screen and (max-width: 340px) {
   .header__inner {
     margin-left: 10px;
     width: 80%;
+  }
+  .drop__like{
+    top: 48px;
+    left: -115px;
+    width: 300px;
   }
 }
 @media screen and (max-width: 310px) {
@@ -275,4 +298,10 @@ $zindex-modal: 223;
   .header__logo {
     display: none;
   }
+  .drop__like{
+    top: 40px;
+    left: -50px;
+    width: 280px;
+  }
 }
+
