@@ -60,7 +60,7 @@ const index = ({ show }) => {
                       </div>
                     </div>
                     <div className="d-flex flex-column h-100 align-items-start justify-content-between">
-                      <span className="fw-bold"> {e.price} $</span>
+                      <span className="fw-bold price-cart"> {e.price} $</span>
                       <div className="count d-flex flex-row align-items-start justify-content-between">
                         <button
                           className="btn btn-white m-0 p-0 px-1 fw-bold"

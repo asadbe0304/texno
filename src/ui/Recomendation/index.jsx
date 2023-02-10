@@ -1,15 +1,14 @@
 import React from "react";
-// import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
+import Spin from "./../../components/Spin/spin";
+import Img from "./../../assets/images/im.jpg";
+import Load from "./../Loader/index";
 import { useState, useEffect, useContext } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { BiHeart } from "react-icons/bi";
 import { FcLike } from "react-icons/fc";
-import { BsCartPlusFill, BsCartDashFill } from "react-icons/bs";
+import { BsCartPlusFill, BsCartDashFill, BsStar } from "react-icons/bs";
 import { FreeMode, Navigation } from "swiper";
-import Img from "./../../assets/images/im.jpg";
-import Load from "./../Loader/index";
 import { Link } from "react-router-dom";
-import Spin from "./../../components/Spin/spin";
 import { CartState } from "./../../context/Auth";
 import "./style.scss";
 import "swiper/css";
@@ -51,7 +50,6 @@ const index = () => {
         <Swiper
           slidesPerView={4}
           spaceBetween={20}
-       
           loop={false}
           loopFillGroupWithBlank={false}
           pagination={{
@@ -187,14 +185,14 @@ const index = () => {
                   key={e.id}
                 >
                   {/* <div className="card rounded-0 p-0 align-items-center py-4 position-relative"> */}
-                  <img src={e.image} alt="images" className="imgcard mb-4" />
+                  <img src={e.image} alt="images" className="imgcard mx-auto" />
                   <div className="card__body w-100">
                     <div className="card__body--top d-flex gap-3 justify-content-between align-items-center w-100">
-                      <h4 className="fs-6 text-black fw-medium art-title my-3">
-                        Art televison
-                      </h4>
-                      <span className="text-success nalichka fw-bold">
-                        Рате: {"0"}
+                      <p className="text-black art-title my-3">
+                        {e.name}
+                      </p>
+                      <span className="text-success nalichka fw-bold d-flex justify-content-between align-items-center gap-1">
+                        В наличии
                       </span>
                     </div>
                     <Link
@@ -244,15 +242,15 @@ const index = () => {
                         </div>
                       ) : (
                         <div
-                        onClick={() =>
-                          dispatch({
-                            type: "ADD__TO__LIKE",
-                            payload: e,
-                          })
-                        }
-                      >
-                        <BiHeart className="position-absolute like-heart" />
-                      </div>
+                          onClick={() =>
+                            dispatch({
+                              type: "ADD__TO__LIKE",
+                              payload: e,
+                            })
+                          }
+                        >
+                          <BiHeart className="position-absolute like-heart" />
+                        </div>
                       )}
                     </div>
                   </div>

@@ -1,16 +1,21 @@
 import React from "react";
-import "./style.scss";
 import { Carousel } from "react-bootstrap";
-import Garant from "./../../ui/Warranty";
 import { Dropdown } from "react-bootstrap";
-import Recomendation from "./../../ui/XitProduct";
 import { AiFillStar } from "react-icons/ai";
 import { FcSettings } from "react-icons/fc";
 import { BiHeart } from "react-icons/bi";
 import { MdArrowForwardIos } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { CartState } from "../../context/Auth";
+import Garant from "./../../ui/Warranty";
+import Recomendation from "./../../ui/XitProduct";
 import Img from "../../assets/images/im-removebg-preview.png";
+import "./style.scss";
 const index = () => {
+  const {
+    state: { cart, like },
+    dispatch,
+  } = CartState();
   return (
     <>
       <div className="product ">
@@ -26,14 +31,14 @@ const index = () => {
                 </Link>
                 <MdArrowForwardIos className="text-warning mx-1" />
                 <Link
-                  to={"/info"}
+                  to={"/catproduct"}
                   className="text-secondary underline-none p-0"
                 >
                   Крупная бытовая техника
                 </Link>
                 <MdArrowForwardIos className="text-warning mx-1" />
                 <Link
-                  to={"/catproduct"}
+                  to={"/info"}
                   className="text-secondary underline-none p-0"
                 >
                   Холодильники
@@ -152,7 +157,7 @@ const index = () => {
                   </div>
                   <ul className="d-flex flex-column list align-items-start gap-2 ">
                     <li className="fw-bold">Характеристики</li>
-                
+
                     <li className="text-secondary">
                       Тип загрузки:{" "}
                       <span className="text-black">фронтальная</span>
@@ -189,6 +194,7 @@ const index = () => {
                     <button className="btn cart-btn btn-warning">
                       Add to Cart
                     </button>
+                    {/*  */}
                     <button className="btn cart-btn btn-outline-warning">
                       Buy one click
                     </button>

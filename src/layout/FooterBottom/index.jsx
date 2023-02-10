@@ -7,9 +7,9 @@ const index = () => {
         © 2015-{new Date().getFullYear()} «Империя Техно»
       </div>
       <div className="">
-        Время  
+        Время : 
         <span className="mx-2">
-           {new Date().getHours()} : {new Date().getMinutes()}
+           2.3c 
         </span>
       </div>
       <div className="text-dark fw-bold">Интернет-магазин бытовой техники</div>
