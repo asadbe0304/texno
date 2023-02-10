@@ -1,46 +1,78 @@
-const Storage = (cart)=>{
-  localStorage.setItem("cart", JSON.stringify(cart.length > 0 ? cart:[]))
-}
+const Storage = (cart) => {
+  localStorage.setItem("cart", JSON.stringify(cart.length > 0 ? cart : []));
+};
+const StorageLike = (like) => {
+  localStorage.setItem("like", JSON.stringify(like.length > 0 ? like : []));
+};
 
+export const sumCart = (cart) => {
+  Storage(cart);
+  let cartCount = cart.reduce((total, product) => total + product.quantity, 0);
+  let total = cart
+    .reduce((total, product) => total + product.price * product.quantity, 0)
+    .toFixed(2);
+  return { cartCount, total };
+};
+export const sumLike = (like) => {
+  StorageLike(like);
+  let LikeCount = like.reduce((totalLike, product) => totalLike + product.quantity, 0);
+  let totalLike = like
+    .reduce((totalLike, product) => totalLike + product.price * product.quantity, 0)
+    .toFixed(2);
+  return { LikeCount, totalLike };
+};
 
 export const cartReducer = (state, action) => {
   switch (action.type) {
     case "ADD__TO__PRODUCT":
-      return { ...state, cart: [...state.cart, { ...action.payload, quantity: 1 }] };
-    case "REMOVE__TO__PRODUCT":
+      if (!state.cart.find((e) => e.id === action.payload.id)) {
+        state.cart.push({ ...action.payload, quantity: 1 });
+      }
       return {
         ...state,
-        cart: state.cart.filter((c) => c.id !== action.payload.id),
+        ...sumCart(state.cart),
+        cart: [...state.cart],
       };
-    case "INCREASE":
+    case "ADD__TO__LIKE":
+      if (!state.like.find((e) => e.id === action.payload.id)) {
+        state.like.push({ ...action.payload, quantity: 1 });
+      }
+      return {
+        ...state,
+        ...sumLike(state.like),
+        like: [...state.like],
+      };
+      case "REMOVE__TO__LIKE":
+        return {
+          ...state,
+          ...sumLike(state.like.filter((e) => e.id !== action.payload.id)),
+          like: [...state.like.filter((e) => e.id !== action.payload.id)],
+        };
+      case "REMOVE__TO__PRODUCT":
+        return {
+          ...state,
+          ...sumCart(state.cart.filter((e) => e.id !== action.payload.id)),
+          cart: [...state.cart.filter((e) => e.id !== action.payload.id)],
+        };
+      case "INCREASE":
+      state.cart[state.cart.findIndex((e) => e.id === action.payload.id)]
+        .quantity++;
 
       return {
         ...state,
-        cart: state.cart.map((c) => {
-          if (c.id === action.payload.id) {
-            return { ...c, quantity: c.quantity + Number(c.price) };
-          } else {
-            return c;
-          }
-        }),
+        ...sumCart(state.cart),
+        cart: [...state.cart],
       };
 
     case "DECREASE":
+      state.cart[state.cart.findIndex((e) => e.id === action.payload.id)]
+        .quantity--;
       return {
         ...state,
-        cart: state.cart.map((c) => {
-          if (c.id === action.payload.id) {
-            return { ...c, quantity: c.quantity - Number(c.price) };
-          } else {
-            return c;
-          }
-        }),
+        ...sumCart(state.cart),
+        cart: [...state.cart],
       };
-      case  "REMOVE":
-        return {
-          ...state,
-          cart: state.cart.filter((c) => c.id !== action.payload.id),
-        }
+
     default:
       return state;
   }

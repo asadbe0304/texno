@@ -19,6 +19,43 @@ $zindex-modal: 223;
   }
   list-style: none;
 }
+.drop__like {
+  top: 60px;
+  right: 0px;
+  z-index: 44;
+  width: 300px;
+  border-radius: 10px;
+  img{
+    margin-right: 10px;
+    width: 80px;
+    // height: 50px;
+  }
+}
+.like-title{
+  font-size: 14px;
+  line-height: 16px;
+}
+.like-price{
+  font-size: 14px;
+}
+.like-list{
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll;
+  list-style: none;
+  height: 95px;
+  li{
+    border-top:1px solid #555;
+    border-bottom: 1px solid #555;
+  }
+}
+.like-bottom{
+  border-top: 1px solid #555;
+}
+.like-badge{
+  top: 0px;
+  right: 5px;
+}
 .modal-link {
   border: 0;
   text-decoration: none;

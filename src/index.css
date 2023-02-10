@@ -27,6 +27,7 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: "Roboto", sans-serif;
   overflow-x: hidden;
 }
 .container {
@@ -35,22 +36,11 @@ body {
   max-width: 1440px;
 }
 
-/* .app-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 55;
-  margin: 0 auto;
-  width: 100%;
-  /* transition: all 0.8s both; */
-
 .sticky {
   position: fixed;
   z-index: 555;
   top: 0;
   animation: smoothScroll 0.5s both;
-  /* transform: translateY(100%); */
 }
 
 .sticky-active {
@@ -58,12 +48,12 @@ body {
 }
 
 @keyframes smoothScroll {
-	0% {
-		transform: translateY(-10px);
-	}
-	100% {
-		transform: translateY(0px);
-	}
+  0% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 @keyframes stick {

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "./style.scss";
 import Img from "./../../assets/images/logo.png";
-import Logo from "./../../assets/images/mobile.svg"
+import Logo from "./../../assets/images/mobile.svg";
 import { FiNavigation, FiShoppingCart } from "react-icons/fi";
 import { BsSearch } from "react-icons/bs";
 import { Link, NavLink } from "react-router-dom";
@@ -11,16 +11,20 @@ import { RiAdminFill } from "react-icons/ri";
 import { FcLike } from "react-icons/fc";
 import { Badge } from "react-bootstrap";
 import Cart from "../../ui/Cart/index";
+import { BiTrash, BiHeart } from "react-icons/bi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useState, useEffect } from "react";
 import { CartState } from "./../../context/Auth";
 import { IoMdClose } from "react-icons/io";
 const index = () => {
   const [show, setShow] = useState(false);
-  const [open, setOpen] = useState(false);  
+  const [open, setOpen] = useState(false);
   const [sticky, setSticky] = useState("");
- 
- const {state: {cart}} = CartState()
+  const [favaourite, setFavaourite] = useState(false);
+  const {
+    state: { cart, like },
+    dispatch,
+  } = CartState();
 
   useEffect(() => {
     window.addEventListener("scroll", stickNavbar);
@@ -33,12 +37,11 @@ const index = () => {
     }
   };
 
-
   return (
     <>
       <header className={`w-100 bg-white ${sticky}`}>
         <div className="container">
-          <Cart show={show}/>
+          <Cart show={show} />
           {/* <Cart/> */}
           <div className="header w-100 py-2 d-flex justify-content-between align-items-center">
             <div className="head d-flex justify-content-center align-items-center gap-4">
@@ -51,8 +54,7 @@ const index = () => {
                   />
                 </Link>
                 <Link>
-                <img src={Logo} alt="logo"
-                className="mobile_logo" />
+                  <img src={Logo} alt="logo" className="mobile_logo" />
                 </Link>
               </div>
               <div className="header__location d-flex flex-column align-items-start navigation">
@@ -111,26 +113,65 @@ const index = () => {
               </div>
             </div>
             <div className="header__inner align-items-center d-flex justify-content-between gap-3">
-              {/* mobile search bar */}
-              {/* <div
-                className="mobile-search-btn m-0"
-                onClick={(e) => dispatch({ type: "SET_SEARCH", payload: true })}
-              >
-                <InputGroup.Text
-                  id="basic-addon1"
-                  className="bg-warning border-0 rounded-2 m-0"
-                >
-                  <BsSearch className="text-white fw-bold" />
-                </InputGroup.Text>
-              </div> */}
               <div className="header__like--order d-flex justify-content between">
                 <div className="admin">
                   <NavLink to="/login" className={"text-black"}>
                     <RiAdminFill className="admin__icon" />
                   </NavLink>
                 </div>
-                <div className="like">
-                  <FcLike className="like__icon" />
+                <div className="like position-relative">
+                  <BiHeart
+                    className="like__icon"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => setFavaourite((e) => !e)}
+                  />
+                  <span className="like-badge text-white fw-bold position-absolute bg-danger px-2 py-0 rounded-3">
+                    {like.length}
+                  </span>
+
+                  {/* drop like menu */}
+                  <div
+                    className={`drop__like position-absolute bg-white p-2 ${
+                      favaourite ? "d-block" : "d-none"
+                    }`}
+                  >
+                    <div className="like-top my-3">
+                      <h5>Like order</h5>
+                    </div>
+                    <ul className="like-list w-100">
+                      {like.length > 0
+                        ? like.map((e) => {
+                            return (
+                              <li key={e.id} className="d-flex justify-content-start w-100 flex-column align-items-start gap-1">
+                                <div className="p-1 gap-3 d-flex w-100 justify-content-between align-items-center">
+                                  <img src={e.image} alt="images" />
+                                  <div className="w-75">
+                                    <h5 className="text-dark w-100 text-start like-title">
+                                      {e.name}
+                                    </h5>
+                                    <p className="like-price">{e.price} $</p>
+                                    <BiTrash
+                                      className="text-start"
+                                      style={{ width: "25px", height: "25px" }}
+                                      onClick={() =>
+                                        dispatch({
+                                          type: "REMOVE__TO__LIKE",
+                                          payload: e,
+                                        })
+                                      }
+                                    />
+                                  </div>
+                                </div>
+                              </li>
+                            );
+                          })
+                        : "Not like order"}
+                    </ul>
+                    <div className="like-bottom w-100 mt-0 pt-4 mb-2">
+                      <button className="btn btn-danger w-100" disabled={like.length == 0 }>Submit</button>
+                    </div>
+                  </div>
+                  {/* drop like menu end */}
                 </div>
               </div>
               <div className="header__cart position-relative gap-2 d-flex align-items-center justify-content-between">

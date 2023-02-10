@@ -17,19 +17,16 @@ import "swiper/css/pagination";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "./style.scss";
+import { FiDivide } from "react-icons/fi";
 
 const index = () => {
-  const [like, setLike] = useState(true);
   // const [data, setData] = useState([]);
   const [spin, setSpin] = useState(false);
-  // const [item, setItem] = useState([])
-  // )
   const {
-    state: { product, cart },
+    state: { product, cart, like },
     dispatch,
   } = CartState();
   console.log(product);
-  // console.log(cart);
 
   // useEffect(() => {
   //   fetch("https://fakestoreapi.com/products")
@@ -57,8 +54,7 @@ const index = () => {
         <Swiper
           slidesPerView={4}
           spaceBetween={20}
-          // slidesPerGroup={false}
-          // centeredSlides={true}
+       
           loop={false}
           loopFillGroupWithBlank={false}
           pagination={{
@@ -68,7 +64,6 @@ const index = () => {
             1210: {
               width: 1210,
               slidesPerView: 4,
-              // slidesPerGroup: 4
             },
             1000: {
               width: 1000,
@@ -239,13 +234,29 @@ const index = () => {
                           />
                         </button>
                       )}
-                      <div onClick={() => setLike((e) => !e)}>
-                        {like ? (
-                          <BiHeart className="position-absolute like-heart" />
-                        ) : (
+                      {like.some((p) => p.id === e.id) ? (
+                        <div
+                          onClick={() =>
+                            dispatch({
+                              type: "REMOVE__TO__LIKE",
+                              payload: e,
+                            })
+                          }
+                        >
                           <FcLike className="position-absolute like-heart" />
-                        )}
+                        </div>
+                      ) : (
+                        <div
+                        onClick={() =>
+                          dispatch({
+                            type: "ADD__TO__LIKE",
+                            payload: e,
+                          })
+                        }
+                      >
+                        <BiHeart className="position-absolute like-heart" />
                       </div>
+                      )}
                     </div>
                   </div>
                   {/* </div>   */}
