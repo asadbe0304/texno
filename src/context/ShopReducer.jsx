@@ -7,11 +7,11 @@ const StorageLike = (like) => {
 
 export const sumCart = (cart) => {
   Storage(cart);
-  let cartCount = cart.reduce((total, product) => total + product.quantity, 0);
-  let total = cart
-    .reduce((total, product) => total + product.price * product.quantity, 0)
+  let cartCount = cart.reduce((totals, product) => totals + product.quantity, 0);
+  let totals = cart
+    .reduce((totals, product) => totals + product.price * product.quantity, 0)
     .toFixed(2);
-  return { cartCount, total };
+  return { cartCount, totals };
 };
 export const sumLike = (like) => {
   StorageLike(like);

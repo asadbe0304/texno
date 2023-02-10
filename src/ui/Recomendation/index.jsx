@@ -17,16 +17,13 @@ import "swiper/css/pagination";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "./style.scss";
-import { FiDivide } from "react-icons/fi";
 
 const index = () => {
-  // const [data, setData] = useState([]);
   const [spin, setSpin] = useState(false);
   const {
     state: { product, cart, like },
     dispatch,
   } = CartState();
-  console.log(product);
 
   // useEffect(() => {
   //   fetch("https://fakestoreapi.com/products")

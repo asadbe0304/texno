@@ -2,10 +2,13 @@ import React from "react";
 import { Dropdown } from "react-bootstrap";
 import Prod from "./../../ui/XitProduct/index";
 import { AiFillStar } from "react-icons/ai";
-import { FaShoppingCart } from "react-icons/fa";
+import { BiHeart } from "react-icons/bi";
+import { BsCartDashFill, BsCartPlusFill } from "react-icons/bs";
 import { MdArrowForwardIos } from "react-icons/md";
 import "./style.scss";
+import { FcLike } from "react-icons/fc";
 import Load from "./../../ui/Loader";
+import { CartState } from "../../context/Auth";
 import Pagination from "../../components/pagination/pagination";
 import Brand from "./../../ui/Brand";
 import Img from "./../../assets/images/2e8f41b9.webp";
@@ -13,23 +16,24 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const index = () => {
-  const [coinsData, setCoinsData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(10);
 
-  // const [data, setData] = useState([]);
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((json) => setCoinsData(json));
-  }, []);
+  const {
+    state: { product, cart, like },
+    dispatch,
+  } = CartState();
+
+  // useEffect(() => {
+  //   fetch("https://fakestoreapi.com/products")
+  //     .then((res) => res.json())
+  //     .then((json) => setCoinsData(json));
+  // }, []);
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
-  const currentPosts = coinsData.slice(firstPostIndex, lastPostIndex);
-
-  // console.log(postsPerPage);
-  // console.log(currentPosts);
-
+  const currentPosts = product.slice(firstPostIndex, lastPostIndex);
+  // const currentPosts = product
+  console.log(currentPosts);
   return (
     <>
       <div className="container">
@@ -68,10 +72,35 @@ const index = () => {
               currentPosts.map((e) => {
                 return (
                   <div
-                    key={e}
-                    className="product-card d-flex flex-column align-items-center justify-content-center "
+                    key={e.id}
+                    className="product-card d-flex flex-column position-relative align-items-center justify-content-center "
                   >
-                    <img src={Img} alt="" />
+                    {like.some((p) => p.id === e.id) ? (
+                      <div
+                        className="position-absolute wish"
+                        onClick={() =>
+                          dispatch({
+                            type: "REMOVE__TO__LIKE",
+                            payload: e,
+                          })
+                        }
+                      >
+                        <FcLike className="like-heart" />
+                      </div>
+                    ) : (
+                      <div
+                        className="position-absolute wish"
+                        onClick={() =>
+                          dispatch({
+                            type: "ADD__TO__LIKE",
+                            payload: e,
+                          })
+                        }
+                      >
+                        <BiHeart className="like-heart" />
+                      </div>
+                    )}
+                    <img src={e.image} alt="" />
                     <div className="w-100 d-flex align-items-center justify-content-between my-3">
                       <div className="d-flex justfiy-content-between align-items-center gap-1">
                         <AiFillStar className="star-rate text-danger" />
@@ -97,17 +126,43 @@ const index = () => {
                     </div>
                     <Link
                       to={"/:pro"}
-                      className="underline-none p-0 d-flex justify-content-between align-items-start flex-column"
+                      className="underline-none p-0 d-flex justify-content-start align-items-start w-100 mt-2"
                     >
-                      <h5 className="text-black popular-title w-100">
-                        Холодильник ATLANT 4208-000
+                      <h5 className="text-black popular-title  w-100">
+                        {e.name}
                       </h5>
                     </Link>
                     <div className="product__footer d-flex justify-content-between w-100 align-items-center">
-                      <div className="text-uppercase price-title ">213 usd</div>
-                      <div className="bg-warning px-1 rounded py-0">
-                        <FaShoppingCart />
+                      <div className="text-uppercase price-title postion-relative ">
+                        {e.price} $
                       </div>
+                      {cart.some((p) => p.id === e.id) ? (
+                        <button className="bg-danger  border-0 px-2 py-1 rounded-2">
+                          <BsCartDashFill
+                            className="shop-cart"
+                            type="button"
+                            onClick={() =>
+                              dispatch({
+                                type: "REMOVE__TO__PRODUCT",
+                                payload: e,
+                              })
+                            }
+                          />
+                        </button>
+                      ) : (
+                        <button className="bg-warning  border-0 px-2 py-1 rounded-2">
+                          <BsCartPlusFill
+                            className="shop-cart"
+                            type="button"
+                            onClick={() =>
+                              dispatch({
+                                type: "ADD__TO__PRODUCT",
+                                payload: e,
+                              })
+                            }
+                          />
+                        </button>
+                      )}
                     </div>
                   </div>
                 );
@@ -118,7 +173,7 @@ const index = () => {
           </div>
           <div className="my-4 d-flex justify-content-center   align-items-center">
             <Pagination
-              totalPosts={coinsData.length}
+              totalPosts={product.length}
               postsPerPage={postsPerPage}
               setCurrentPage={setCurrentPage}
               currentPage={currentPage}

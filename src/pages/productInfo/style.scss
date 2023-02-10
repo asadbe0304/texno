@@ -1,7 +1,7 @@
 .product-info {
   max-width: 1440px;
 }
-.product-all{
+.product-all {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -9,52 +9,65 @@
   align-items: flex-start;
   justify-content: center;
 }
-.product-card{
+.wish {
+  top: 10px;
+  right: 10px;
+}
+.product-card {
+  position: relative;
   margin-top: 30px;
   padding: 20px;
   width: 260px;
   background: #fff;
   border: 1px solid #e5e5e5;
-  img{
+  img {
     width: 85%;
     height: auto;
   }
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .product-card:hover{
   transform: scale(1.1);
-  box-shadow: 1px 5px 5px 2px #ededed;
+  z-index: 4;
+  box-shadow: 0px 0px 5px 5px #adadad;
 }
-// .product-card::before{
+// .product-card:hover::before {
 //   content: "";
-//   width: 260px;
-//   height: 450px;
-//   background: #000;
+//   position: absolute;
+//   top: 8px;
+//   left: 8px;
+//   z-index: 2;
+//   width: 240px;
+//   height: 348px;
+//   transform: scale(1.1);
+//   box-shadow: 0px 0px 0px 1px rgba(0,0,0,1);
+//   background: #ffffff00;
+//   border: 10px solid #fff;
 //   transform: scale(1.1);
 // }
-.popular-title{
+.popular-title {
   margin: 10px 0px;
   font-size: 14px;
   line-height: 16px;
   font-weight: normal;
   color: #202c3b;
 }
-.otziv{
+.otziv {
   font-size: 12px;
   line-height: 16px;
   font-weight: normal;
   color: #707070;
 }
-.nalichka{
+.nalichka {
   width: 80px;
   font-weight: 700;
 }
-.price-title{
+.price-title {
   font-size: 18px;
-  line-height: 24px ;
+  line-height: 24px;
   color: #2d2e30;
   font-weight: 700;
 }
-.product__footer{
+.product__footer {
   margin-top: 40px;
 }
