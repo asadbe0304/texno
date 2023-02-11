@@ -23,9 +23,10 @@ const App = () => {
   //       data({ type: "SET_DATA", payload: json });
   //     });
   // }, []);
+
   return (
     <>
-      <Header />
+      <Header/>
       <Navbar />
       <main className="site-main">
         <Routes>

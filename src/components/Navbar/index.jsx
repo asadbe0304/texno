@@ -1,24 +1,28 @@
 import React from "react";
-import "./stye.scss";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { GiArcheryTarget } from "react-icons/gi";
 import Form from "react-bootstrap/Form";
 import Img from "./../../assets/images/holod.png";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { GiArcheryTarget } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
 import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
-
+import "./stye.scss";
 const index = () => {
-
+  
   const [modal, setModal] = useState(false);
   const [categrory, setCategory] = useState([]);
   useEffect(() => {
     fetch("https://fakestoreapi.com/products/categories/")
-      .then((res) => res.json())
-      .then((json) => setCategory(json));
+    .then((res) => res.json())
+    .then((json) => setCategory(json));
   }, []);
 
-  // const data = useDispatch();
+  useEffect(() => {
+    const body = document.querySelector('body');
+    body.style.overflow = modal ? 'hidden' : 'auto';
+  }, [modal])
+
+
   const [sticky, setSticky] = useState("");
   useEffect(() => {
     window.addEventListener("scroll", stickNavbar);
@@ -29,7 +33,6 @@ const index = () => {
       let windowHeight = window.scrollY;
       windowHeight > 120 ? setSticky("navsticky") : setSticky("");
     }
-
   };
 
   return (

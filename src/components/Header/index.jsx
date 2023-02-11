@@ -17,7 +17,6 @@ import Modal from "./modal";
 import { CartState } from "./../../context/Auth";
 import "./style.scss";
 
-
 const index = () => {
   const [show, setShow] = useState(false);
   const [open, setOpen] = useState(false);
@@ -27,6 +26,16 @@ const index = () => {
     state: { cart, like },
     dispatch,
   } = CartState();
+
+  useEffect(() => {
+    const body = document.querySelector("body");
+    body.style.overflow = open ? "hidden" : "auto";
+  }, [open]);
+
+  useEffect(() => {
+    const body = document.querySelector("body");
+    body.style.overflow = show ? "hidden" : "auto";
+  }, [show]);
 
   useEffect(() => {
     window.addEventListener("scroll", stickNavbar);
