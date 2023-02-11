@@ -73,24 +73,24 @@ const swiper = () => {
           },
           490: {
             width: 425,
-            spaceBetween: 10,
+            spaceBetween: 0,
             slidesPerView: 1,
           },
           475: {
             width: 410,
             slidesPerView: 1,
-            spaceBetween: 10,
+            spaceBetween: 0,
           },
 
           440: {
             width: 340,
             slidesPerView: 1,
-            spaceBetween: 10,
+            spaceBetween: 0,
           },
           415: {
             width: 320,
             slidesPerView: 1,
-            spaceBetween: 10,
+            spaceBetween: 0,
           },
           400: {
             width: 320,
@@ -98,22 +98,22 @@ const swiper = () => {
           },
           390: {
             width: 310,
-            spaceBetween: 10,
+            spaceBetween: 0,
             slidesPerView: 1,
           },
           380: {
             width: 300,
-            spaceBetween: 10,
+            spaceBetween: 0,
             slidesPerView: 1,
           },
           370: {
             width: 280,
-            spaceBetween: 10,
+            spaceBetween: 0,
             slidesPerView: 1,
           },
           360: {
             width: 270,
-            spaceBetween: 10,
+            spaceBetween: 0,
             slidesPerView: 1,
           },
           350: {
@@ -126,22 +126,22 @@ const swiper = () => {
           },
           320: {
             width: 240,
-            spaceBetween: 10,
+            spaceBetween: 0,
             slidesPerView: 1,
           },
           310: {
             width: 230,
-            spaceBetween: 10,
+            spaceBetween: 0,
             slidesPerView: 1,
           },
           300: {
             width: 220,
-            spaceBetween: 10,
+            spaceBetween: 0,
             slidesPerView: 1,
           },
           240: {
             width: 220,
-            spaceBetween: 30,
+            spaceBetween: 0,
             slidesPerView: 1,
           },
         }}
