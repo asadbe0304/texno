@@ -100,7 +100,7 @@ const index = () => {
                         <BiHeart className="like-heart" />
                       </div>
                     )}
-                    <img src={e.image} alt="" />
+                    <img src={e.image} alt={e.name} />
                     <div className="w-100 d-flex align-items-center justify-content-between my-3">
                       <div className="d-flex justfiy-content-between align-items-center gap-1">
                         <AiFillStar className="star-rate text-danger" />

@@ -43,7 +43,7 @@ const index = () => {
       <div className="recomendation__card w-100 ">
         <Swiper
           slidesPerView={4}
-          spaceBetween={20}
+          spaceBetween={0}
           // slidesPerGroup={false}
           loop={false}
           loopFillGroupWithBlank={false}
@@ -63,7 +63,7 @@ const index = () => {
             768: {
               width: 640,
               slidesPerView: 2,
-              spaceBetween: 10,
+              spaceBetween: 0,
             },
             640: {
               width: 650,
@@ -94,48 +94,48 @@ const index = () => {
             },
             490: {
               width: 425,
-              spaceBetween: 10,
+              spaceBetween: 0,
               slidesPerView: 1,
             },
             475: {
               width: 410,
               slidesPerView: 1,
-              spaceBetween: 20,
+              spaceBetween: 0,
             },
 
             440: {
               width: 340,
               slidesPerView: 1,
-              spaceBetween: 20,
+              spaceBetween: 0,
             },
             415: {
               width: 350,
               slidesPerView: 1,
-              spaceBetween: 20,
+              spaceBetween: 0,
             },
             400: {
               width: 310,
-              spaceBetween: 20,
+              spaceBetween: 0,
               slidesPerView: 1,
             },
             390: {
               width: 300,
-              spaceBetween: 20,
+              spaceBetween: 0,
               slidesPerView: 1,
             },
             380: {
               width: 290,
-              spaceBetween: 20,
+              spaceBetween: 0,
               slidesPerView: 1,
             },
             370: {
               width: 280,
-              spaceBetween: 20,
+              spaceBetween: 0,
               slidesPerView: 1,
             },
             360: {
               width: 270,
-              spaceBetween: 20,
+              spaceBetween: 0,
               slidesPerView: 1,
             },
             350: {
@@ -148,22 +148,22 @@ const index = () => {
             },
             320: {
               width: 240,
-              spaceBetween: 10,
+              spaceBetween: 0,
               slidesPerView: 1,
             },
             310: {
               width: 230,
-              spaceBetween: 10,
+              spaceBetween: 0,
               slidesPerView: 1,
             },
             300: {
               width: 220,
-              spaceBetween: 10,
+              spaceBetween: 0,
               slidesPerView: 1,
             },
             240: {
               width: 220,
-              spaceBetween: 30,
+              spaceBetween: 0,
               slidesPerView: 1,
             },
           }}
@@ -178,7 +178,7 @@ const index = () => {
               return (
                 <SwiperSlide
                   // item={item}
-                  className="d-flex justify-content-around border rounded-2 swipe-card flex-column align-items-center px-3"
+                  className="d-flex justify-content-center border swipe-card flex-column align-items-center px-3"
                   key={e.id}
                 >
                   {/* <div className="card rounded-0 p-0 align-items-center py-4 position-relative"> */}

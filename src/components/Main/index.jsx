@@ -8,9 +8,9 @@ import Category from "./../../ui/PopularCategory";
 import Brand from "./../../ui/Brand/index";
 import XitProduct from "./../../ui/XitProduct/index";
 import { Outlet, Link } from "react-router-dom";
+import Slick from "./../Slick/Slick";
 import "./style.scss";
 const index = () => {
-
   return (
     <>
       <Tel />
