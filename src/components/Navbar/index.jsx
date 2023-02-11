@@ -1,33 +1,27 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
-import Img from "./../../assets/images/holod.png";
+import ModalNav from "./NavbarModal";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { GiArcheryTarget } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
 import { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./stye.scss";
 const index = () => {
   
   const [modal, setModal] = useState(false);
-  const [categrory, setCategory] = useState([]);
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products/categories/")
-    .then((res) => res.json())
-    .then((json) => setCategory(json));
-  }, []);
 
   useEffect(() => {
-    const body = document.querySelector('body');
-    body.style.overflow = modal ? 'hidden' : 'auto';
-  }, [modal])
-
+    const body = document.querySelector("body");
+    body.style.overflow = modal ? "hidden" : "auto";
+  }, [modal]);
 
   const [sticky, setSticky] = useState("");
+  
   useEffect(() => {
     window.addEventListener("scroll", stickNavbar);
     return () => window.removeEventListener("scroll", stickNavbar);
   }, []);
+  
   const stickNavbar = () => {
     if (window !== undefined) {
       let windowHeight = window.scrollY;
@@ -118,122 +112,9 @@ const index = () => {
               </li>
             </ul>
           </nav>
-
-          {/* modal navbar */}
-          {/* <div className={`modal-layer ${modal ? "d-flex" : "d-none"}`}> */}
-          <div
-            className={`modal-layer ${
-              modal ? "d-flex" : "d-none"
-            } category-modal d-flex justify-content-between flex-row bg-white w-100`}
-          >
-            <div className="modal-left w-100">
-              <ul className="modal-list d-flex flex-column align-items-start  border-0">
-                <li className="modal-item">
-                  <NavLink
-                    to="/catproduct"
-                    onClick={() => setModal(false)}
-                    className="text-black text-decoration-none fw-bold d-flex justify-content-start align-items-center gap-2"
-                  >
-                    {/* <GiArcheryTarget className="archer" /> */}
-                    <img src={Img} alt="imagea" width={24} height={24} />
-                    Встраиваемая кухонная техника
-                  </NavLink>
-                </li>
-                <li className="modal-item">
-                  <a
-                    href="#link"
-                    className="text-black text-decoration-none fw-bold d-flex justify-content-start align-items-center gap-2"
-                  >
-                    <img src={Img} alt="imagea" width={24} height={24} />
-                    {/* <GiArcheryTarget className="archer" /> */}
-                    Крупная бытовая техника
-                  </a>
-                </li>
-                <li className="modal-item">
-                  <a
-                    href="#link"
-                    className="text-black text-decoration-none fw-bold d-flex justify-content-start align-items-center gap-2"
-                  >
-                    <img src={Img} alt="imagea" width={24} height={24} />
-                    {/* <GiArcheryTarget className="archer" /> */}
-                    Телевизоры, аудио-видео, Hi-Fi
-                  </a>
-                </li>
-                <li className="modal-item">
-                  <a
-                    href="#link"
-                    className="text-black text-decoration-none fw-bold d-flex justify-content-start align-items-center gap-2"
-                  >
-                    {/* <GiArcheryTarget className="archer" /> */}
-                    <img src={Img} alt="imagea" width={24} height={24} />
-                    Мелкая кухонная техника
-                  </a>
-                </li>
-                <li className="modal-item">
-                  <a
-                    href="#link"
-                    className="text-black text-decoration-none fw-bold d-flex justify-content-start align-items-center gap-2"
-                  >
-                    <img src={Img} alt="imagea" width={24} height={24} />
-                    {/* <GiArcheryTarget className="archer" /> */}
-                    Tехника для дома
-                  </a>
-                </li>
-                <li className="modal-item">
-                  <a
-                    href="#link"
-                    className="text-black text-decoration-none fw-bold d-flex justify-content-start align-items-center gap-2"
-                  >
-                    <img src={Img} alt="imagea" width={24} height={24} />
-                    {/* <GiArcheryTarget className="archer " /> */}
-                    Климатическая техника
-                  </a>
-                </li>
-                <li className="modal-item">
-                  <a
-                    href="#link"
-                    className="text-black text-decoration-none fw-bold d-flex justify-content-start align-items-center gap-2"
-                  >
-                    <img src={Img} alt="imagea" width={24} height={24} />
-                    {/* <GiArcheryTarget className="archer" /> */}
-                    Встраиваемая кухонная техника
-                  </a>
-                </li>
-                <li className="modal-item">
-                  <a
-                    href="#link"
-                    className="text-black text-decoration-none fw-bold d-flex justify-content-start align-items-center gap-2"
-                  >
-                    <img src={Img} alt="imagea" width={24} height={24} />
-                    {/* <GiArcheryTarget className="archer" /> */}
-                    Встраиваемая кухонная техника
-                  </a>
-                </li>
-              </ul>
-            </div>
-            {/* <div
-                className="modal-right w-100 d-flex
-            justify-content-between align-items-start gap-2 px-2"
-              >
-                <div className="modal__inner">
-                  <ul className="modal-list">
-                    <li className="modal__inner-item">
-                      <a
-                        href="#link"
-                        className="text-decoration-none text-black"
-                      >
-                        Holodilnik
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="modal__inner--right ">
-                  <h3>Modal right</h3>
-                </div>
-              </div> */}
-          </div>
         </div>
       </div>
+      <ModalNav modal={modal} />
       {/* </div> */}
     </>
   );

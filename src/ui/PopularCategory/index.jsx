@@ -1,32 +1,20 @@
 import React, { useRef, useState, useEffect, useContext } from "react";
-// Import Swiper React components
 import Img from "./../../assets/images/2e8f41b9.webp"
 import { Swiper, SwiperSlide } from "swiper/react";
+import { CartState } from "../../context/Auth";
+import { Pagination, Navigation } from "swiper";
 import Load from "../Loader/index"
-// import { BiHeart } from "react-icons/bi";
-// import { context } from "./../../context/context";
-// import { AiOutlineShoppingCart } from "react-icons/ai";
 import Card from "../Card/Card";
 import "./style.scss";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
-import { Pagination, Navigation } from "swiper";
 
 export default function App() {
-  const [data, setData] = useState([]);
-  // const [item, setItem] = useState([]);
-  // const handleClick = (e) => {
-  //   item.push(e);
-  //   console.log(item);
-  // };
-  useEffect(() => {
-    fetch("https://dummyjson.com/products/categories")
-    .then((res) => res.json())
-    .then(json => setData(json));
-  }, []);
- console.log(data)
+  const {
+    state: { product },
+  } = CartState();
   return (
     <>
       <div className="container">
@@ -36,7 +24,6 @@ export default function App() {
         <Swiper
           slidesPerView={4}
           spaceBetween={20}
-          // slidesPerGroup={4}
           loop={false}
           loopFillGroupWithBlank={false}
           pagination={{
@@ -75,19 +62,19 @@ export default function App() {
           }}
           className="mySwiper px-4 d-flex justify-content-center py-5 gap-1 align-items-center"
         >
-          {data.length > 0
-            ? data.map((e) => {
+          {product.length > 0
+            ? product.map((e) => {
                 return (
-                  <SwiperSlide key={e}>
+                  <SwiperSlide key={e.id}>
                     <div  className="card__popular d-flex align-items-center gap-2 flex-column justify-content-between bg-dark p-2">
                       <img
-                        src={Img}
+                        src={e.image}
                         className="img-card position-absolute "
                         alt="images"
                       />
                       <div className="d-flex justify-content-center px-4 align-items-center w-100 flex-row">
                         <h6 className="fw-bold text-white text-end m-0 my-2 text-capitalize">
-                        {e}
+                        {e.category}
                         </h6>
                       </div>
                     </div>

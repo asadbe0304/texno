@@ -18,9 +18,10 @@ export const AuthProvider = ({ children }) => {
   console.log(storage);
   console.log(storageLike);
 
-  const products = [...Array(30)].map(() => ({
+  const products = [...Array(10)].map(() => ({
     id: faker.datatype.uuid(),
     name: faker.commerce.productName(),
+    category: faker.commerce.department(),
     price: faker.commerce.price(),
     image: faker.image.image(),
   }));

@@ -24,7 +24,6 @@ const index = () => {
   const [favaourite, setFavaourite] = useState(false);
   const {
     state: { cart, like },
-    dispatch,
   } = CartState();
 
   useEffect(() => {
@@ -53,7 +52,6 @@ const index = () => {
       <header className={`w-100 bg-white ${sticky}`}>
         <div className="container">
           <Cart show={show} />
-          {/* <Cart/> */}
           <div className="header w-100 py-2 d-flex justify-content-between align-items-center">
             <div className="head d-flex justify-content-center align-items-center gap-4">
               <div className="header__logo">
