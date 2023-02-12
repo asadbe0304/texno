@@ -17,12 +17,21 @@ import WishList from "./wishList";
 import Modal from "./modal";
 import { CartState } from "./../../context/Auth";
 import "./style.scss";
+import data from "./../../db/db.json";
 
 const index = () => {
   const [show, setShow] = useState(false);
   const [open, setOpen] = useState(false);
   const [sticky, setSticky] = useState("");
   const [favaourite, setFavaourite] = useState(false);
+  const [search, setValue] = useState("");
+  console.log(data);
+  const onChange = (event) => {
+    setValue(event.target.value);
+  };
+  const onSearch = (searchItem) => {
+    setValue(searchItem);
+  };
   const {
     state: { cart, like },
   } = CartState();
@@ -83,33 +92,63 @@ const index = () => {
                 <Form.Control
                   placeholder="Search Products"
                   aria-label="Username"
+                  value={search}
+                  onChange={onChange}
                   aria-describedby="basic-addon1"
                 />
                 <InputGroup.Text
                   id="basic-addon1"
                   className="bg-warning border-0 rounded-0"
                 >
-                  <BsSearch className="text-white fw-bold" />
+                  <BsSearch
+                    onClick={() => onSearch(search)}
+                    className="text-white fw-bold"
+                  />
                 </InputGroup.Text>
               </InputGroup>
+            </div>
+            <div className="dropdown ">
+              {data
+                .filter((item) => {
+                  const searchItem = search.toLowerCase();
+                  const fullName = item.full_name.toLowerCase();
+
+                  return (
+                    searchItem &&
+                    fullName.startsWith(searchItem) &&
+                    fullName !== searchItem
+                  );
+                })
+                .slice(0, 10)
+                .map((item) => (
+                  <div
+                    onClick={() => onSearch(item.full_name)}
+                    className="dropdown-row text-black"
+                    key={item.full_name}
+                  >
+                    {item.full_name}
+                  </div>
+                ))}
             </div>
             <InputGroup className=" bg-white mobile__search--bar position-absolute top-0 left-0 right-0 $zindex-modal">
               <Form.Control
                 placeholder="Search Products"
                 aria-label="Username"
-                aria-describedby="basic-addon1"
+                aria-describedby="basic-addon2"
+                value={search}
+                onChange={onChange}
               />
               <InputGroup.Text
                 id="basic-addon1"
                 className="bg-warning border-0 rounded-0"
               >
-                <BsSearch className="text-white fw-bold" />
+                <BsSearch className="text-white fw-bold" onClick={() => onSearch(search)}/>
               </InputGroup.Text>
             </InputGroup>
 
             <div className="header__call">
               <a
-                href="tel:++998932502719"
+                href="tel:+998932502719"
                 className="fw-bold header__call--tel text-black"
               >
                 +7 (812) 200-49-00

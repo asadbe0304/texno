@@ -1,13 +1,24 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
 import ModalNav from "./NavbarModal";
+import data from "./../../db/db.json";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
+import { BsSearch } from "react-icons/bs";
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { CartState } from "../../context/Auth";
 import "./stye.scss";
 const index = () => {
+  const [search, setValue] = useState("");
+  console.log(data);
+  const onChange = (event) => {
+    setValue(event.target.value);
+  };
+  const onSearch = (searchItem) => {
+    setValue(searchItem);
+  };
+
   const [modal, setModal] = useState(false);
   const {
     state: { product },
@@ -43,10 +54,14 @@ const index = () => {
             <div className="d-flex search-mobile-bar justify-content-center bg-white align-items-center flex-row">
               <Form.Control
                 placeholder="Search Products"
-                aria-label="Username"
-                aria-describedby="basic-addon1"
+                value={search}
+                onChange={onChange}
                 className={`search-mobile `}
               />
+              {/* <BsSearch
+                onClick={() => onSearch(search)}
+                className="text-white fw-bold"
+              /> */}
             </div>
             <div className="category__tab w-100">
               <button
@@ -120,6 +135,29 @@ const index = () => {
           </nav>
         </div>
       </div>
+      <div className="dropdown bg-white">
+        {data
+          .filter((item) => {
+            const searchItem = search.toLowerCase();
+            const fullName = item.full_name.toLowerCase();
+
+            return (
+              searchItem &&
+              fullName.startsWith(searchItem) &&
+              fullName !== searchItem
+            );
+          })
+          .slice(0, 10)
+          .map((item) => (
+            <div
+              onClick={() => onSearch(item.full_name)}
+              className="dropdown-row text-black"
+              key={item.full_name}
+            >
+              {item.full_name}
+            </div>
+          ))}
+      </div>
       <ModalNav modal={modal} />
       <div
         className={`modal-layer-mobile ${
@@ -127,7 +165,11 @@ const index = () => {
         } category-modal flex-column d-flex justify-content-start flex-row bg-white w-100`}
       >
         <div className="d-flex p-3 w-100 bg-white justify-content-end align-items-center">
-          <IoMdClose onClick={()=> setModal(e => !e)} className="" style={{width:"25px", height:"25px"}}/>
+          <IoMdClose
+            onClick={() => setModal((e) => !e)}
+            className=""
+            style={{ width: "25px", height: "25px" }}
+          />
         </div>
         <div className="modal-left w-100">
           <ul className="modal-list d-flex flex-column align-items-start  border-0">

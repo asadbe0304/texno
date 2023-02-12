@@ -12,6 +12,31 @@ $zindex-modal: 223;
     border: none;
   }
 }
+
+.dropdown {
+  position: absolute;
+  top: 65px;
+  left: 0px;
+  right: 0px;
+  margin: 0 auto;
+  z-index: 5555;
+  width: 400px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid gray;
+}
+
+.dropdown:empty {
+  border: none;
+}
+
+.dropdown-row {
+  cursor: pointer;
+  text-align: start;
+  margin: 2px 0;
+}
+
 .modal-mobile-list {
   overflow-y: scroll;
   li {
@@ -25,43 +50,42 @@ $zindex-modal: 223;
   z-index: 44;
   width: 300px;
   border-radius: 10px;
-  img{
+  img {
     margin-right: 10px;
     width: 80px;
     // height: 50px;
   }
 }
-.modal-close{
+.modal-close {
   top: 20px;
   z-index: 4444;
   right: 20px;
   color: #fff;
   width: 24px;
   height: 24px;
-
 }
-.like-title{
+.like-title {
   font-size: 14px;
   line-height: 16px;
 }
-.like-price{
+.like-price {
   font-size: 14px;
 }
-.like-list{
+.like-list {
   margin: 0;
   padding: 0;
   overflow-y: scroll;
   list-style: none;
   height: 105px;
-  li{
-    border-top:1px solid #555;
+  li {
+    border-top: 1px solid #555;
     border-bottom: 1px solid #555;
   }
 }
-.like-bottom{
+.like-bottom {
   border-top: 1px solid #555;
 }
-.like-badge{
+.like-badge {
   top: 0px;
   right: 5px;
 }
@@ -201,7 +225,11 @@ $zindex-modal: 223;
   .header__call {
     display: none;
   }
-
+.dropdown{
+  background: transparent;
+  // padding: 10px;
+  top: 115px;
+}
   .header__location {
     display: none !important;
   }
@@ -227,11 +255,11 @@ $zindex-modal: 223;
     padding: 0;
     border: 0;
   }
-  .drop__like{
+  .drop__like {
     top: 40px;
     right: -10px;
   }
-  .like-badge{
+  .like-badge {
     top: 4px;
     right: -10px;
     font-size: 11px;
@@ -273,8 +301,8 @@ $zindex-modal: 223;
     height: 38px;
   }
 }
-@media screen and (max-width:412px) {
-  .drop__like{
+@media screen and (max-width: 412px) {
+  .drop__like {
     top: 35px;
     right: -60px;
   }
@@ -284,7 +312,7 @@ $zindex-modal: 223;
     margin-left: 10px;
     width: 80%;
   }
-  .drop__like{
+  .drop__like {
     top: 48px;
     left: -115px;
     width: 300px;
@@ -298,10 +326,9 @@ $zindex-modal: 223;
   .header__logo {
     display: none;
   }
-  .drop__like{
+  .drop__like {
     top: 40px;
     left: -50px;
     width: 280px;
   }
 }
-
