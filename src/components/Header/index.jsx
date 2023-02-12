@@ -6,6 +6,7 @@ import { BiHeart } from "react-icons/bi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
 import { Link, NavLink } from "react-router-dom";
+import Tel from "./../../ui/Call";
 import Logo from "./../../assets/images/mobile.svg";
 import Img from "./../../assets/images/logo.png";
 import Form from "react-bootstrap/Form";
@@ -49,6 +50,7 @@ const index = () => {
 
   return (
     <>
+      <Tel />
       <header className={`w-100 bg-white ${sticky}`}>
         <div className="container">
           <Cart show={show} />

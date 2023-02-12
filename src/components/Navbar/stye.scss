@@ -5,7 +5,7 @@
 }
 .navbar {
   padding: 0;
-  background: #2D2E30;
+  background: #2d2e30;
 }
 .list-group {
   list-style: none;
@@ -43,17 +43,19 @@
   height: 30px;
 }
 
-.search-mobile-bar{
+.search-mobile-bar {
   display: none;
   width: 100%;
 }
-.search-mobile{
-  display: none!important;
+.search-mobile {
+  display: none !important;
   width: 100%;
-  border:1px solid #fac212;
+  border: 1px solid #fac212;
+}
+.modal-layer-mobile {
+  display: none !important;
 }
 .category-modal {
-  
   .modal-left {
     width: 450px;
     padding: 0;
@@ -66,111 +68,139 @@
   padding: 0;
   width: 100%;
   list-style: none;
-  li{
+  li {
     width: 100%;
     padding: 10px 20px;
-    transition: all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
   li:hover {
     background: #fff;
   }
 }
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: 0;
 }
-.category__tab{
+.category__tab {
   display: none;
 }
-@media screen and (max-width :1280px) {
-    .underline-none{
+@media screen and (max-width: 1280px) {
+  .underline-none {
     padding: 10px 18px;
-    }
-  
+  }
 }
-@media screen and (max-width :1157px) {
-    .underline-none{
+@media screen and (max-width: 1157px) {
+  .underline-none {
     padding: 10px 15px;
     font-size: 14px;
-    }
+  }
 }
-@media screen and (max-width:1010px){
-  .underline-none{
+@media screen and (max-width: 1010px) {
+  .underline-none {
     font-size: 12px;
     padding: 8px 12px;
   }
 }
-@media screen and (max-width:853px){
-  .underline-none{
+@media screen and (max-width: 853px) {
+  .underline-none {
     font-size: 12px;
-    font-weight: 300!important;
+    font-weight: 300 !important;
     padding: 8px 12px;
   }
-  .navbar{
-    padding: 0px!important;
-    gap: 10px!important;
+  .navbar {
+    padding: 0px !important;
+    gap: 10px !important;
   }
-  .nav{
-    gap: 5px!important;
+  .nav {
+    gap: 5px !important;
   }
 }
-@media screen and (max-width:830px){
-  .navsticky{
+.modal-mobile-none {
+  // transform: translateX(100%);
+  animation: open 0.3s linear both;
+}
+.modal-mobile-block {
+  animation: hide 0.3s linear both;
+}
+@media screen and (max-width: 830px) {
+  .navsticky {
     top: 70px;
   }
 }
-@media screen and (max-width:805px) {
-  .modal-layer{
+@media screen and (max-width: 805px) {
+  .modal-layer {
     top: 156px;
+    display: none !important;
   }
-  .navsticky{
+  .modal-layer-mobile {
+    position: fixed;
+    z-index: 44455;
+    top: 0;
+    height: 100vh;
+    display: flex !important;
+  }
+  .navsticky {
     top: 72px;
   }
-  .nav{
-    display: flex!important;
-    flex-direction: column!important;
+  .nav {
+    display: flex !important;
+    flex-direction: column !important;
     gap: 20px;
   }
-  .search-mobile-bar{
-    display: flex!important;
+  .search-mobile-bar {
+    display: flex !important;
   }
-  .search-mobile{
-    display: block!important;
+  .search-mobile {
+    display: block !important;
   }
-  .nav-list{
-    display: none!important;
+  .nav-list {
+    display: none !important;
   }
-  nav{
-    flex-direction: column!important;
+  nav {
+    flex-direction: column !important;
   }
-  .category__tab{
+  .category__tab {
     display: block;
-    width: 100%!important;
+    width: 100% !important;
   }
-  nav{
+  nav {
     width: 100%;
   }
-  .navbar{
+  .navbar {
     padding: 10px 0px;
-    background:#fff;
+    background: #fff;
   }
 }
 
-@media screen and (max-width:530px) {
-  .modal-layer{
+@media screen and (max-width: 530px) {
+  .modal-layer {
     top: 133px;
   }
-.navsticky{
-  top: 50px;
+  .navsticky {
+    top: 50px;
+  }
 }
-}
-
-
 
 @keyframes smoothScroll {
-	0% {
-		transform: translateY(-85px);
-	}
-	100% {
-		transform: translateY(0px);
-	}
+  0% {
+    transform: translateY(-85px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+@keyframes hide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes open {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }

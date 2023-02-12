@@ -1,5 +1,4 @@
 import React from "react";
-import Tel from "./../../ui/Call";
 import Main from "./../../ui/Slide/index";
 import Img2 from "./../../ui/HeroImg";
 import Warant from "./../../ui/Warranty";
@@ -13,7 +12,6 @@ import "./style.scss";
 const index = () => {
   return (
     <>
-      <Tel />
       <section className="main__section">
         <div className="container">
           <div className="mt-5 hero">

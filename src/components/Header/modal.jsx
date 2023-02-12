@@ -1,8 +1,9 @@
 import React from "react";
-import "./style.scss"
+import "./style.scss";
 import { IoMdClose } from "react-icons/io";
+import { GiHamburgerMenu } from "react-icons/gi";
 import { FiNavigation } from "react-icons/fi";
-const modal = ({open}) => {
+const modal = ({ open }) => {
   return (
     <>
       <div
@@ -38,18 +39,7 @@ const modal = ({open}) => {
             </p>
           </div>
         </div>
-        <button
-          href="#li"
-          className="w-100 btn fw-bold btn btn-warning rounded-0 d-flex text-black gap-2 align-items-center"
-          // onClick={() => setModal((e) => !e)}
-        >
-          {/* {modal ? (
-                    <IoMdClose className="menu__category" />
-                  ) : (
-                    <GiHamburgerMenu className="menu__category" />
-                  )} */}
-          Category
-        </button>
+  
         <ul className="flex-row list-group d-flex flex-column justify-content-between p-0 px-3 modal-mobile-list align-items-start gap-3">
           <li className="list-items">
             <a href="#li" className="modal-link text-black fw-bold">
