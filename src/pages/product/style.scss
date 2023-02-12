@@ -1,5 +1,5 @@
 .product-more {
-  margin-top: 50px;
+  padding-top: 50px;
   margin-bottom: 50px;
   max-width: 1440px;
 }
@@ -62,11 +62,7 @@
     height: auto !important;
     width: 50% !important;
   }
-}
-.carousel-indicators {
-  // display: none;
-  // background: #000;
-}
+
 
 @media screen and (max-width: 660px) {
   .product-right {

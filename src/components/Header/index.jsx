@@ -107,7 +107,7 @@ const index = () => {
                 </InputGroup.Text>
               </InputGroup>
             </div>
-            <div className="dropdown ">
+            <div className="dropdown-search">
               {data
                 .filter((item) => {
                   const searchItem = search.toLowerCase();

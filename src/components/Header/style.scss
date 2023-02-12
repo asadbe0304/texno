@@ -13,13 +13,14 @@ $zindex-modal: 223;
   }
 }
 
-.dropdown {
+.dropdown-search {
   position: absolute;
   top: 65px;
   left: 0px;
   right: 0px;
   margin: 0 auto;
   z-index: 5555;
+  border: 0!important;
   width: 400px;
   background-color: white;
   display: flex;
@@ -225,14 +226,14 @@ $zindex-modal: 223;
   .header__call {
     display: none;
   }
-.dropdown{
+.dropdown-search{
   background: transparent;
   // padding: 10px;
   top: 115px;
 }
   .header__location {
     display: none !important;
-  }
+  } 
   .order__text {
     display: none;
   }

@@ -18,7 +18,7 @@ const index = () => {
   } = CartState();
   return (
     <>
-      <div className="product ">
+      <div className="product bg-white">
         <div className="container">
           <div className="product-more">
             <div className="top">

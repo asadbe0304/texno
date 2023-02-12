@@ -135,7 +135,7 @@ const index = () => {
           </nav>
         </div>
       </div>
-      <div className="dropdown bg-white">
+      <div className="dropdown-search bg-white">
         {data
           .filter((item) => {
             const searchItem = search.toLowerCase();
