@@ -1,5 +1,6 @@
 import "./style.scss";
 import Img from "./../../assets/images/car.png";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { BiTrash } from "react-icons/bi";
 import { CartState } from "./../../context/Auth";
@@ -13,7 +14,7 @@ const index = ({ show }) => {
   useEffect(() => {
     setTotal(
       cart.reduce((acc, i) => {
-        acc + Number(i.price)*i;
+        acc + Number(i.price) * i;
       }, 0)
     );
   }, [cart]);
@@ -109,7 +110,7 @@ const index = ({ show }) => {
             </div>
             <div>
               <button className="btn btn-warning" disabled={cart.length === 0}>
-                Оформить заказ
+                <Link to={"/check"} className="p-0 underline-none">Оформить заказ</Link>
               </button>
             </div>
           </div>

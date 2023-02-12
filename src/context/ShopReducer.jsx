@@ -81,7 +81,11 @@ export const cartReducer = (state, action) => {
         ...sumCart(state.cart),
         cart: [...state.cart],
       };
-
+    case "SHOW":
+      return {
+        ...state,
+        show: action.payload,
+      };
     default:
       return state;
   }

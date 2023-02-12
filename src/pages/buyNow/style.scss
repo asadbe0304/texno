@@ -1,0 +1,76 @@
+.chek_out {
+  max-width: 1440px;
+}
+
+.list-order-bottom {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.order-bottom {
+  background: #d1d1d1;
+}
+.check-list-cart {
+  width: 33%;
+}
+
+@media screen and (max-width: 1110px) {
+  .prodcut__check-list {
+    width: 100% !important;
+  }
+  .check__out-top {
+    width: 100% !important;
+  }
+  .info-check {
+    width: 100% !important;
+  }
+  .adress {
+    width: 100% !important;
+  }
+  .check-list-cart{
+    width: 48%!important;
+  }
+}
+@media screen and (max-width:758px) {
+  .form-label{
+    width: 100%!important;
+  }
+  .select-region{
+    width: 100%!important;
+  }
+  .form-select{
+    width: 50% !important;
+  }
+  .check-list{
+    li{
+      flex-wrap: wrap;
+    }
+  }
+}
+@media screen and (max-width:702px) {
+  .check-list-cart{
+    width: 100%!important;
+  }
+}
+
+@media screen and (max-width:658px) {
+  .form-label{
+    flex-direction: column;
+    align-items: flex-start !important;
+    justify-content: flex-start!important;
+    width: 100%!important;
+  }
+  .select-region{
+    width: 100%!important;
+    flex-direction: column;
+    align-items: flex-start !important;
+    justify-content: flex-start!important;
+  }
+  .form-select{
+    width: 100% !important;
+  }
+  .form-control{
+    width: 100%!important;
+  }
+}

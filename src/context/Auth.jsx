@@ -34,6 +34,7 @@ export const AuthProvider = ({ children }) => {
     cart: storage,
     ...sumCart,
     auth: {},
+    show: "",
   });
 
   return (

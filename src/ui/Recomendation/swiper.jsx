@@ -155,7 +155,7 @@ const swiper = () => {
           product.slice(0, 9).map((e) => {
             return (
               <SwiperSlide
-                className="d-flex justify-content-center border swipe-card flex-column align-items-center px-3"
+                className="d-flex justify-content-center w-25 border swipe-card flex-column align-items-center px-3"
                 key={e.id}
               >
                 {/* <div className="card rounded-0 p-0 align-items-center py-4 position-relative"> */}

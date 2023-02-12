@@ -22,8 +22,9 @@ const index = () => {
                     placeholder=""
                     aria-label=""
                     aria-describedby="basic-addon2"
+                    className="footer-sub-form"
                   />
-                    <button className="btn btn-danger ">Submit</button>
+                    <button className="btn btn-danger btn-submits">Submit</button>
                 </InputGroup>
                 <p className="text-secondary">
                   Нажимая на кнопку «Подписаться», вы соглашаетесь на обработку

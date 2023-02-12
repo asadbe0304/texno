@@ -16,3 +16,13 @@
    flex-direction: column!important;
   }
 }
+@media screen and (max-width:658px) {
+  .btn-submits{
+    margin-top: 10px;
+    width: 100%!important;
+    border-radius: 10px!important;
+  }
+  .footer-sub-form{
+    border-radius: 10px!important;
+  }
+}
