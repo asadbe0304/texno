@@ -11,7 +11,6 @@ import "./style.scss";
 const index = () => {
   const {
     state: { product },
-    dispatch,
   } = CartState();
   return (
     <>
@@ -28,9 +27,11 @@ const index = () => {
             <div className="w-100 d-flex gap-3 justify-content-center align-items-center flex-wrap">
               {product.length > 0 ? (
                 product.map((e) => {
-                  <NavLink to={"/info"} className="underline-none p-0">
-                    <Card prod={product}/>
-                  </NavLink>;
+                  return (
+                   <NavLink to="/info">
+                    <Card key={e.id} prop={e}/>
+                   </NavLink>
+                  );
                 })
               ) : (
                 <Load />
