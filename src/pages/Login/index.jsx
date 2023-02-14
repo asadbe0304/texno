@@ -75,7 +75,7 @@ const index = () => {
         </section>
       ) : (
         // }
-        <div className="d-flex py-4 flex-column justify-content-center align-items-center">
+        <div className="d-flex bg-white py-4 flex-column justify-content-center align-items-center">
           <div className="login-top d-flex flex-column aling-items-center w-50 justify-content-center">
             <h1 className="text-warning text-center">Log in </h1>
             <p

@@ -11,18 +11,18 @@ const index = () => {
           src={Img1}
           alt="images"
           width={410}
-          height={200}
+          height={218}
           className="rounde"
         />
         <img
           src={Img2}
           alt="images"
           width={410}
-          height={200}
+          height={218}
           className="mt-3 rounde"
         />
       </div>
-      <img src={Img3} alt="images" className="hero-round" width={240} height={418} />
+      <img src={Img3} alt="images" className="hero-round" width={240} height={450} />
     </>
   );
 };

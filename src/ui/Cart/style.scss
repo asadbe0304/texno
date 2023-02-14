@@ -35,8 +35,8 @@
   overflow-y: scroll;
   height: 360px;
 }
-.hide {
-  transform: translateY(-1000%);
+.hides {
+  transform: translateY(-1000%) !important;
 }
 .show {
   transform: translateX(0%);

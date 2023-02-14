@@ -1,32 +1,27 @@
 import React from "react";
-import Form from "react-bootstrap/Form";
 import ModalNav from "./NavbarModal";
-import data from "./../../db/db.json";
+import NavSearch from "./NavSearch";
+import Skeloton from "./../Skeletono/Skeleton"
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
-import { BsSearch } from "react-icons/bs";
+import { GiSettingsKnobs } from "react-icons/gi";
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { CartState } from "../../context/Auth";
 import "./stye.scss";
 const index = () => {
-  const [search, setValue] = useState("");
-  console.log(data);
-  const onChange = (event) => {
-    setValue(event.target.value);
-  };
-  const onSearch = (searchItem) => {
-    setValue(searchItem);
-  };
 
   const [modal, setModal] = useState(false);
   const {
-    state: { product },
+    state: { product,}, dispatch
   } = CartState();
+
+
   useEffect(() => {
     const body = document.querySelector("body");
     body.style.overflow = modal ? "hidden" : "auto";
   }, [modal]);
+  
   useEffect(() => {
     const body = document.querySelector("body");
     body.style.overflow = modal ? "hidden" : "auto";
@@ -42,7 +37,7 @@ const index = () => {
   const stickNavbar = () => {
     if (window !== undefined) {
       let windowHeight = window.scrollY;
-      windowHeight > 120 ? setSticky("navsticky") : setSticky("");
+      windowHeight > 152 ? setSticky("navsticky") : setSticky("");
     }
   };
 
@@ -51,18 +46,7 @@ const index = () => {
       <div className={`navbar position-relative ${sticky}`}>
         <div className="container">
           <nav className="d-flex justify-content-between nav flex-row align-items-center">
-            <div className="d-flex search-mobile-bar justify-content-center bg-white align-items-center flex-row">
-              <Form.Control
-                placeholder="Search Products"
-                value={search}
-                onChange={onChange}
-                className={`search-mobile `}
-              />
-              {/* <BsSearch
-                onClick={() => onSearch(search)}
-                className="text-white fw-bold"
-              /> */}
-            </div>
+           <NavSearch/>
             <div className="category__tab w-100">
               <button
                 className="rounded-2 btn w-100 fw-bold btn btn-warning rounded-0 d-flex text-black gap-2 align-items-center"
@@ -127,37 +111,20 @@ const index = () => {
                 </a>
               </li>
               <li className="list-items">
-                <NavLink to="/cate" className="underline-none fw-bold">
+                <a href="#l" className="underline-none fw-bold">
                   Доставка
+                </a>
+              </li>
+              <li className="list-items">
+                <NavLink to={"/admin"} className="underline-none fw-bold">
+                  <GiSettingsKnobs style={{width:"25px", height:"25px"}} className="text-warning"/>
                 </NavLink>
               </li>
             </ul>
           </nav>
         </div>
       </div>
-      <div className="dropdown-search bg-white">
-        {data
-          .filter((item) => {
-            const searchItem = search.toLowerCase();
-            const fullName = item.full_name.toLowerCase();
-
-            return (
-              searchItem &&
-              fullName.startsWith(searchItem) &&
-              fullName !== searchItem
-            );
-          })
-          .slice(0, 10)
-          .map((item) => (
-            <div
-              onClick={() => onSearch(item.full_name)}
-              className="dropdown-row text-black"
-              key={item.full_name}
-            >
-              {item.full_name}
-            </div>
-          ))}
-      </div>
+    
       <ModalNav modal={modal} />
       <div
         className={`modal-layer-mobile ${
@@ -188,7 +155,7 @@ const index = () => {
                 );
               })
             ) : (
-              <Skeleton />
+              <Skeloton/>
             )}
           </ul>
         </div>

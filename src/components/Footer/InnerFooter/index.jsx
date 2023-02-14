@@ -1,6 +1,6 @@
 import React from "react";
 import { Form, InputGroup } from "react-bootstrap";
-import Img from "../../assets/images/rating.png";
+import Img from "../../../assets/images/rating.png";
 import "./style.scss";
 const index = () => {
   return (

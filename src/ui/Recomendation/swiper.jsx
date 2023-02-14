@@ -162,16 +162,16 @@ const swiper = () => {
                 <img src={e.image} alt="images" className="imgcard mx-auto" />
                 <div className="card__body w-100">
                   <div className="card__body--top d-flex gap-3 justify-content-between align-items-center w-100">
-                    <p className="text-black art-title my-3">{e.name}</p>
+                    <p className="text-black art-title my-3 text-start">{e.title}</p>
                     <span className="text-success nalichka fw-bold d-flex justify-content-between align-items-center gap-1">
                       В наличии
                     </span>
                   </div>
                   <Link
-                    to={"/:pro"}
+                    to={"/pro"}
                     className="underline-none p-0 d-flex justify-content-between align-items-start flex-column"
                   >
-                    <h4 className="card-title">{e.name}</h4>
+                    <h4 className="card-title text-start">{e.title}</h4>
                   </Link>
                   <div className="card__footer w-100 d-flex justify-content-between align-items-center gap-2">
                     <h5 className="card__footer--title text-black m-0">

@@ -8,7 +8,9 @@
   -o-user-select: none;
   user-select: none;
 }
-
+.navPad{
+  padding-top: 150px!important;
+}
 ::-webkit-scrollbar {
   width: 3px;
 }

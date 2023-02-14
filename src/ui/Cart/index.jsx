@@ -1,33 +1,31 @@
 import "./style.scss";
 import Img from "./../../assets/images/car.png";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
 import { BiTrash } from "react-icons/bi";
+import { IoMdClose } from "react-icons/io";
 import { CartState } from "./../../context/Auth";
 
-const index = ({ show }) => {
+const index = () => {
   const {
-    state: { cart, cartCount, totals },
+    state: { cart, cartCount, totals, opencart },
     dispatch,
   } = CartState();
-  const [total, setTotal] = useState();
-  useEffect(() => {
-    setTotal(
-      cart.reduce((acc, i) => {
-        acc + Number(i.price) * i;
-      }, 0)
-    );
-  }, [cart]);
 
   return (
     <>
-      <div className={`layer-cart ${show ? "show" : "hide"}`}>
+      <div className={`layer-cart ${opencart ? "show" : "hides"}`}>
         <div className="cart d-flex justify-content-start flex-column align-items-start ">
           <div className="cart__head d-flex justify-content-between flex-column align-items-end">
             <div className="d-flex justify-content-between align-items-center w-100">
               <h2 className="cart__title my-2 p-0">
                 В корзине {cartCount} товара
-              </h2>
+              </h2> 
+              <IoMdClose
+                  className={`position-fixed close-arrow ${
+                    opencart ? "show" : "hide"
+                  }`}
+                  onClick={() => dispatch({ type: "SHOW", payload: false })}
+                />
             </div>
           </div>
           <div className="cart__body w-100 d-flex  flex-column align-items-start justify-content-start">
@@ -46,7 +44,7 @@ const index = ({ show }) => {
                       />
                       <div className="d-flex  flex-column gap-3 h-100 align-items-start justify-content-between">
                         <div>
-                          <h3 className="order__title m-0">{e.name}</h3>
+                          <h3 className="order__title m-0">{e.title}</h3>
                         </div>
                         <div className="btn btn-white d-flex justify-content-between flex-row align-items-center fw-medium p-1">
                           <BiTrash
@@ -109,8 +107,14 @@ const index = ({ show }) => {
               <p className="p-0 m-0 fw-bold"> {totals} $</p>
             </div>
             <div>
-              <button className="btn btn-warning" disabled={cart.length === 0}>
-                <Link to={"/check"} className="p-0 underline-none">Оформить заказ</Link>
+              <button
+                className="btn btn-warning"
+                disabled={cart.length === 0}
+                onClick={() => dispatch({ type: "SHOW" , payload:false})}
+              >
+                <Link to={"/check"} className="p-0 text-black underline-none">
+                  Оформить заказ
+                </Link>
               </button>
             </div>
           </div>

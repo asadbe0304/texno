@@ -84,8 +84,34 @@ export const cartReducer = (state, action) => {
     case "SHOW":
       return {
         ...state,
-        show: action.payload,
+        opencart: action.payload,
       };
+    case "SEARCH":
+      return {
+        ...state,
+        search: action.payload,
+      };
+    case "SEARCHMOB":
+      return {
+        ...state,
+        searchMobile: action.payload,
+      };
+    case "FETCH_DATA_SUCCESS":
+      return {
+        ...state,
+        product: action.payload.data,
+        error: "",
+      };
+    case "FETCH_DATA_FAILURE":
+      return {
+        ...state,
+        product: [],
+        error: action.payload.error,
+      };
+    case "FILTER_BY_RATING":
+      return { ...state, byRating: action.payload };
+    case "FILTER_BY_SEARCH":
+      return { ...state, searchQuery: action.payload };
     default:
       return state;
   }

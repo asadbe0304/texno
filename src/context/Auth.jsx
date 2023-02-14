@@ -1,5 +1,12 @@
-import { createContext, useState, useReducer, useContext } from "react";
+import {
+  createContext,
+  useState,
+  useReducer,
+  useContext,
+  useEffect,
+} from "react";
 import { faker } from "@faker-js/faker";
+import axios from "axios";
 import { cartReducer, sumCart, sumLike } from "./ShopReducer";
 const AuthContext = createContext({});
 
@@ -10,33 +17,37 @@ const storageLike = localStorage.getItem("like")
   ? JSON.parse(localStorage.getItem("like"))
   : [];
 export const AuthProvider = ({ children }) => {
-  // const fetchData = async () => {
-  //   const response = await axios.get("https://fakestoreapi.com/products");
-  //   setdata(response.data);
-  //   console.log(data);
-  // };
-  console.log(storage);
-  console.log(storageLike);
-
-  const products = [...Array(10)].map(() => ({
-    id: faker.datatype.uuid(),
-    name: faker.commerce.productName(),
-    category: faker.commerce.department(),
-    price: faker.commerce.price(),
-    image: faker.image.image(),
-  }));
-
   const [auth, setAuth] = useState({});
   const [state, dispatch] = useReducer(cartReducer, {
-    product: products,
+    product: [],
     like: storageLike,
     ...sumLike,
     cart: storage,
     ...sumCart,
     auth: {},
-    show: "",
+    opencart: false,
+    byRating: 0,
+    searchQuery: [],
+    search: false,
+    searchMobile: false,
   });
 
+  useEffect(() => {
+    axios
+      .get("https://fakestoreapi.com/products")
+      .then((response) => {
+        dispatch({
+          type: "FETCH_DATA_SUCCESS",
+          payload: { data: response.data },
+        });
+      })
+      .catch((error) => {
+        dispatch({
+          type: "FETCH_DATA_FAILURE",
+          payload: { error: error.message },
+        });
+      });
+  }, []);
   return (
     <AuthContext.Provider value={{ auth, setAuth, state, dispatch }}>
       {children}

@@ -1,4 +1,3 @@
-$zindex-modal: 223;
 .search-bar {
   width: 427px;
   border: 2px solid #fac212;
@@ -16,16 +15,18 @@ $zindex-modal: 223;
 .dropdown-search {
   position: absolute;
   top: 65px;
-  left: 0px;
+  left: -340px;
   right: 0px;
   margin: 0 auto;
   z-index: 5555;
-  border: 0!important;
+  border: 0 !important;
   width: 400px;
-  background-color: white;
+  background-color: #e9e9e9;
   display: flex;
   flex-direction: column;
   border: 1px solid gray;
+  border-radius: 10px;
+  overflow-y: scroll;
 }
 
 .dropdown:empty {
@@ -226,14 +227,15 @@ $zindex-modal: 223;
   .header__call {
     display: none;
   }
-.dropdown-search{
-  background: transparent;
-  // padding: 10px;
-  top: 115px;
-}
+  .dropdown-search {
+    background: transparent;
+    // padding: 10px;
+    top: 115px;
+    display: none !important;
+  }
   .header__location {
     display: none !important;
-  } 
+  }
   .order__text {
     display: none;
   }

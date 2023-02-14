@@ -15,34 +15,35 @@ const NavbarModal = ({ modal }) => {
 
   return (
     <>
-      <div
-        className={`modal-layer ${
-          modal ? "d-flex" : "d-none"
-        } category-modal d-flex justify-content-between flex-row bg-white w-100`}
-      >
-        <div className="modal-left w-100">
-          <ul className="modal-list d-flex flex-column align-items-start  border-0">
-            {product.length > 0 ? (
-              product.map((e) => {
-                return (
-                  <li key={e.id} className="modal-item">
-                    <NavLink
-                      to="/catproduct"
-                      onClick={() => setModal(false)}
-                      className="text-black text-uppercase text-decoration-none fw-bold d-flex justify-content-start align-items-center gap-2"
-                    >
-                      <img src={Img} alt="imagea" width={24} height={24} />
-                      {e.category}
-                    </NavLink>
-                  </li>
-                );
-              })
-            ) : (
-              <Skeleton />
-            )}
-          </ul>
-        </div>
-        {/* <div
+      <div className="container">
+        <div
+          className={`modal-layer ${
+            modal ? "d-flex" : "d-none"
+          } category-modal d-flex justify-content-between flex-row bg-white w-100`}
+        >
+          <div className="modal-left w-100">
+            <ul className="modal-list d-flex flex-column align-items-start  border-0">
+              {product.length > 0 ? (
+                product.map((e) => {
+                  return (
+                    <li key={e.id} className="modal-item">
+                      <NavLink
+                        to="/catproduct"
+                        onClick={() => setModal(false)}
+                        className="text-black text-uppercase text-decoration-none fw-bold d-flex justify-content-start align-items-center gap-2"
+                      >
+                        <img src={Img} alt="imagea" width={24} height={24} />
+                        {e.category}
+                      </NavLink>
+                    </li>
+                  );
+                })
+              ) : (
+                <Skeleton />
+              )}
+            </ul>
+          </div>
+          {/* <div
                 className="modal-right w-100 d-flex
             justify-content-between align-items-start gap-2 px-2"
               >
@@ -62,6 +63,7 @@ const NavbarModal = ({ modal }) => {
                   <h3>Modal right</h3>
                 </div>
               </div> */}
+        </div>
       </div>
     </>
   );

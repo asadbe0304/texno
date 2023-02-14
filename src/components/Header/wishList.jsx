@@ -21,7 +21,7 @@ const wishList = () => {
                   <img src={e.image} alt="images" />
                   <div className="w-75">
                     <h5 className="text-dark w-100 text-start like-title">
-                      {e.name}
+                      {e.title}
                     </h5>
                     <p className="like-price">{e.price} $</p>
                     <BiTrash

@@ -4,7 +4,7 @@ import "./style.scss";
 const index = () => {
   return (
     <>
-      <div className="col-12 w-100 d-flex justify-content-center skeleton align-items-center">
+      <div className=" col-10 px-3 w-100 d-flex justify-content-center skeleton align-items-center">
         <div className="lazy  mx-1">
           <div className="movie--isloading">
             <div className="loading-image"></div>

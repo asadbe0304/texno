@@ -2,7 +2,7 @@ import React from "react";
 import "./style.scss";
 import Img from "./../../assets/images/im-removebg-preview.png";
 
-const Card = ({}) => {
+const Card = ({prod}) => {
   return (
     <>
       <div className="card__popular d-flex align-items-center gap-2 flex-column justify-content-between bg-dark p-2">

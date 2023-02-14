@@ -11,27 +11,27 @@ function IndividualIntervalsExample() {
   return (
     <Carousel>
       <Carousel.Item interval={1000} className="">
-        <img className="d-block w-100 hero__corusel-img" src={Img} alt="First slide" width={626} height={418}/>
+        <img className="d-block w-100 hero__corusel-img" src={Img} alt="First slide" width={626} height={450}/>
         <Carousel.Caption></Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item interval={1000} className="">
-        <img className="d-block w-100 hero__corusel-img" src={Img2} alt="Second slide"width={626} height={418}/>
+        <img className="d-block w-100 hero__corusel-img" src={Img2} alt="Second slide"width={626} height={450}/>
         <Carousel.Caption></Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item interval={1000} className="">
-        <img className="d-block w-100 hero__corusel-img " src={Img3} alt="Third slide"width={626} height={418}/>
+        <img className="d-block w-100 hero__corusel-img " src={Img3} alt="Third slide"width={626} height={450}/>
         <Carousel.Caption></Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item interval={1000} className="">
-        <img className="d-block w-100 hero__corusel-img " src={Img4} alt="Third slide"width={626} height={418}/>
+        <img className="d-block w-100 hero__corusel-img " src={Img4} alt="Third slide"width={626} height={450}/>
         <Carousel.Caption></Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item interval={1000} className="">
-        <img className="d-block w-100 hero__corusel-img " src={Img5} alt="Third slide"width={626} height={418}/>
+        <img className="d-block w-100 hero__corusel-img " src={Img5} alt="Third slide"width={626} height={450}/>
         <Carousel.Caption></Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item interval={1000} className="">
-        <img className="d-block w-100 hero__corusel-img " src={Img6} alt="Third slide"width={626} height={418}/>
+        <img className="d-block w-100 hero__corusel-img " src={Img6} alt="Third slide"width={626} height={450}/>
         <Carousel.Caption></Carousel.Caption>
       </Carousel.Item>
     </Carousel>

@@ -23,12 +23,6 @@ const index = () => {
     dispatch,
   } = CartState();
 
-  // useEffect(() => {
-  //   fetch("https://fakestoreapi.com/products")
-  //     .then((res) => res.json())
-  //     .then((json) => setData(json))
-  //     .catch((err) => console.log(err));
-  // }, []);
   return (
     <>
       <div className="recomendation d-flex flex-column w-100 justify-content-between align-items-center">
@@ -197,10 +191,10 @@ const index = () => {
                       </span>
                     </div>
                     <Link
-                      to={"/:pro"}
+                      to={"/pro"}
                       className="underline-none p-0 d-flex justify-content-between align-items-start flex-column"
                     >
-                      <h4 className="card-title">{e.name}</h4>
+                      <h4 className="card-title text-start">{e.title}</h4>
                     </Link>
                     <div className="card__footer w-100 d-flex justify-content-between align-items-center gap-2">
                       <h5 className="card__footer--title text-black m-0">
