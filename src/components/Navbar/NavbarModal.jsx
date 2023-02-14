@@ -18,7 +18,7 @@ const NavbarModal = ({ modal }) => {
       <div className="container">
         <div
           className={`modal-layer ${
-            modal ? "d-flex" : "d-none"
+            modal ? "modal-mobile-block" : "modal-mobile-none"
           } category-modal d-flex justify-content-between flex-row bg-white w-100`}
         >
           <div className="modal-left w-100">
