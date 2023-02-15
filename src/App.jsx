@@ -6,7 +6,6 @@ import PageFooter from "./components/Footer/InnerFooter/index";
 import Roters from "./Routes/route";
 import { useState, useEffect } from "react";
 const App = () => {
-
   const [padding, setPadding] = useState("");
 
   useEffect(() => {

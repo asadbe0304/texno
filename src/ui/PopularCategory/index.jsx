@@ -1,89 +1,140 @@
-import React, { useRef, useState, useEffect, useContext } from "react";
-import Img from "./../../assets/images/2e8f41b9.webp"
-import { Swiper, SwiperSlide } from "swiper/react";
-import { CartState } from "../../context/Auth";
-import { Pagination, Navigation } from "swiper";
-import Load from "../Loader/index"
-import Card from "../Card/Card";
+import React, { Component } from "react";
+import Slider from "react-slick";
+import { useState, useContext, useEffect } from "react";
+import { FcLike } from "react-icons/fc";
+import { BsCartDashFill, BsCartPlusFill } from "react-icons/bs";
+import { BiHeart } from "react-icons/bi";
+import { Link } from "react-router-dom";
+import Card from "./CateCard";
+import { CartState } from "./../../context/Auth";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import "./style.scss";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/free-mode";
-import "swiper/css/navigation";
-
-export default function App() {
+const index = () => {
   const {
-    state: { product },
+    state: { product, cart, like },
+    dispatch,
   } = CartState();
+
+  var settings = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 4,
+    infinite: true,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1300,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 3,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 1180,
+        settings: {
+          slidesToShow: 3.4,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 1080,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 760,
+        settings: {
+          slidesToShow: 2.2,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          // initialSlide: 2,
+          // centerMode: true,
+          slidesPerRow: 2,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          slidesPerRow: 2,
+        },
+      },
+      {
+        breakpoint: 460,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          slidesPerRow: 2,
+        },
+      },
+      {
+        breakpoint: 400,
+        settings: {
+          slidesToShow: 1.7,
+          slidesToScroll: 1,
+          infinite: true,
+          slidesPerRow: 2,
+        },
+      },
+      {
+        breakpoint: 380,
+        settings: {
+          slidesToScroll: 1,
+          centerMode: true,
+          infinite: true,
+          slidesPerRow: 2,
+        },
+      },
+      {
+        breakpoint: 340,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          centerMode: true,
+          slidesPerRow: 2,
+        },
+      },
+    ],
+  };
   return (
     <>
-      <div className="container">
-        <div className="category-popular-top">
-          <h3 className="fw-bold popular-caption">Популярные категории</h3>
-        </div>
-        <Swiper
-          slidesPerView={4}
-          spaceBetween={20}
-          loop={false}
-          loopFillGroupWithBlank={false}
-          pagination={{
-            clickable: true,
-          }}
-          // freeMode={true}
-          grabCursor={true}
-          navigation={true}
-          modules={[Pagination, Navigation]}
-          breakpoints={{
-            1210: {
-              width: 1210,
-              slidesPerView: 4,
-              // slidesPerGroup: 4
-            },
-            768: {
-              width: 940,
-              slidesPerView: 3,
-              spaceBetween: 10,
-            },
-            370: {
-              width: 370,
-              spaceBetween: 20,
-              slidesPerView: 1,
-            },
-            320: {
-              width: 320,
-              spaceBetween: 10,
-              slidesPerView: 1,
-            },
-            240: {
-              width: 320,
-              spaceBetween: 30,
-              slidesPerView: 1,
-            },
-          }}
-          className="mySwiper px-4 d-flex justify-content-center py-5 gap-1 align-items-center"
-        >
-          {product.length > 0
-            ? product.map((e) => {
-                return (
-                  <SwiperSlide key={e.id}>
-                    <div  className="card__popular d-flex align-items-center gap-2 flex-column justify-content-between bg-dark p-2">
-                      <img
-                        src={e.image}
-                        className="img-card position-absolute "
-                        alt="images"
-                      />
-                      <div className="d-flex justify-content-center px-4 align-items-center w-100 flex-row">
-                        <h6 className="fw-bold text-white text-end m-0 my-2 text-capitalize">
-                        {e.category}
-                        </h6>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                );
-              })
-            : <Load/>}
-        </Swiper>
+      <div className="recomendation-slick">
+        <Slider className="py-4" {...settings}>
+          {product.map((e) => {
+            return <Card key={e.id} prop={e} />;
+          })}
+        </Slider>
       </div>
     </>
   );
-}
+};
+
+export default index;

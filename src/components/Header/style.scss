@@ -212,20 +212,31 @@
 }
 @media screen and (max-width: 1160px) {
   .header__search {
-    display: none;
+    // display: none;
+    width: 20%!important;
     width: 0;
   }
-  .search-bar {
+  .order__text {
     display: none;
   }
   .mobile-search-btn {
     display: block;
+  }
+  .badge{
+    top: -8px;
+    right: -16px;
   }
 }
 
 @media screen and (max-width: 830px) {
   .header__call {
     display: none;
+  }
+  .header__search{
+    width: 40%!important;
+  }
+  .search-bar{
+    width: 100%;
   }
   .dropdown-search {
     background: transparent;
@@ -273,6 +284,14 @@
   }
   .Hambur {
     display: block;
+  }
+}
+@media screen and (max-width:805px) {
+  .header__search{
+    display: none;
+  }
+  .search-bar{
+    display: none;
   }
 }
 @media screen and (max-width: 530px) {

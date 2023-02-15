@@ -1,15 +1,13 @@
 .card__popular {
   position: relative;
   width: 200px !important;
-  h6 {
-    padding-top: 250px;
-  }
+ 
   img {
     width: 80%;
     top: 0;
     z-index: 2!important;
   }
-  transition: all 3s cubic-bezier(0.215, 0.610, 0.355, 1);
+  transition: all 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
 
 }
 

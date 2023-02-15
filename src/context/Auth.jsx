@@ -5,7 +5,6 @@ import {
   useContext,
   useEffect,
 } from "react";
-import { faker } from "@faker-js/faker";
 import axios from "axios";
 import { cartReducer, sumCart, sumLike } from "./ShopReducer";
 const AuthContext = createContext({});

@@ -5,8 +5,9 @@ import Warant from "./../../ui/Warranty";
 import Recamendation from "./../../ui/Recomendation";
 import Category from "./../../ui/PopularCategory";
 import Brand from "./../../ui/Brand/index";
+import Slick from "./../../lib/index";
 import XitProduct from "./../../ui/XitProduct/index";
-import { Outlet, Link } from "react-router-dom";
+// import { Outlet, Link } from "react-router-dom";
 import "./style.scss";
 const index = () => {
   return (
@@ -36,13 +37,18 @@ const index = () => {
         <div>
           <Brand />
         </div>
-        <div className="px-3">
+        <div className="">
           <div className="container">
             <XitProduct />
           </div>
         </div>
+        <div className="my-4">
+          <div className="container">
+            <Slick />
+          </div>
+        </div>
         <div className="container">
-          <div className="d-flex w-75 px-2 py-4 mx-auto justify-content-center align-items-start flex-column gap-1">
+          <div className="d-flex w-75 py-4 mx-auto justify-content-center align-items-start flex-column gap-1">
             <h3 className="about-title">Интернет-магазин «Империя Техно»</h3>
             <p className="text-secondary my-2 p-0 ">
               Мы работаем с 2012 года и вот уже 10 лет показываем стабильность в

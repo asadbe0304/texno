@@ -1,11 +1,10 @@
 import React from "react";
-import "./style.scss";
 import { IoMdNavigate } from "react-icons/io";
 import { IoMdCall } from "react-icons/io";
 import { IoMdMail } from "react-icons/io";
 import { IoMdCalendar } from "react-icons/io";
-import Bottom from "./../../layout/FooterBottom";
-import Img from "./../../assets/images/Screenshot_79-removebg-preview.png";
+import Bottom from "./../Footer/FooterBottom";
+import "./style.scss";
 const index = () => {
   return (
     <>
@@ -102,7 +101,7 @@ const index = () => {
           </div>
         </div>
       </footer>
-      <div className="" style={{background: "#e4e4e4"}}>
+      <div className="" style={{ background: "#e4e4e4" }}>
         <div className="container">
           <Bottom />
         </div>

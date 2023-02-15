@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
 import { useState, useContext, useEffect } from "react";
+import Img from "./../assets/images/im.jpg";
 import { FcLike } from "react-icons/fc";
 import { BsCartDashFill, BsCartPlusFill } from "react-icons/bs";
 import { BiHeart } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import { CartState } from "./../../context/Auth";
+import { CartState } from "./../context/Auth";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./style.scss";
-const index = () => {
+const Responsive = () => {
+  // let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   const {
     state: { product, cart, like },
     dispatch,
@@ -95,37 +97,37 @@ const index = () => {
   return (
     <>
       <div>
-        <h2> Хиты продаж </h2>
+        <h2> Лучшая цена </h2>
         <Slider className="py-4" {...settings}>
           {product.map((e) => {
             return (
               <div key={e.id} className="card-slick bg-white p-3 border">
                 {/* <BiHeart className="card-heart position-absolute" /> */}
                 {like.some((p) => p.id === e.id) ? (
-                  <div
-                    className="w-100 slick-like position-absolute bottom-0"
-                    onClick={() =>
-                      dispatch({
-                        type: "REMOVE__TO__LIKE",
-                        payload: e,
-                      })
-                    }
-                  >
-                    <FcLike className="position-absolute card-heart" />
-                  </div>
-                ) : (
-                  <div
-                    className="w-100 slick-like position-absolute bottom-0"
-                    onClick={() =>
-                      dispatch({
-                        type: "ADD__TO__LIKE",
-                        payload: e,
-                      })
-                    }
-                  >
-                    <BiHeart className="position-absolute card-heart" />
-                  </div>
-                )}
+                        <div
+                        className="w-100 slick-like position-absolute"
+                          onClick={() =>
+                            dispatch({
+                              type: "REMOVE__TO__LIKE",
+                              payload: e,
+                            })
+                          }
+                        >
+                          <FcLike className="position-absolute card-heart" />
+                        </div>
+                      ) : (
+                        <div
+                        className="w-100 slick-like position-absolute"
+                        onClick={() =>
+                          dispatch({
+                            type: "ADD__TO__LIKE",
+                            payload: e,
+                          })
+                        }
+                      >
+                        <BiHeart className="position-absolute card-heart" />
+                      </div>
+                      )}
                 <img src={e.image} className="img-slick" alt={e.title} />
                 <div className="card-slick-body w-100 ">
                   <div className="d-flex justify-content-between card-slick-top align-items-center w-100">
@@ -178,5 +180,4 @@ const index = () => {
     </>
   );
 };
-
-export default index;
+export default Responsive;
