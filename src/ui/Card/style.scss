@@ -1,9 +1,11 @@
 .card__popular {
   position: relative;
   width: 200px !important;
+  height: 250px;
  
   img {
     width: 80%;
+    height: 80%;
     top: 0;
     z-index: 2!important;
   }
@@ -11,6 +13,9 @@
 
 }
 
+.category-cap{
+  margin-top: 200px!important;
+}
 .card__popular::before {
   position: absolute;
   top: 0;
