@@ -8,7 +8,7 @@ import { createContext } from "react";
 import "./style.scss";
 import axios from "../../api/axios";
 
-const LOGIN_URL = "/auth";
+const LOGIN_URL = "'https://fakestoreapi.com/auth/login";
 
 const index = () => {
   const { setAuth } = useContext(AuthContext);
@@ -48,18 +48,17 @@ const index = () => {
       setUser("");
       setPwd("");
       setSuccess(true);
-    } catch(err) {
+    } catch (err) {
       if (!err?.response) {
         setErrMsg("No server response");
       } else if (err.response?.status === 400) {
-      setErrMsg("Missing username or password")
+        setErrMsg("Missing username or password");
+      } else if (err.response?.status === 401) {
+        setErrMsg("UnAutorization");
+      } else {
+        setErrMsg("login failed");
       }
-      else if(err.response?.status===401){
-    setErrMsg('UnAutorization')
-      }else{
-        setErrMsg("login failed")
-      }
-      errRef.current.focus()
+      errRef.current.focus();
     }
   };
 

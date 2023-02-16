@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 import Login from "./../Login/index";
 import "./style.scss";
 
-const REGISTER_URL = "/register";
+const REGISTER_URL = "https://fakestoreapi.com/auth/sign";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;

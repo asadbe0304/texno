@@ -106,7 +106,7 @@ const index = () => {
 
                   {/* drop like menu */}
                   <div
-                    className={`drop__like position-absolute bg-white p-2 ${
+                    className={`drop__like position-absolute bg-light shadow p-2 ${
                       favaourite ? "d-block" : "d-none"
                     }`}
                   >
@@ -117,12 +117,12 @@ const index = () => {
                       <WishList />
                     </ul>
                     <div className="like-bottom w-100 mt-0 pt-4 mb-2">
-                      <button
+                      {/* <button
                         className="btn btn-danger w-100"
                         disabled={like.length == 0}
                       >
                         Submit
-                      </button>
+                      </button> */}
                     </div>
                   </div>
                   {/* drop like menu end */}

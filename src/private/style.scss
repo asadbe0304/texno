@@ -1,3 +1,66 @@
-.cabinet-left{
-  padding: 20px!important;
+.cabinet-left {
+  padding: 20px !important;
+  overflow-x: scroll;
+}
+
+.admin-left {
+  padding: 20px;
+  width: 350px;
+  .user-profile-title {
+    font-size: 20px;
+    line-height: 22px;
+    font-weight: 700;
+  }
+  .user-id {
+    margin: 30px 0px 0 0;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 500;
+  }
+  .profile-list {
+    width: 100%;
+    margin-top: 40px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 30px;
+    font-size: 0;
+    list-style: none;
+  }
+  .profile-item {
+    width: 100%;
+    font-size: 16px;
+    border-bottom: 1px solid gray;
+    .item-link {
+      text-decoration: none;
+    }
+  }
+}
+
+.item-links {
+  color: #d80606 !important;
+  text-decoration: none;
+}
+.profile-items .item-links:hover {
+  background: #f7a712e0;
+  border-radius: 10px;
+  padding: 10px;
+  transition: all .3s ease-in-out;
+  }
+.profile-items .item-links {
+  border-radius: 10px;
+  padding: 10px;
+  }
+
+@media screen and (max-width: 680px) {
+  .admin-profile {
+    flex-direction: column !important;
+    .cabinet-left {
+      width: 100% !important;
+    }
+    .admin-left {
+      width: 100% !important;
+    }
+  }
 }
