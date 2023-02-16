@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { FiShoppingCart } from "react-icons/fi";
-import { RiAdminFill } from "react-icons/ri";
+import { CgProfile } from "react-icons/cg";
 import { BiHeart } from "react-icons/bi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
@@ -89,8 +89,9 @@ const index = () => {
             <div className="header__inner align-items-center d-flex justify-content-between gap-3">
               <div className="header__like--order d-flex justify-content between">
                 <div className="admin">
-                  <NavLink to="/login" className={"text-black"}>
-                    <RiAdminFill className="admin__icon" />
+                  <NavLink to="/login" className={"text-black underline-none d-flex flex-column align-items-center justify-content-center"}>
+                    <CgProfile className="admin__icon" />
+                    <span className="profile-title">Profile</span>
                   </NavLink>
                 </div>
                 <div className="like position-relative">

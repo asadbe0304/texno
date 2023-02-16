@@ -16,7 +16,12 @@
   width: 22px;
   height: 22px;
 }
-
+.slick-prev{
+  left: -20px!important;
+}
+.slick-next{
+  right: -20px!important;
+}
 .slick-next::before{
   color: #000;
 }

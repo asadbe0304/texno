@@ -10,7 +10,9 @@ import Categ from "./../pages/ProductCategory/index";
 import Info from "./../pages/productInfo";
 import Check from "./../pages/buyNow/index";
 import Private from "./../private/private";
-
+import Cabinet from "../pages/Cabinet/cabinet"
+import Order from "../pages/Order/order"
+import AddProduct from "../pages/AddProduct/addProduct"
 function index() {
   return (
     <>
@@ -23,7 +25,11 @@ function index() {
         <Route path="/catproduct" element={<Categ />} />
         <Route path="/info" element={<Info />} />
         <Route path="/check" element={<Check />} />
-        <Route path="/admin" element={<Private />} />
+        <Route path="/admin" element={<Private />}>
+          <Route index element={<Cabinet />} />
+          <Route path="order" element={<Order />} />
+          <Route path="addorder" element={<AddProduct />} />
+        </Route>
       </Routes>
     </>
   );
