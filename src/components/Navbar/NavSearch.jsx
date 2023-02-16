@@ -22,7 +22,7 @@ const NavSearch = () => {
         <Form.Control
           placeholder="Search Products"
           value={searchQuery}
-          className={`search-mobile `}
+          className={`search-mobile text-lowercase`}
           onFocus={() => dispatch({ type: "SEARCHMOB", payload: true })}
           onChange={(e) => {
             dispatch({
