@@ -8,7 +8,6 @@ import {
 import axios from "axios";
 import { cartReducer, sumCart, sumLike } from "./ShopReducer";
 const AuthContext = createContext({});
-
 const storage = localStorage.getItem("cart")
   ? JSON.parse(localStorage.getItem("cart"))
   : [];

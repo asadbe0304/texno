@@ -50,9 +50,9 @@ const index = () => {
           </div>
         </div>
         <div className="container">
-          <div className="d-flex w-75 py-4 mx-auto justify-content-center align-items-start flex-column gap-1">
-            <h3 className="about-title">Интернет-магазин «Империя Техно»</h3>
-            <p className="text-secondary my-2 p-0 ">
+          <div className="d-flex w-75 py-4 mx-auto justify-content-center align-items-center flex-column gap-1">
+            <h3 className="about-title text-center">Интернет-магазин «Империя Техно»</h3>
+            <p className="text-secondary my-2 p-0 text-center">
               Мы работаем с 2012 года и вот уже 10 лет показываем стабильность в
               высоком качестве обслуживания, завоевываем доверие все большего
               количества покупателей со всей России. Главная награда нашей

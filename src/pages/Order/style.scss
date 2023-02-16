@@ -19,3 +19,8 @@ td{
 th{
   font-size: 13px;
 }
+@media screen and (max-width:1300px) {
+  .order-panel{
+    width: 100%!important;
+  }
+}

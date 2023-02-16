@@ -24,3 +24,20 @@
   line-height: 22px;
   font-weight: 500;
 }
+.avatar{
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  top: 43%;
+  left:12%;
+  z-index: 5;
+  border-radius: 50%;
+  opacity: 0;
+}
+.avatar-icon-edit{
+  top: 43%;
+  left: 12%;
+  z-index: 3;
+  color: #f5a003;
+  background: #faf6f6;
+}

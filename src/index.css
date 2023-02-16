@@ -12,17 +12,18 @@
   padding-top: 150px!important;
 }
 ::-webkit-scrollbar {
-  width: 3px;
+  width: 10px;
+  height: 10px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #eeeeee;
+  background: #ffffff;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(117, 117, 117);
+  background: #020331;
   border-radius: 5px;
 }
 

@@ -5,9 +5,8 @@ import {
   CgProfile,
   CgReorder,
   CgProductHunt,
-  CgDetailsMore,
   CgEditStraight,
-  CgAdd,
+  CgAlignRight
 } from "react-icons/cg";
 import Brand from "./../ui/Brand";
 import {BiLogInCircle} from "react-icons/bi"
@@ -19,7 +18,7 @@ const index = () => {
     <>
       <div className="admin-panels">
         <div className="container">
-          <div className="bg-white rounded mt-3">
+          <div className="bg-white rounded mt-3 py-3">
             <Link to={"/"} className="underline-none text-black">
               Главная
             </Link>
@@ -70,7 +69,7 @@ const index = () => {
                   </li>
                   <li className="profile-items fs-6 w-100">
                     <Link
-                      to={"addorder"}
+                      to={"/"}
                       onClick={() => setActive((e) => !e)}
                       className={`item-links d-flex justify-content-between fw-bold fs-6  ${
                         active ? "" : "text-warning"
@@ -84,7 +83,7 @@ const index = () => {
                   </li>
                 </ul>
               </div>
-              <div className="w-75 h-100 cabinet-left">
+              <div className="h-100 cabinet-left shadow">
                 <Outlet />
               </div>
             </div>

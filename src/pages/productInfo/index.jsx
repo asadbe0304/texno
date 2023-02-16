@@ -1,5 +1,5 @@
 import React from "react";
-import Img from "./../../assets/images/2e8f41b9.webp";
+import Img from "./../../assets/images/22.webp";
 import Prod from "./../../ui/XitProduct/index";
 import Load from "./../../ui/Loader";
 import Dropdown from "./dropdown";

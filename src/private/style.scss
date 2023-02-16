@@ -1,6 +1,9 @@
 .cabinet-left {
   padding: 20px !important;
-  overflow-x: scroll;
+  overflow-x: scroll; 
+  width: 1000px;
+  border-left: 1px solid #dfdfdf;
+  border-radius: 10px;
 }
 
 .admin-left {
