@@ -68,7 +68,7 @@ const index = () => {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1.9,
           slidesToScroll: 1,
           // initialSlide: 2,
           // centerMode: true,
@@ -79,27 +79,30 @@ const index = () => {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1.3,
           slidesToScroll: 1,
           infinite: true,
           slidesPerRow: 2,
+          centerMode:true,
         },
       },
       {
         breakpoint: 460,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1.1,
           slidesToScroll: 1,
           infinite: true,
+          centerMode: true,
           slidesPerRow: 2,
         },
       },
       {
         breakpoint: 400,
         settings: {
-          slidesToShow: 1.7,
+          slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
+          centerMode: true,
           slidesPerRow: 2,
         },
       },
@@ -107,7 +110,8 @@ const index = () => {
         breakpoint: 380,
         settings: {
           slidesToScroll: 1,
-          centerMode: true,
+          slidesToShow: 1,
+          centerMode: false,
           infinite: true,
           slidesPerRow: 2,
         },
@@ -118,7 +122,17 @@ const index = () => {
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
-          centerMode: true,
+          centerMode: false,
+          slidesPerRow: 2,
+        },
+      },
+      {
+        breakpoint: 300,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          centerMode: false,
           slidesPerRow: 2,
         },
       },
@@ -126,7 +140,6 @@ const index = () => {
   };
   return (
     <>
-    
       <div className="recomendation-slick">
         <Slider className="py-4" {...settings}>
           {product.map((e) => {

@@ -29,7 +29,11 @@
   transform: scaleX(1.04);
   animation: after 0.2s both;
 }
-
+@media screen and (max-width:380px) {
+  .cetegorytop{
+    width: 95%!important;
+  }
+}
 @keyframes after {
   0% {
     clip-path: circle(8% at 5% 6%);
