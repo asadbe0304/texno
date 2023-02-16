@@ -145,6 +145,12 @@
     right: 22px;
     z-index: 4;
   }
+  .slick-next::before{
+    color: #000;
+  }
+  .slick-prev::before{
+    color: #000;
+  }
 .slick-like{
   padding: 15px;
   z-index: 2;

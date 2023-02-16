@@ -16,14 +16,21 @@
   width: 22px;
   height: 22px;
 }
-.slick-like{
+
+.slick-next::before{
+  color: #000;
+}
+.slick-prev::before{
+  color: #000;
+}
+.slick-like {
   padding: 15px;
   z-index: 0;
   left: 0;
   height: 20px;
-  background: transparent!important;
-  top: 0!important;
-  }
+  background: transparent !important;
+  top: 0 !important;
+}
 .linl-slick {
   text-decoration: none;
   h5 {
@@ -80,8 +87,8 @@
     flex-direction: row !important;
     align-items: flex-start !important;
   }
-  .card-slick-title{
-    margin-top: 0!important;
+  .card-slick-title {
+    margin-top: 0 !important;
   }
   .card-slick-body {
     margin-left: 10px;
@@ -91,33 +98,32 @@
     align-items: start;
   }
 
-    .card-slick-top{
-      position: absolute;
-      padding: 5px 10px;
-      padding-right: 40px;
-      bottom: 0;
-      left: 0px;
-      margin: 0 auto;
-      z-index: 1;
-      width: 100%!important;
-      background: #f1f1f1!important;
+  .card-slick-top {
+    position: absolute;
+    padding: 5px 10px;
+    padding-right: 40px;
+    bottom: 0;
+    left: 0px;
+    margin: 0 auto;
+    z-index: 1;
+    width: 100% !important;
+    background: #f1f1f1 !important;
+  }
+  .linl-slick {
+    h5 {
+      font-size: 13px !important;
     }
-    .linl-slick{
-      h5{
-        font-size: 13px!important;
-      }
-  
-    }
-    .card-heart{
-      top: -27px;
-      right: 22px;
-      z-index: 4;
-    }
-  .slick-like{
+  }
+  .card-heart {
+    top: -27px;
+    right: 22px;
+    z-index: 4;
+  }
+  .slick-like {
     padding: 15px;
     z-index: 2;
     left: 0;
-    top: 100%!important;
-    bottom: 0!important;
+    top: 100% !important;
+    bottom: 0 !important;
   }
 }

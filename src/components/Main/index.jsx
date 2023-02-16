@@ -32,7 +32,9 @@ const index = () => {
           </div>
         </div>
         <div className="popular-category w-100 ">
-          <Category />
+          <div className="container">
+            <Category />
+          </div>
         </div>
         <div>
           <Brand />

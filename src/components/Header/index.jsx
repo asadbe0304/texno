@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { FiShoppingCart } from "react-icons/fi";
-import { BsSearch } from "react-icons/bs";
 import { RiAdminFill } from "react-icons/ri";
 import { BiHeart } from "react-icons/bi";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -11,7 +10,6 @@ import Tel from "./../../ui/Call";
 import SearchBar from "./search";
 import Call from "./Call";
 import { Badge } from "react-bootstrap";
-
 import Cart from "../../ui/Cart/index";
 import WishList from "./wishList";
 import Modal from "./modal";

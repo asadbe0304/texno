@@ -1,7 +1,5 @@
 import React from "react";
 import "./style.scss";
-import { IoMdClose } from "react-icons/io";
-import { GiHamburgerMenu } from "react-icons/gi";
 import { FiNavigation } from "react-icons/fi";
 const modal = ({ open }) => {
   return (
@@ -58,12 +56,12 @@ const modal = ({ open }) => {
           </li>
           <li className="list-items">
             <a href="#li" className="modal-link text-black fw-bold">
-              Обмен и возврат
+              Bозврат
             </a>
           </li>
           <li className="list-items">
             <a href="#li" className="modal-link text-black fw-bold">
-              Для бизнеса
+              бизнеса
             </a>
           </li>
           <li className="list-items">
@@ -73,7 +71,7 @@ const modal = ({ open }) => {
           </li>
           <li className="list-items">
             <a href="#li" className="modal-link text-black fw-bold">
-              Статус заказа
+              Статус
             </a>
           </li>
           <li className="list-items">

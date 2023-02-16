@@ -1,11 +1,6 @@
 import React from "react";
 // import Spin from "../../components/Spin/MyLoader";
-import SwiperJs  from "./swiper";
-import "./style.scss";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/free-mode";
-import "swiper/css/navigation";
+import SwiperJs from "./swiper";
 import "./style.scss";
 
 const index = () => {
@@ -34,7 +29,7 @@ const index = () => {
         </div>
       </div>
       <div className="recomendation__card w-100 ">
-     <SwiperJs/>
+        <SwiperJs />
       </div>
     </>
   );

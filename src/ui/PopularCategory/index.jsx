@@ -126,6 +126,7 @@ const index = () => {
   };
   return (
     <>
+    
       <div className="recomendation-slick">
         <Slider className="py-4" {...settings}>
           {product.map((e) => {

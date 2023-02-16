@@ -1,7 +1,7 @@
 import React from "react";
 import ModalNav from "./NavbarModal";
 import NavSearch from "./NavSearch";
-import Skeloton from "./../Skeletono/Skeleton"
+import Skeloton from "./../../lib/Skeletono/Skeleton";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
 import { GiSettingsKnobs } from "react-icons/gi";
@@ -10,18 +10,17 @@ import { NavLink } from "react-router-dom";
 import { CartState } from "../../context/Auth";
 import "./stye.scss";
 const index = () => {
-
   const [modal, setModal] = useState(false);
   const {
-    state: { product,}, dispatch
+    state: { product },
+    dispatch,
   } = CartState();
-
 
   useEffect(() => {
     const body = document.querySelector("body");
     body.style.overflow = modal ? "hidden" : "auto";
   }, [modal]);
-  
+
   useEffect(() => {
     const body = document.querySelector("body");
     body.style.overflow = modal ? "hidden" : "auto";
@@ -46,7 +45,7 @@ const index = () => {
       <div className={`navbar position-relative ${sticky}`}>
         <div className="container">
           <nav className="d-flex justify-content-between nav flex-row align-items-center">
-           <NavSearch/>
+            <NavSearch />
             <div className="category__tab w-100">
               <button
                 className="rounded-2 btn w-100 fw-bold btn btn-warning rounded-0 d-flex text-black gap-2 align-items-center"
@@ -91,13 +90,19 @@ const index = () => {
                 </a>
               </li>
               <li className="list-items">
-                <a href="#li" className="underline-none fw-bold">
-                  Обмен и возврат
+                <a
+                  href="#li"
+                  className="underline-none text-capitalize fw-bold"
+                >
+                  возврат
                 </a>
               </li>
               <li className="list-items">
-                <a href="#li" className="underline-none fw-bold">
-                  Для бизнеса
+                <a
+                  href="#li"
+                  className="underline-none text-capitalize fw-bold"
+                >
+                  бизнеса
                 </a>
               </li>
               <li className="list-items">
@@ -106,8 +111,11 @@ const index = () => {
                 </a>
               </li>
               <li className="list-items">
-                <a href="#li" className="underline-none fw-bold">
-                  Статус заказа
+                <a
+                  href="#li"
+                  className="underline-none fw-bold text-capitalize"
+                >
+                  заказа
                 </a>
               </li>
               <li className="list-items">
@@ -117,14 +125,17 @@ const index = () => {
               </li>
               <li className="list-items">
                 <NavLink to={"/admin"} className="underline-none fw-bold">
-                  <GiSettingsKnobs style={{width:"25px", height:"25px"}} className="text-warning"/>
+                  <GiSettingsKnobs
+                    style={{ width: "25px", height: "25px" }}
+                    className="text-warning"
+                  />
                 </NavLink>
               </li>
             </ul>
           </nav>
         </div>
       </div>
-    
+
       <ModalNav modal={modal} />
       <div
         className={`modal-layer-mobile ${
@@ -155,7 +166,7 @@ const index = () => {
                 );
               })
             ) : (
-              <Skeloton/>
+              <Skeloton />
             )}
           </ul>
         </div>

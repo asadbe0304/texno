@@ -3,7 +3,7 @@ import ContentLoader from 'react-content-loader'
 
 const FadingLoader = () => {
   return (
-    <div className='d-flex justify-content-between align-items-start flex-column gap-4 w-75'>
+    <div className='d-flex justify-content-between align-items-start flex-column gap-4 w-100'>
       <FadingLoaderCard1 />
       <FadingLoaderCard1 />
       <FadingLoaderCard2 />
@@ -19,6 +19,7 @@ const FadingLoaderCard1 = () => {
   return (
     <ContentLoader
       width={600}
+      className="skeleton"
       height={40}
       backgroundColor="#ababab"
       foregroundColor="#fafafa"
@@ -34,6 +35,7 @@ const FadingLoaderCard2 = () => {
   return (
     <ContentLoader
       width={600}
+      className="skeleton"
       height={40}
       backgroundColor="#bfbfbf"
       foregroundColor="#fafafa"
@@ -49,6 +51,7 @@ const FadingLoaderCard3 = () => {
   return (
     <ContentLoader
       width={600}
+      className="skeleton"
       height={40}
       backgroundColor="#dadada"
       foregroundColor="#fafafa"
@@ -64,6 +67,7 @@ const FadingLoaderCard4 = () => {
   return (
     <ContentLoader
       width={600}
+      className="skeleton"
       height={40}
       backgroundColor="#ececec"
       foregroundColor="#fafafa"
@@ -79,6 +83,7 @@ const FadingLoaderCard5 = () => {
   return (
     <ContentLoader
       width={600}
+      className="skeleton"
       height={40}
       backgroundColor="#f7f7f7"
       foregroundColor="#fafafa"
