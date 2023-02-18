@@ -13,10 +13,10 @@ import { useNavigate } from "react-router-dom";
 import Login from "./../Login/index";
 import "./style.scss";
 
-const REGISTER_URL = "https://fakestoreapi.com/auth/sign";
+const REGISTER_URL = "https://api.storerestapi.com/auth/register";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
-const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+const PWD_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 
 const index = () => {
   const userRef = useRef();
@@ -77,7 +77,7 @@ const index = () => {
         }
       );
       console.log(response?.data);
-      console.log(response?.accessToken);
+      // console.log(response?.acc);
       console.log(JSON.stringify(response));
       setSuccess(true);
       //clear state and controlled inputs

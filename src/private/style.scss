@@ -1,9 +1,8 @@
 .cabinet-left {
   padding: 20px !important;
-  overflow-x: scroll; 
+  overflow-x: scroll;
   width: 1000px;
   border-left: 1px solid #dfdfdf;
-  border-radius: 10px;
 }
 
 .admin-left {
@@ -49,12 +48,24 @@
   background: #f7a712e0;
   border-radius: 10px;
   padding: 10px;
-  transition: all .3s ease-in-out;
-  }
+  transition: all 0.3s ease-in-out;
+}
 .profile-items .item-links {
   border-radius: 10px;
   padding: 10px;
-  }
+}
+
+.product-table {
+  width: 100%;
+  border-radius: 10px;
+  padding: 10px;
+  overflow-x: scroll;
+}
+// @media screen and (max-width:1300px) {
+//   .product-table{
+//     width: 90%;
+//   }
+// }
 
 @media screen and (max-width: 680px) {
   .admin-profile {

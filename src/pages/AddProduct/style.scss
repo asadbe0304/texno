@@ -5,16 +5,8 @@
   width: 180px;
   height: 180px;
 }
-.product-table {
-  width:900px;
-  overflow-x: scroll;
-}
+
 .table {
   width:900px;
   overflow-x: scroll;
-}
-@media screen and (max-width:1300px) {
-  .product-table{
-    width: 90%;
-  }
 }

@@ -57,9 +57,9 @@ const filter = () => {
           label="false"
           ruler="false"
           barLeftColor="#fff"
-          barInnerColor="red"
-          thumbLeftColor="yellow"
-          thumbRightColor="yellow"
+          barInnerColor="#444"
+          thumbLeftColor="#ffc122"
+          thumbRightColor="#ffc122"
           style={{border: 'none', boxShadow: 'none', padding: '15px 10px' }}
         />
         <div className="d-flex justify-content-between w-100 align-items-start">

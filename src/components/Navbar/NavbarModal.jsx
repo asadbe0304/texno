@@ -1,14 +1,15 @@
 import React from "react";
 import Img from "./../../assets/images/holod.png";
 import { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink , useParams} from "react-router-dom";
 import { CartState } from "../../context/Auth";
 import Skeleton from "./../../lib/Skeletono/Skeleton";
 const NavbarModal = () => {
   const {
     state: { category, modal },dispatch
   } = CartState();
-
+// const {info} =useParams()
+// console.log(info);
   useEffect(() => {
     const body = document.querySelector("body");
     body.style.overflow = modal ? "hidden" : "auto";
@@ -25,14 +26,14 @@ const NavbarModal = () => {
                 category.map((e) => {
                   return (
                     <li key={e} className="modal-item">
-                      <NavLink
-                        to="/catproduct"
+                      <Link
+                        to={`/info`}
                         onClick={() => dispatch({type: "MODAL", payload: false})}
                         className="text-black text-uppercase text-decoration-none fw-bold d-flex justify-content-start align-items-center gap-2"
                       >
                         <img src={Img} alt="imagea" width={24} height={24} />
                         {e}  
-                      </NavLink>
+                      </Link>
                     </li>
                   );
                 })

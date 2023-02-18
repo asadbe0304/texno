@@ -1,8 +1,18 @@
+import { useState } from "react";
 import Table from "react-bootstrap/Table";
-import React from "react";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+
 import "./style.scss";
 
 const order = () => {
+  const [fullscreen, setFullscreen] = useState(true);
+  const [show, setShow] = useState(false);
+
+  function handleShow(breakpoint) {
+    setFullscreen(breakpoint);
+    setShow(true);
+  }
   return (
     <>
       <div className="order-top">
@@ -32,9 +42,12 @@ const order = () => {
                 </button>
               </td>
               <td className="p-0 text-center ">
-                <button className="btn btn-info admin-btn text-white mt-2 py-0 px-4">
+                <Button
+                  onClick={() => handleShow(true)}
+                  className="btn btn-info admin-btn text-white mt-2 py-0 px-4"
+                >
                   details
-                </button>
+                </Button>
               </td>
             </tr>
             <tr>
@@ -48,9 +61,12 @@ const order = () => {
                 </button>
               </td>
               <td className="p-0 text-center ">
-                <button className="btn btn-info admin-btn text-white mt-2 py-0 px-4">
+                <Button
+                  onClick={() => handleShow(true)}
+                  className="btn btn-info admin-btn text-white mt-2 py-0 px-4"
+                >
                   details
-                </button>
+                </Button>
               </td>
             </tr>
             <tr>
@@ -64,14 +80,24 @@ const order = () => {
                 </button>
               </td>
               <td className="p-0 text-center ">
-                <button className="btn btn-info admin-btn text-white mt-2 py-0 px-4">
+                <Button
+                  onClick={() => handleShow(true)}
+                  className="btn btn-info admin-btn text-white mt-2 py-0 px-4"
+                >
                   details
-                </button>
+                </Button>
               </td>
             </tr>
           </tbody>
         </Table>
       </div>
+
+      <Modal show={show} fullscreen={fullscreen} onHide={() => setShow(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Modal body content</Modal.Body>
+      </Modal>
     </>
   );
 };

@@ -97,7 +97,7 @@ const index = () => {
     <>
       <div className="recomendation-slick">
         <Slider className="py-1 w-100" {...settings}>
-          {product.map((e) => {
+          {product.map((e, i) => {
             return (
               <div key={e.id} className="card-slick bg-white p-3 border">
                 {/* <BiHeart className="card-heart position-absolute" /> */}

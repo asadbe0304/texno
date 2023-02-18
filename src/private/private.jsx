@@ -8,6 +8,7 @@ import {
   CgEditStraight,
   CgAlignRight
 } from "react-icons/cg";
+import AllProd from "./allproduct"
 import Brand from "./../ui/Brand";
 import {BiLogInCircle} from "react-icons/bi"
 import { BsFillBasket2Fill } from "react-icons/bs";
@@ -18,11 +19,11 @@ const index = () => {
     <>
       <div className="admin-panels">
         <div className="container">
-          <div className="bg-white rounded mt-3 py-3">
-            <Link to={"/"} className="underline-none text-black">
+          <div className="bg-white rounded-1 mt-3">
+            <Link to={"/"} className="underline-none text-secondary fw-bold">
               Главная
             </Link>
-            <div className="admin-profile rounded border d-flex justify-content-between align-items-start w-100 my-3 h-100">
+            <div className="admin-profile border d-flex justify-content-between align-items-start w-100 my-3 h-100">
               <div className="h-100 admin-left">
                 <h2 className="user-profile-title">Здравствуйте, Asadbek</h2>
                 <span className="user-id">ID: A81365</span>
@@ -83,11 +84,12 @@ const index = () => {
                   </li>
                 </ul>
               </div>
-              <div className="h-100 cabinet-left shadow">
+              <div className="h-100 cabinet-left   shadow">
                 <Outlet />
               </div>
             </div>
           </div>
+          {/* <AllProd/> */}
         </div>
       </div>
       <div className="container">

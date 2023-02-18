@@ -1,7 +1,8 @@
 import React from "react";
 import Img from "./../../assets/images/22.webp";
+import { Form } from "react-bootstrap";
 
-const form = () => {
+const form = ({ prop }) => {
   return (
     <>
       <form className="form d-flex justify-content-between align-items-start flex-wrap">
@@ -15,21 +16,22 @@ const form = () => {
             className="form-control border-warning my-3 text-secondary w-100"
           />
         </label>
-        <label
-          htmlFor="select"
-          className="d-flex my-1 flex-column fw-bold w-75"
+        <Form.Select
+          className="d-flex my-1 flex-column border-warning text-capitalize fw-bold w-75"
+          aria-label="Default select example"
         >
-          Select Categories
-          <select
-            required
-            name="variant"
-            id="select"
-            className="w-100 border-warning form-control my-2"
-          >
-            <option value="Laptop">Laptop</option>
-            <option value="desktop">Desktop</option>
-          </select>
-        </label>
+          {prop.length > 0
+            ? prop.map((e) => {
+                return (
+                  <option className="text-capitalize" key={e} defaultValue={e}>
+                    {e}
+                  </option>
+                );
+              })
+            : "not category"}
+          {/* <option value="Laptop">Laptop</option>
+            <option value="desktop">Desktop</option> */}
+        </Form.Select>
         <label htmlFor="add-product-price" className="w-75 fw-bold">
           Product price
           <input
