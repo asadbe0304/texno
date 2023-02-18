@@ -1,6 +1,6 @@
 import React from "react";
 import { BsSearch } from "react-icons/bs";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useParams } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import { CartState } from "./../../context/Auth";
@@ -10,7 +10,7 @@ const search = () => {
     state: { product, searchQuery, search },
     dispatch,
   } = CartState();
-
+const {pro}=useParams()
   let sortedProducts = product;
   if (searchQuery) {
     sortedProducts = sortedProducts.filter((e) =>
@@ -38,7 +38,7 @@ const search = () => {
           />
           <InputGroup.Text
             id="basic-addon1"
-            className="bg-warning border-0 rounded-0"
+            className="bg-warning header_search-btn border-0 rounded-0"
           >
             <BsSearch className="text-white fw-bold" />
           </InputGroup.Text>
@@ -59,15 +59,15 @@ const search = () => {
                       alt="images"
                       style={{ width: "50px", height: "50px" }}
                     />
-                    <NavLink
-                      to="/pro"
+                    <Link
+                      to={`/${pro}`}
                       onClick={() =>
                         dispatch({ type: "SEARCH", payload: false })
                       }
                       className="underline-none text-black"
                     >
                       <div>{e.title}</div>
-                    </NavLink>
+                    </Link>
                   </div>
                   <div>{e.price} $</div>
                 </div>

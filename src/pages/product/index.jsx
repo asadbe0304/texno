@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect, useState } from "react";
 import { Carousel } from "react-bootstrap";
 import { Dropdown } from "react-bootstrap";
 import { AiFillStar } from "react-icons/ai";
@@ -8,14 +9,25 @@ import { MdArrowForwardIos } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { CartState } from "../../context/Auth";
 import Garant from "./../../ui/Warranty";
+import { useParams } from "react-router-dom";
 import Recomendation from "./../../ui/XitProduct";
+import {API} from "./../../api/axios"
 import Img from "../../assets/images/im-removebg-preview.png";
 import "./style.scss";
 const index = () => {
+  const {pro }= useParams()
+const [data, setData] = useState([])
+  console.log(pro);
   const {
-    state: { cart, like },
+    state: { cart, like , product},
     dispatch,
   } = CartState();
+  useEffect(()=>{
+    API.getName(pro).then(res=> setData(res))
+  } , [pro])
+
+  // const {id, price, title, categories, image } = data
+  console.log(data);
   return (
     <>
       <div className="product bg-white">
@@ -44,8 +56,8 @@ const index = () => {
                   Холодильники
                 </Link>
                 <MdArrowForwardIos className="text-warning mx-1" />
-                <Link to={"/pro"} className="text-secondary underline-none p-0">
-                  Стиральная машина
+                <Link className="text-secondary underline-none p-0">
+                  {pro}
                 </Link>
                 <Dropdown.Toggle
                   variant="white"
@@ -69,13 +81,13 @@ const index = () => {
                 </Dropdown.Menu>
               </Dropdown>
               <h2 className="my-3 fw-bold advice-title">
-                Стиральная машина Beko WRS 54P1 BSW
+                {pro}
               </h2>
             </div>
             <div className="d-flex justify-content-between my-3 product-item align-items-start">
               <div className="product-left my-4 p-2 gap-4 d-flex justify-content-between align-items-start">
                 <Carousel className="product-corusel">
-                  <Carousel.Item interval={1000} className="px-4">
+                  <Carousel.Item interval={5000} className="px-4">
                     <img
                       className="hero__corusel-img"
                       src={Img}
@@ -85,7 +97,7 @@ const index = () => {
                     />
                     <Carousel.Caption></Carousel.Caption>
                   </Carousel.Item>
-                  <Carousel.Item interval={1000} className="px-4">
+                  <Carousel.Item interval={5000} className="px-4">
                     <img
                       className="hero__corusel-img"
                       src={Img}
@@ -95,7 +107,7 @@ const index = () => {
                     />
                     <Carousel.Caption></Carousel.Caption>
                   </Carousel.Item>
-                  <Carousel.Item interval={1000} className="px-4">
+                  <Carousel.Item interval={5000} className="px-4">
                     <img
                       className="hero__corusel-img "
                       src={Img}
@@ -105,7 +117,7 @@ const index = () => {
                     />
                     <Carousel.Caption></Carousel.Caption>
                   </Carousel.Item>
-                  <Carousel.Item interval={1000} className="px-4">
+                  <Carousel.Item interval={5000} className="px-4">
                     <img
                       className="hero__corusel-img "
                       src={Img}
@@ -115,7 +127,7 @@ const index = () => {
                     />
                     <Carousel.Caption></Carousel.Caption>
                   </Carousel.Item>
-                  <Carousel.Item interval={1000} className="px-4">
+                  <Carousel.Item interval={5000} className="px-4">
                     <img
                       className="hero__corusel-img "
                       src={Img}
@@ -125,7 +137,7 @@ const index = () => {
                     />
                     <Carousel.Caption></Carousel.Caption>
                   </Carousel.Item>
-                  <Carousel.Item interval={1000} className="px-4">
+                  <Carousel.Item interval={5000} className="px-4">
                     <img
                       className="hero__corusel-img "
                       src={Img}

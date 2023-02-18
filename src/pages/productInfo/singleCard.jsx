@@ -5,7 +5,6 @@ import { BsCartDashFill, BsCartPlusFill } from "react-icons/bs";
 import { FcLike } from "react-icons/fc";
 import { CartState } from "../../context/Auth";
 import { Link } from "react-router-dom";
-
 import { useEffect, useState } from "react";
 
 const singleCard = ({ prod }) => {
@@ -18,7 +17,8 @@ const singleCard = ({ prod }) => {
   return (
     <>
       <div className="product-card d-flex w-25 flex-column position-relative align-items-center justify-content-center ">
-        {like.some((p) => p.id === id) ? (
+        {
+        like.some((p) => p.id === id) ? (
           <div
             className="position-absolute wish"
             onClick={() =>
@@ -59,7 +59,7 @@ const singleCard = ({ prod }) => {
           </span>
         </div>
         <Link
-          to={"/pro"}
+          to={`/${title}`}
           className="underline-none p-0 d-flex justify-content-start align-items-start w-100 mt-2"
         >
           <h5 className="text-black popular-title  w-100">{title}</h5>

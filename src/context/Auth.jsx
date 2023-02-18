@@ -7,29 +7,38 @@ import {
 } from "react";
 import axios from "axios";
 import { cartReducer, sumCart, sumLike } from "./ShopReducer";
+
+// create context  provider
 const AuthContext = createContext({});
+// create context provider
+
 const storage = localStorage.getItem("cart")
   ? JSON.parse(localStorage.getItem("cart"))
   : [];
+
 const storageLike = localStorage.getItem("like")
   ? JSON.parse(localStorage.getItem("like"))
   : [];
+
 export const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState({});
   const [state, dispatch] = useReducer(cartReducer, {
     product: [],
+    category: [],
+    searchQuery: [],
+    auth: {},
+    opencart: false,
+    search: false,
+    searchMobile: false,
+    modal: false,
     like: storageLike,
     ...sumLike,
     cart: storage,
     ...sumCart,
-    auth: {},
-    opencart: false,
     byRating: 0,
-    searchQuery: [],
-    search: false,
-    searchMobile: false,
   });
 
+  // get all product
   useEffect(() => {
     axios
       .get("https://fakestoreapi.com/products")
@@ -46,6 +55,19 @@ export const AuthProvider = ({ children }) => {
         });
       });
   }, []);
+
+  // get all product category
+  useEffect(() => {
+    axios
+      .get("https://fakestoreapi.com/products/categories")
+      .then((response) => {
+        dispatch({
+          type: "FETCH_DATA_CATEGORY",
+          payload: { data: response.data },
+        });
+      });
+  }, []);
+
   return (
     <AuthContext.Provider value={{ auth, setAuth, state, dispatch }}>
       {children}

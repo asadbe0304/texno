@@ -98,7 +98,7 @@ const Responsive = () => {
     <>
       <div>
         <h2> Лучшая цена </h2>
-        <Slider className="py-4" {...settings}>
+        <Slider className="py-1" {...settings}>
           {product.map((e) => {
             return (
               <div key={e.id} className="card-slick bg-white p-3 border">
@@ -137,7 +137,7 @@ const Responsive = () => {
                     </span>
                   </div>
                   <div className="card-slick-title w-100">
-                    <Link to={"/pro"} className="text-black linl-slick">
+                    <Link to={`/${e.title}`} className="text-black linl-slick">
                       <h5>{e.title}</h5>
                     </Link>
                   </div>

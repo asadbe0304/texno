@@ -4,36 +4,34 @@ import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { CartState } from "../../context/Auth";
 import Skeleton from "./../../lib/Skeletono/Skeleton";
-const NavbarModal = ({ modal }) => {
+const NavbarModal = () => {
   const {
-    state: { product },
+    state: { category, modal },dispatch
   } = CartState();
+
   useEffect(() => {
     const body = document.querySelector("body");
     body.style.overflow = modal ? "hidden" : "auto";
   }, [modal]);
-
   return (
     <>
       <div className="container">
         <div
-          className={`modal-layer ${
-            modal ? "modal-mobile-block" : "modal-mobile-none"
-          } category-modal d-flex justify-content-between flex-row bg-white w-100`}
+          className={`modal-layer ${ modal ? "modal-mobile-block" : "modal-mobile-none" } category-modal d-flex justify-content-between flex-row bg-white w-100`}
         >
           <div className="modal-left w-100">
             <ul className="modal-list d-flex flex-column align-items-start  border-0">
-              {product.length > 0 ? (
-                product.map((e) => {
+              {category.length > 0 ? (
+                category.map((e) => {
                   return (
-                    <li key={e.id} className="modal-item">
+                    <li key={e} className="modal-item">
                       <NavLink
                         to="/catproduct"
-                        onClick={() => setModal(false)}
+                        onClick={() => dispatch({type: "MODAL", payload: false})}
                         className="text-black text-uppercase text-decoration-none fw-bold d-flex justify-content-start align-items-center gap-2"
                       >
                         <img src={Img} alt="imagea" width={24} height={24} />
-                        {e.category}
+                        {e}  
                       </NavLink>
                     </li>
                   );

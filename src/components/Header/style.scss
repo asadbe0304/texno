@@ -84,12 +84,17 @@
     border-bottom: 1px solid #555;
   }
 }
-.like-bottom {
-  border-top: 1px solid #555;
-}
+
 .like-badge {
-  top: 0px;
-  right: 5px;
+  padding: 0 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  width: 20px;
+  height: 20px;
+  top: 2px;
+  right: 10px;
 }
 .modal-link {
   border: 0;
@@ -121,12 +126,17 @@
 
 .admin {
   height: 50px;
-  padding: 0 20px;
+  padding: 0;
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-right: 1px solid gray;
+  a {
+    padding: 0px;
+  }
+}
+.header__inner {
+  gap: 0px !important;
 }
 .like {
   height: 50px;
@@ -134,22 +144,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-right: 1px solid gray;
 }
 .admin__icon {
+  width: 25px;
+  height: 25px;
+}
+.like__icon {
   width: 30px;
   height: 30px;
 }
-.like__icon {
-  width: 35px;
-  height: 35px;
-}
 .header__shopping--cart {
-  width: 35px;
-  height: 35px;
+  width: 28px;
+  height: 28px;
   cursor: pointer;
 }
 .badge {
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   top: 0px;
   z-index: 2;
@@ -204,7 +220,7 @@
     height: 28px;
   }
 }
-.profile-title{
+.profile-title {
   margin: 0;
   text-decoration: none;
   font-size: 12px;
@@ -219,7 +235,7 @@
 @media screen and (max-width: 1160px) {
   .header__search {
     // display: none;
-    width: 20%!important;
+    width: 20% !important;
     width: 0;
   }
   .order__text {
@@ -228,7 +244,7 @@
   .mobile-search-btn {
     display: block;
   }
-  .badge{
+  .badge {
     top: -8px;
     right: -16px;
   }
@@ -238,10 +254,10 @@
   .header__call {
     display: none;
   }
-  .header__search{
-    width: 40%!important;
+  .header__search {
+    width: 40% !important;
   }
-  .search-bar{
+  .search-bar {
     width: 100%;
   }
   .dropdown-search {
@@ -280,23 +296,23 @@
     right: -10px;
   }
   .like-badge {
-    top: 4px;
-    right: -10px;
+    top: 1px;
+    right: 4px;
     font-size: 11px;
   }
   .like {
-    padding: 0;
+    padding: 0 14px;
     border: 0;
   }
   .Hambur {
     display: block;
   }
 }
-@media screen and (max-width:805px) {
-  .header__search{
-    display: none;
+@media screen and (max-width: 805px) {
+  .header__search {
+    display: none !important;
   }
-  .search-bar{
+  .search-bar {
     display: none;
   }
 }
@@ -317,10 +333,6 @@
     padding: 0;
   }
   .admin {
-    padding: 0;
-    border: 0;
-  }
-  .like {
     padding: 0;
     border: 0;
   }

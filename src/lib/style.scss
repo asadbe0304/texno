@@ -54,6 +54,7 @@
 }
 .card-slick:hover {
   transform: scale(1.04);
+  z-index: 33;
   // border: 1px solid black!important;
 }
 .slick-code-title {

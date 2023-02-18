@@ -22,11 +22,11 @@ const index = () => {
   const [favaourite, setFavaourite] = useState(false);
 
   const {
-    state: { cart, like, opencart, searchQuery },
+    state: { cart, like, opencart, searchQuery, category },
     dispatch,
   } = CartState();
 
-  console.log(searchQuery);
+  // console.log(searchQuery);
   useEffect(() => {
     const body = document.querySelector("body");
     body.style.overflow = open ? "hidden" : "auto";
@@ -47,7 +47,7 @@ const index = () => {
       windowHeight > 152 ? setSticky("sticky") : setSticky("");
     }
   };
-
+  // console.log(category);
   return (
     <>
       <Tel />
@@ -59,40 +59,21 @@ const index = () => {
               <Location />
             </div>
             <SearchBar />
-            {/* <InputGroup className=" bg-white mobile__search--bar position-absolute top-0 left-0 right-0">
-              <Form.Control
-                placeholder="Search Products"
-                aria-label="Username"
-                aria-describedby="basic-addon2"
-                value={searchQuery}
-                onFocus={() => dispatch({ type: "SEARCH", payload: true })}
-                onChange={(e) => {
-                  dispatch({
-                    type: "FILTER_BY_SEARCH",
-                    payload: e.target.value,
-                  });
-                }}
-                // value={search}
-                // onChange={onChange}
-              />
-              <InputGroup.Text
-                id="basic-addon1"
-                className="bg-warning border-0 rounded-0"
-              >
-                <BsSearch
-                  className="text-white fw-bold"
-                  // onClick={() => onSearch(search)}
-                />
-              </InputGroup.Text>
-            </InputGroup> */}
             <Call />
             <div className="header__inner align-items-center d-flex justify-content-between gap-3">
               <div className="header__like--order d-flex justify-content between">
                 <div className="admin">
-                  <NavLink to="/login" className={"text-black underline-none d-flex flex-column align-items-center justify-content-center"}>
+                  {/* profile sign in component */}
+                  <NavLink
+                    to="/login"
+                    className={
+                      "text-black underline-none d-flex flex-column align-items-center justify-content-center"
+                    }
+                  >
                     <CgProfile className="admin__icon" />
-                    <span className="profile-title">Profile</span>
+                    {/* <span className="profile-title">Profile</span> */}
                   </NavLink>
+                  {/* sign in component */}
                 </div>
                 <div className="like position-relative">
                   <BiHeart
@@ -116,14 +97,6 @@ const index = () => {
                     <ul className="like-list w-100">
                       <WishList />
                     </ul>
-                    <div className="like-bottom w-100 mt-0 pt-4 mb-2">
-                      {/* <button
-                        className="btn btn-danger w-100"
-                        disabled={like.length == 0}
-                      >
-                        Submit
-                      </button> */}
-                    </div>
                   </div>
                   {/* drop like menu end */}
                 </div>
@@ -133,7 +106,7 @@ const index = () => {
                   onClick={() => dispatch({ type: "SHOW", payload: true })}
                   className="header__shopping--cart pointer"
                 />
-                <Badge bg="danger" className=" badge">
+                <Badge bg="danger" className="badge rounded-3">
                   {cart.length}
                 </Badge>
                 <p className="p-0 mx-2 my-0 order__text">

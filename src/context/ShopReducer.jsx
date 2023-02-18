@@ -1,33 +1,41 @@
 const Storage = (cart) => {
   localStorage.setItem("cart", JSON.stringify(cart.length > 0 ? cart : []));
 };
+
 const StorageLike = (like) => {
   localStorage.setItem("like", JSON.stringify(like.length > 0 ? like : []));
 };
 
 export const sumCart = (cart) => {
   Storage(cart);
+
   let cartCount = cart.reduce(
     (totals, product) => totals + product.quantity,
     0
   );
+
   let totals = cart
     .reduce((totals, product) => totals + product.price * product.quantity, 0)
     .toFixed(2);
+
   return { cartCount, totals };
 };
+
 export const sumLike = (like) => {
   StorageLike(like);
+
   let LikeCount = like.reduce(
     (totalLike, product) => totalLike + product.quantity,
     0
   );
+
   let totalLike = like
     .reduce(
       (totalLike, product) => totalLike + product.price * product.quantity,
       0
     )
     .toFixed(2);
+
   return { LikeCount, totalLike };
 };
 
@@ -91,6 +99,11 @@ export const cartReducer = (state, action) => {
         ...state,
         search: action.payload,
       };
+    case "MODAL":
+      return {
+        ...state,
+        modal: action.payload,
+      };
     case "SEARCHMOB":
       return {
         ...state,
@@ -107,6 +120,17 @@ export const cartReducer = (state, action) => {
         ...state,
         product: [],
         error: action.payload.error,
+      };
+    case "FETCH_DATA_CATEGORY":
+      return {
+        ...state,
+        category: action.payload.data,
+        error: "",
+      };
+      return {
+        ...state,
+        category: [],
+        error: action.payload,
       };
     case "FILTER_BY_RATING":
       return { ...state, byRating: action.payload };

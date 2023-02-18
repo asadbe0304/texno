@@ -33,9 +33,10 @@
   transition: all 0.3s ease-in-out;
 }
 .product-card:hover{
-  transform: scale(1.1);
+  transform: scale(1.05);
   z-index: 4;
-  box-shadow: 0px 0px 5px 5px #adadad;
+  border-radius: 10px;
+  box-shadow: 0px 5px 5px 0px #adadad;
 }
 .popular-title {
   margin: 10px 0px;

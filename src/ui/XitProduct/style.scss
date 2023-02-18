@@ -17,10 +17,15 @@
   height: 22px;
 }
 .slick-prev{
-  left: -20px!important;
+  z-index: 33;
+  top: -20px;
+  left: 94%!important;
+
 }
 .slick-next{
-  right: -20px!important;
+  top: -20px;
+
+  right: 10px!important;
 }
 .slick-next::before{
   color: #000;
@@ -83,7 +88,17 @@
     height: 380px !important;
   }
 }
+@media screen and (max-width:881px) {
 
+  .slick-prev{
+    left: 90%!important;
+  }
+}
+@media screen and (max-width:584px) {
+  .slick-prev{
+    left: 85%!important;
+  }
+}
 @media screen and (max-width: 460px) {
   .card-slick {
     padding-top: 10px !important;
@@ -130,5 +145,10 @@
     left: 0;
     top: 100% !important;
     bottom: 0 !important;
+  }
+}
+@media screen and (max-width:360px) {
+  .slick-prev{
+    left: 80%!important;
   }
 }

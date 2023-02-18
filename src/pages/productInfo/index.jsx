@@ -5,6 +5,7 @@ import Load from "./../../ui/Loader";
 import Dropdown from "./dropdown";
 import SingleCard from "./singleCard";
 import Brand from "./../../ui/Brand";
+import Filter from "./filter";
 import Pagination from "../../components/pagination/pagination";
 import { CartState } from "../../context/Auth";
 import { useEffect, useState } from "react";
@@ -33,52 +34,7 @@ const index = () => {
             </div>
             <h3>Телевизоры</h3>
             <div className="d-flex justify-content-center product-all-filter align-items-start w-100">
-              <div className="filter-product border w-25 p-3">
-                <h6 className="fw-bold text-black">Сначала популярные</h6>
-                <div className="form-check">
-                  <label className="form-check-labe " htmlFor="filter">
-                    <input
-                      className="form-check-input bg-warning"
-                      type="checkbox"
-                      id="filter"
-                    />
-                    5 и выше
-                    <span className="text-secondary mx-2">121</span>
-                  </label>
-                </div>
-                <div className="form-check">
-                  <label className="form-check-label" htmlFor="filter2">
-                    <input
-                      className="form-check-input bg-warning"
-                      type="checkbox"
-                      id="filter2"
-                    />
-                    4 и выше <span className="text-secondary mx-2">13</span>
-                  </label>
-                </div>
-                <div className="form-check">
-                  <label className="form-check-label" htmlFor="filter3">
-                    <input
-                      className="form-check-input bg-warning"
-                      type="checkbox"
-                      id="filter3"
-                    />
-                    3 и выше
-                    <span className="text-secondary mx-2">13</span>
-                  </label>
-                </div>
-                <div className="form-check">
-                  <label className="form-check-label" htmlFor="filter4">
-                    <input
-                      className="form-check-input bg-warning"
-                      type="checkbox"
-                      id="filter4"
-                    />
-                    2 и выше
-                    <span className="text-secondary mx-2">13</span>
-                  </label>
-                </div>
-              </div>
+              <Filter />
               <div className="product-alls w-75 d-flex align-items-center">
                 <div className="product-all justify-content-start w-100">
                   {currentPosts.length > 0 ? (
