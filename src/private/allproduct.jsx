@@ -20,7 +20,13 @@ const allproduct = memo(() => {
       <div className="product-table bg-white  my-3 mx-auto">
         <h5>All Product</h5>
         <hr />
-        <table className="table  w-100 table-bordered table-responsive table-hover table-striped table-dark m-0 ">
+        <Table
+          bordered
+          hover
+          striped
+          variant={"dark"}
+          className="table  w-100 m-0 "
+        >
           <thead>
             <tr>
               <th>id</th>
@@ -37,8 +43,11 @@ const allproduct = memo(() => {
             {allcurrentPosts.length > 0
               ? allcurrentPosts.map((e) => {
                   return (
-                    <tr style={{ height: "40px", overflowY: "scroll" }}>
-                      <td>{ e.id}</td>
+                    <tr
+                      key={e.id}
+                      style={{ height: "40px", overflowY: "scroll" }}
+                    >
+                      <td>{e.id}</td>
                       <td>
                         <img
                           src={e.image}
@@ -69,7 +78,7 @@ const allproduct = memo(() => {
                 })
               : "Not product"}
           </tbody>
-        </table>
+        </Table>
         <div className="py-3 d-flex justify-content-center align-items-center">
           <AllPostPagination
             totalPosts={product.length}

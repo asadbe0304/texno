@@ -104,30 +104,30 @@ const Responsive = () => {
               <div key={e.id} className="card-slick bg-white p-3 border">
                 {/* <BiHeart className="card-heart position-absolute" /> */}
                 {like.some((p) => p.id === e.id) ? (
-                        <div
-                        className="w-100 slick-like position-absolute"
-                          onClick={() =>
-                            dispatch({
-                              type: "REMOVE__TO__LIKE",
-                              payload: e,
-                            })
-                          }
-                        >
-                          <FcLike className="position-absolute card-heart" />
-                        </div>
-                      ) : (
-                        <div
-                        className="w-100 slick-like position-absolute"
-                        onClick={() =>
-                          dispatch({
-                            type: "ADD__TO__LIKE",
-                            payload: e,
-                          })
-                        }
-                      >
-                        <BiHeart className="position-absolute card-heart" />
-                      </div>
-                      )}
+                  <div
+                    className="w-100 slick-like position-absolute"
+                    onClick={() =>
+                      dispatch({
+                        type: "REMOVE__TO__LIKE",
+                        payload: e,
+                      })
+                    }
+                  >
+                    <FcLike className="position-absolute card-heart" />
+                  </div>
+                ) : (
+                  <div
+                    className="w-100 slick-like position-absolute"
+                    onClick={() =>
+                      dispatch({
+                        type: "ADD__TO__LIKE",
+                        payload: e,
+                      })
+                    }
+                  >
+                    <BiHeart className="position-absolute card-heart" />
+                  </div>
+                )}
                 <img src={e.image} className="img-slick" alt={e.title} />
                 <div className="card-slick-body w-100 ">
                   <div className="d-flex justify-content-between card-slick-top align-items-center w-100">
@@ -137,7 +137,10 @@ const Responsive = () => {
                     </span>
                   </div>
                   <div className="card-slick-title w-100">
-                    <Link to={`/${e.title}`} className="text-black linl-slick">
+                    <Link
+                      to={`/product/${e.id}`}
+                      className="text-black linl-slick"
+                    >
                       <h5>{e.title}</h5>
                     </Link>
                   </div>

@@ -18,7 +18,7 @@ function index() {
     <>
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/:pro" element={<Product />} />
+        <Route path="/product/:productId" element={<Product />} />
         <Route path="/login" element={<Login />} />
         <Route path="/sign" element={<Sign />} />
         <Route path="*" element={<Error />} />

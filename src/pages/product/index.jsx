@@ -9,25 +9,28 @@ import { MdArrowForwardIos } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { CartState } from "../../context/Auth";
 import Garant from "./../../ui/Warranty";
-import { useParams } from "react-router-dom";
 import Recomendation from "./../../ui/XitProduct";
-import {API} from "./../../api/axios"
+import { API } from "./../../api/axios";
+import { FcLike } from "react-icons/fc";
+import { useParams } from "react-router-dom";
+import { BsCartDashFill, BsCartPlusFill } from "react-icons/bs";
 import Img from "../../assets/images/im-removebg-preview.png";
 import "./style.scss";
 const index = () => {
-  const {pro }= useParams()
-const [data, setData] = useState([])
-  console.log(pro);
+  const { productId } = useParams();
+  const [data, setData] = useState([]);
   const {
-    state: { cart, like , product},
+    state: { cart, like, product },
     dispatch,
   } = CartState();
-  useEffect(()=>{
-    API.getName(pro).then(res=> setData(res))
-  } , [pro])
+  const url = "https://fakestoreapi.com/products/";
 
+  useEffect(() => {
+    fetch(url + productId)
+      .then((res) => res.json())
+      .then((json) => setData(json));
+  }, [productId]);
   // const {id, price, title, categories, image } = data
-  console.log(data);
   return (
     <>
       <div className="product bg-white">
@@ -57,7 +60,7 @@ const [data, setData] = useState([])
                 </Link>
                 <MdArrowForwardIos className="text-warning mx-1" />
                 <Link className="text-secondary underline-none p-0">
-                  {pro}
+                  {data.title}
                 </Link>
                 <Dropdown.Toggle
                   variant="white"
@@ -80,9 +83,7 @@ const [data, setData] = useState([])
                   </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
-              <h2 className="my-3 fw-bold advice-title">
-                {pro}
-              </h2>
+              <h2 className="my-3 fw-bold advice-title">{data.title}</h2>
             </div>
             <div className="d-flex justify-content-between my-3 product-item align-items-start">
               <div className="product-left my-4 p-2 gap-4 d-flex justify-content-between align-items-start">
@@ -90,7 +91,7 @@ const [data, setData] = useState([])
                   <Carousel.Item interval={5000} className="px-4">
                     <img
                       className="hero__corusel-img"
-                      src={Img}
+                      src={data.image}
                       alt="First slide"
                       width={300}
                       height={350}
@@ -100,7 +101,7 @@ const [data, setData] = useState([])
                   <Carousel.Item interval={5000} className="px-4">
                     <img
                       className="hero__corusel-img"
-                      src={Img}
+                      src={data.image}
                       alt="Second slide"
                       width={300}
                       height={350}
@@ -110,7 +111,7 @@ const [data, setData] = useState([])
                   <Carousel.Item interval={5000} className="px-4">
                     <img
                       className="hero__corusel-img "
-                      src={Img}
+                      src={data.image}
                       alt="Third slide"
                       width={300}
                       height={350}
@@ -120,7 +121,7 @@ const [data, setData] = useState([])
                   <Carousel.Item interval={5000} className="px-4">
                     <img
                       className="hero__corusel-img "
-                      src={Img}
+                      src={data.image}
                       alt="Third slide"
                       width={300}
                       height={350}
@@ -130,7 +131,7 @@ const [data, setData] = useState([])
                   <Carousel.Item interval={5000} className="px-4">
                     <img
                       className="hero__corusel-img "
-                      src={Img}
+                      src={data.image}
                       alt="Third slide"
                       width={300}
                       height={350}
@@ -140,7 +141,7 @@ const [data, setData] = useState([])
                   <Carousel.Item interval={5000} className="px-4">
                     <img
                       className="hero__corusel-img "
-                      src={Img}
+                      src={data.image}
                       alt="Third slide"
                       width={300}
                       height={350}
@@ -151,7 +152,7 @@ const [data, setData] = useState([])
                 <div className="d-flex flex-column product-desc">
                   <div className="d-flex">
                     <p className="border px-2 p-1  border-warning">
-                      Артикул:380842
+                      Артикул:{data.id}
                     </p>
                   </div>
                   <div className="d-flex justify-content-between align-items-start my-4 gap-2 flex-column">
@@ -195,21 +196,78 @@ const [data, setData] = useState([])
                 <div className="right-card mb-2 d-flex flex-column justify-content-between">
                   <div className="right-card-top w-100 d-flex gap-2 justify-content-between align-items-start">
                     <h4 className="d-flex justify-content-between flex-column align-items-start gap-1">
-                      184500 usd
+                      {data.price} $
                       <span className="text-secondary fw-normal fs-6">
                         Включая НДС 20% (3 080,83 ₽)
                       </span>
                     </h4>
-                    <BiHeart className="bi-like" />
+
+                    {like.some((p) => p.id === data.id) ? (
+                      <div
+                        className="w-100 d-flex justify-content-end align-items-center"
+                        onClick={() =>
+                          dispatch({
+                            type: "REMOVE__TO__LIKE",
+                            payload: data,
+                          })
+                        }
+                      >
+                        <FcLike
+                          style={{
+                            cursor: "pointer",
+                            width: "25px",
+                            height: "25px",
+                          }}
+                        />
+                      </div>
+                    ) : (
+                      <div
+                        className="w-100  d-flex justify-content-end align-items-center"
+                        onClick={() =>
+                          dispatch({
+                            type: "ADD__TO__LIKE",
+                            payload: data,
+                          })
+                        }
+                      >
+                        <BiHeart
+                          style={{
+                            cursor: "pointer",
+                            width: "25px",
+                            height: "25px",
+                          }}
+                        />
+                      </div>
+                    )}
+                    {/* <BiHeart className="bi-like" /> */}
                   </div>
                   <div className="d-flex justify-content-between align-items-start my-3 gap-3 flex-column">
-                    <button className="btn cart-btn btn-warning">
-                      Add to Cart
-                    </button>
-                    {/*  */}
-                    <button className="btn cart-btn btn-outline-warning">
+                    {cart.some((p) => p.id === data.id) ? (
+                      <button
+                        className="btn cart-btn btn-danger"
+                        onClick={() =>
+                          dispatch({
+                            type: "REMOVE__TO__PRODUCT",
+                            payload: data,
+                          })
+                        }
+                      >
+                        Remove to Cart
+                      </button>
+                    ) : (
+                      <button className="btn cart-btn btn-warning"
+                      onClick={() =>
+                        dispatch({
+                          type: "ADD__TO__PRODUCT",
+                          payload: data,
+                        })
+                      }>
+                        Add to Cart
+                      </button>
+                    )}
+                    <Link to="/check" className="btn cart-btn btn-outline-warning">
                       Buy one click
-                    </button>
+                    </Link>
                   </div>
                 </div>
                 <div className="right-bottom w-100 border">
@@ -229,7 +287,7 @@ const [data, setData] = useState([])
             </div>
             <hr />
             <div className="product-advice px-3">
-              <h4 className="my-4">Стиральная машина Beko WRS 54P1 BSW</h4>
+              <h4 className="my-4">{data.title}</h4>
               <div className="d-flex justify-content-between w-100 gap-1 px-3 align-items-start">
                 <ul className="d-flex flex-column align-items-start list">
                   <li className="d-flex justify-content-between align-items-start w-100">

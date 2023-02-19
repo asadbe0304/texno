@@ -96,6 +96,9 @@ const index = () => {
   return (
     <>
       <div className="recomendation-slick">
+        <div className="d-flex justify-content-between align-items-center gap-3">
+          <h3 className="recomendation__title">Наши рекомендации</h3>
+        </div>
         <Slider className="py-1 w-100" {...settings}>
           {product.map((e, i) => {
             return (
@@ -135,7 +138,10 @@ const index = () => {
                     </span>
                   </div>
                   <div className="card-slick-title w-100">
-                    <Link to={`/${e.title}`} className="text-black linl-slick">
+                    <Link
+                      to={`/product/${e.id}`}
+                      className="text-black linl-slick"
+                    >
                       <h5>{e.title}</h5>
                     </Link>
                   </div>

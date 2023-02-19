@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import { useState, useContext, useEffect } from "react";
 import { FcLike } from "react-icons/fc";
+import { useParams } from "react-router-dom";
 import { BsCartDashFill, BsCartPlusFill } from "react-icons/bs";
 import { BiHeart } from "react-icons/bi";
 import { Link } from "react-router-dom";
@@ -14,6 +15,7 @@ const index = () => {
     state: { product, cart, like },
     dispatch,
   } = CartState();
+
 
   var settings = {
     dots: false,
@@ -135,8 +137,11 @@ const index = () => {
                     </span>
                   </div>
                   <div className="card-slick-title w-100">
-                    <Link to={`/${e.title}`} className="text-black linl-slick">
-                      <h5>{e.title}</h5>
+                    <Link
+                      to={`/product/${e.id}`}
+                      className="p-0 linl-slick"
+                    >
+                      <h5 className="linl-slick">{e.title}</h5>
                     </Link>
                   </div>
                   <div className="card-slick-footer w-100 d-flex justify-content-between align-items-center">

@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.scss";
 import { FiNavigation } from "react-icons/fi";
+import { Link } from "react-router-dom";
 const modal = ({ open }) => {
   return (
     <>
@@ -78,6 +79,11 @@ const modal = ({ open }) => {
             <a href="#li" className="modal-link text-black fw-bold">
               Доставка
             </a>
+          </li>
+          <li className="list-items">
+            <Link to="/admin" className="modal-link text-black fw-bold">
+              cabinet
+            </Link>
           </li>
         </ul>
       </div>

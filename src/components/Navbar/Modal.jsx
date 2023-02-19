@@ -82,8 +82,9 @@ const Modal = () => {
           <NavLink to={"/admin"} className="underline-none fw-bold">
             <GiSettingsKnobs
               style={{ width: "25px", height: "25px" }}
-              className="text-warning"
+              className="text-warning mx-1"
             />
+            Cabinet
           </NavLink>
         </li>
       </ul>

@@ -83,7 +83,7 @@ const index = () => {
           slidesToScroll: 1,
           infinite: true,
           slidesPerRow: 2,
-          centerMode:true,
+          centerMode: true,
         },
       },
       {
@@ -141,7 +141,8 @@ const index = () => {
   return (
     <>
       <div className="recomendation-slick">
-        <Slider className="py-4" {...settings}>
+        <h3 className="m-0">Популярные категории</h3>
+        <Slider className="p-0" {...settings}>
           {product.map((e) => {
             return <Card key={e.id} prop={e} />;
           })}

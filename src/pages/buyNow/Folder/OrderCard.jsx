@@ -1,8 +1,11 @@
 import React from "react";
 import { RiErrorWarningLine } from "react-icons/ri";
-
+import { CartState } from "../../../context/Auth";
 
 const OrderCard = () => {
+  const {
+    state: { cart },
+  } = CartState();
   return (
     <>
       <div className="check-card py-4">
@@ -33,7 +36,6 @@ const OrderCard = () => {
                 htmlFor="chek"
               >
                 Утилизация старой <br /> техники
-          
                 <input
                   className="form-check-input"
                   type="checkbox"
@@ -48,7 +50,6 @@ const OrderCard = () => {
                 htmlFor="control-check"
               >
                 Установка техники
-           
                 <input
                   className="form-check-input"
                   type="checkbox"

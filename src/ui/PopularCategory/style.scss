@@ -7,6 +7,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  transition: all .3s ease-in-out;
 }
 .categorytop-card {
   z-index: 2;
@@ -19,6 +20,10 @@
   width: 220px !important;
   height:250px;
 }
+.cetegorytop:hover{
+  transform: scale(1.03);
+}
+
 .cetegorytop:hover::before {
   content: " ";
   width: 220px;

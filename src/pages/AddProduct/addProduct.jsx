@@ -8,7 +8,7 @@ const addProduct = () => {
     state: { category, product },
     dispatch,
   } = CartState();
-  console.log(product);
+  // console.log(product);
   return (
     <>
       <div className="add-product w-100">
