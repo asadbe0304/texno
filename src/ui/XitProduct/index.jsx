@@ -18,7 +18,6 @@ const index = () => {
     dispatch,
   } = CartState();
 
-  const notify = () => toast("Wow so easy!");
   var settings = {
     dots: false,
     infinite: false,

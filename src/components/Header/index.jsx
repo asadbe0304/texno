@@ -47,7 +47,7 @@ const index = () => {
       windowHeight > 152 ? setSticky("sticky") : setSticky("");
     }
   };
-  // console.log(category);
+
   return (
     <>
       <Tel />
