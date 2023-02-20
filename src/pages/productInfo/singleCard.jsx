@@ -6,19 +6,19 @@ import { FcLike } from "react-icons/fc";
 import { CartState } from "../../context/Auth";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Rating from "./Rating";
 
 const singleCard = ({ prod }) => {
   const {
     state: { cart, like },
     dispatch,
   } = CartState();
-  const { id, title, image, price, rating} = prod;
+  const { id, title, image, price, rating } = prod;
   // console.log(rating);
   return (
     <>
       <div className="product-card d-flex w-25 flex-column position-relative align-items-center justify-content-center ">
-        {
-        like.some((p) => p.id === id) ? (
+        {like.some((p) => p.id === id) ? (
           <div
             className="position-absolute wish"
             onClick={() =>
@@ -46,10 +46,24 @@ const singleCard = ({ prod }) => {
         <img src={image} alt={"images"} />
         <div className="w-100 d-flex align-items-center justify-content-between my-3">
           <div className="d-flex justfiy-content-between align-items-center gap-1">
-            {rating.rate}
+            {[...Array(5)].map((_, i) => (
+              <span
+                key={i}
+                className="mx-0 d-flex align-items-center gap-1 "
+                // onClick={() => onClick(i)}
+              >
+                {Math.round(rating.rate) > i ? (
+                  <AiFillStar className="text-warning" fontSize="15px" />
+                ) : (
+                  <AiOutlineStar className="text-warning" fontSize="15px" />
+                )}
+            
+              </span>
+            ))}
+            {/* {rating.rate} */}
           </div>
           <a href="#link" className="underline-none p-0 text-secondary otziv">
-            {rating.count } otziv
+            {rating.count} otziv
           </a>
         </div>
         <div className="d-flex justify-content-between align-items-center w-100">

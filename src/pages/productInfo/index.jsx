@@ -17,11 +17,25 @@ const index = () => {
   const [postsPerPage, setPostsPerPage] = useState(10);
 
   const {
-    state: { product, cart, like },
+    state: { product, cart, like, byRating },
     dispatch,
   } = CartState();
 
+  const transform = () => {
+    let sortprod = product;
 
+    if (byRating) {
+    sortprod = product.filter((prod) => prod.rating.rate >= byRating);
+    }
+
+    const lastPostIndex = currentPage * postsPerPage;
+    const firstPostIndex = lastPostIndex - postsPerPage;
+    const currentPosts = sortprod.slice(firstPostIndex, lastPostIndex);
+    // console.log(sortprod);
+    return sortprod;
+  };
+
+  // return sortprod
   // const [categories, setCategory] = useState([]);
 
   // const { category } = useParams();
@@ -37,10 +51,6 @@ const index = () => {
   // console.log(category);
   // console.log(categories);
 
-
-  const lastPostIndex = currentPage * postsPerPage;
-  const firstPostIndex = lastPostIndex - postsPerPage;
-  const currentPosts = product.slice(firstPostIndex, lastPostIndex);
   return (
     <>
       <div className="bg-white">
@@ -55,13 +65,16 @@ const index = () => {
               <Filter />
               <div className="product-alls w-75 d-flex align-items-center">
                 <div className="product-all justify-content-start w-100">
-                  {currentPosts.length > 0 ? (
+                  {/* {currentPosts.length > 0 ? (
                     currentPosts.map((e) => {
                       return <SingleCard prod={e} key={e.id} />;
                     })
-                  ) : (
-                    <Load />
-                  )}
+                    ) : (
+                      <Load />
+                    )} */}
+                  {transform().map((e) => (
+                    <SingleCard key={e.id} prod={e} />
+                  ))}
                 </div>
                 <div className="my-4 d-flex justify-content-center align-items-center">
                   <Pagination

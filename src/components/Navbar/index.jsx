@@ -23,6 +23,7 @@ const index = () => {
       windowHeight > 152 ? setSticky("navsticky") : setSticky("");
     }
   };
+  
 
   return (
     <>

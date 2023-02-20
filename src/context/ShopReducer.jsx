@@ -127,11 +127,8 @@ export const cartReducer = (state, action) => {
         category: action.payload.data,
         error: "",
       };
-      return {
-        ...state,
-        category: [],
-        error: action.payload,
-      };
+    case "SORT_BY_PRICE":
+      return { ...state, sort: action.payload };
     case "FILTER_BY_RATING":
       return { ...state, byRating: action.payload };
     case "FILTER_BY_SEARCH":

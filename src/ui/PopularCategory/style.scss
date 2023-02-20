@@ -31,12 +31,16 @@
   position: absolute;
   z-index: 1;
   background: #ffa229;
-  transform: scaleX(1.04);
+  // transform: scale(1.0);
   animation: after 0.2s both;
 }
 @media screen and (max-width:380px) {
   .cetegorytop{
     width: 95%!important;
+  }
+  .cetegorytop::before{
+    width: 95%;
+    // transform: scaleX(1.5);
   }
 }
 @keyframes after {
