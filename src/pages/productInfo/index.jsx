@@ -58,7 +58,7 @@ const index = () => {
           <div className="product-info d-flex flex-column align-itmes-start justify-content-between">
             <div className="info-top my-3 text-secondaryflex-wrap  w-100">
               <Dropdown />
-              <div className="text-secondary text-end">1054 товара</div>
+              <div className="text-secondary text-end">{product.length} товара</div>
             </div>
             <h3>Телевизоры</h3>
             <div className="d-flex justify-content-center product-all-filter align-items-start w-100">

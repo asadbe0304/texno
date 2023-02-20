@@ -18,7 +18,7 @@ const Rating = ({ onClick, rating }) => {
           ) : (
             <AiOutlineStar className="text-warning" fontSize="20px" />
           )}
-              {i} и выше
+              {i + 1} и выше
         </span>
       ))}
     </>

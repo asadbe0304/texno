@@ -133,7 +133,11 @@ export const cartReducer = (state, action) => {
       return { ...state, byRating: action.payload };
     case "FILTER_BY_SEARCH":
       return { ...state, searchQuery: action.payload };
-    default:
+    case "UPDATE__RANGE":
+      return {
+        
+      }
+      default:
       return state;
   }
 };
