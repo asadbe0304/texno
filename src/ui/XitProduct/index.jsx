@@ -5,10 +5,12 @@ import { FcLike } from "react-icons/fc";
 import { useParams } from "react-router-dom";
 import { BsCartDashFill, BsCartPlusFill } from "react-icons/bs";
 import { BiHeart } from "react-icons/bi";
+import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import { CartState } from "./../../context/Auth";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "react-toastify/dist/ReactToastify.css";
 import "./style.scss";
 const index = () => {
   const {
@@ -16,7 +18,7 @@ const index = () => {
     dispatch,
   } = CartState();
 
-
+  const notify = () => toast("Wow so easy!");
   var settings = {
     dots: false,
     infinite: false,
@@ -96,6 +98,7 @@ const index = () => {
   };
   return (
     <>
+      <ToastContainer />
       <div>
         <h2> Хиты продаж </h2>
         <Slider className="py-1" {...settings}>
@@ -137,10 +140,7 @@ const index = () => {
                     </span>
                   </div>
                   <div className="card-slick-title w-100">
-                    <Link
-                      to={`/product/${e.id}`}
-                      className="p-0 linl-slick"
-                    >
+                    <Link to={`/product/${e.id}`} className="p-0 linl-slick">
                       <h5 className="linl-slick">{e.title}</h5>
                     </Link>
                   </div>

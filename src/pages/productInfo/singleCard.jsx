@@ -59,7 +59,7 @@ const singleCard = ({ prod }) => {
           </span>
         </div>
         <Link
-          to={`/${title}`}
+          to={`/product/${id}`}
           className="underline-none p-0 d-flex justify-content-start align-items-start w-100 mt-2"
         >
           <h5 className="text-black popular-title  w-100">{title}</h5>

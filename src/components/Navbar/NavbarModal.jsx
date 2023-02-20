@@ -1,15 +1,16 @@
 import React from "react";
 import Img from "./../../assets/images/holod.png";
 import { useState, useEffect } from "react";
-import { Link, NavLink , useParams} from "react-router-dom";
+import { Link, NavLink, useParams } from "react-router-dom";
 import { CartState } from "../../context/Auth";
 import Skeleton from "./../../lib/Skeletono/Skeleton";
 const NavbarModal = () => {
   const {
-    state: { category, modal },dispatch
+    state: { category, modal },
+    dispatch,
   } = CartState();
-// const {info} =useParams()
-// console.log(info);
+  // const {info} =useParams()
+  // console.log(info);
   useEffect(() => {
     const body = document.querySelector("body");
     body.style.overflow = modal ? "hidden" : "auto";
@@ -18,7 +19,9 @@ const NavbarModal = () => {
     <>
       <div className="container">
         <div
-          className={`modal-layer ${ modal ? "modal-mobile-block" : "modal-mobile-none" } category-modal d-flex justify-content-between flex-row bg-white w-100`}
+          className={`modal-layer ${
+            modal ? "modal-mobile-block" : "modal-mobile-none"
+          } category-modal d-flex justify-content-between flex-row bg-white w-100`}
         >
           <div className="modal-left w-100">
             <ul className="modal-list d-flex flex-column align-items-start  border-0">
@@ -27,12 +30,14 @@ const NavbarModal = () => {
                   return (
                     <li key={e} className="modal-item">
                       <Link
-                        to={`/info`}
-                        onClick={() => dispatch({type: "MODAL", payload: false})}
+                        to={`/catproduct`}
+                        onClick={() =>
+                          dispatch({ type: "MODAL", payload: false })
+                        }
                         className="text-black text-uppercase text-decoration-none fw-bold d-flex justify-content-start align-items-center gap-2"
                       >
                         <img src={Img} alt="imagea" width={24} height={24} />
-                        {e}  
+                        {e}
                       </Link>
                     </li>
                   );

@@ -7,6 +7,7 @@ import SingleCard from "./singleCard";
 import Brand from "./../../ui/Brand";
 import Filter from "./filter";
 import Pagination from "../../components/pagination/pagination";
+import { useParams } from "react-router-dom";
 import { CartState } from "../../context/Auth";
 import { useEffect, useState } from "react";
 import "./style.scss";
@@ -19,6 +20,23 @@ const index = () => {
     state: { product, cart, like },
     dispatch,
   } = CartState();
+
+
+  // const [categories, setCategory] = useState([]);
+
+  // const { category } = useParams();
+  // const URL = "https://fakestoreapi.com/products/";
+
+  // const categor = category.replace(/\s+/g, "-").toLocaleLowerCase()
+
+  // useEffect(() => {
+  //   fetch(URL + categor)
+  //     .then((res) => res.json())
+  //     .then((json) => setCategory(json));
+  // }, [category]);
+  // console.log(category);
+  // console.log(categories);
+
 
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;

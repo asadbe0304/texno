@@ -10,9 +10,9 @@ import Categ from "./../pages/ProductCategory/index";
 import Info from "./../pages/productInfo";
 import Check from "./../pages/buyNow/index";
 import Private from "./../private/private";
-import Cabinet from "../pages/Cabinet/cabinet"
-import Order from "../pages/Order/order"
-import AddProduct from "../pages/AddProduct/addProduct"
+import Cabinet from "../pages/Cabinet/cabinet";
+import Order from "../pages/Order/order";
+import AddProduct from "../pages/AddProduct/addProduct";
 function index() {
   return (
     <>

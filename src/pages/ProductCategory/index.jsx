@@ -28,7 +28,7 @@ const index = () => {
               {product.length > 0 ? (
                 product.map((e) => {
                   return (
-                   <NavLink to="/info">
+                   <NavLink  to="/info">
                     <Card key={e.id} prop={e}/>
                    </NavLink>
                   );
