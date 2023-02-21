@@ -67,7 +67,7 @@ const index = () => {
                 {product.length} товара
               </div>
             </div>
-            <h3>Телевизоры</h3>
+            <h3 className="mt-2">Телевизоры</h3>
             <div className="d-flex justify-content-center product-all-filter align-items-start w-100">
               <Filter />
               <div className="product-alls w-75 d-flex align-items-center">

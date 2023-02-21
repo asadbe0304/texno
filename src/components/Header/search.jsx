@@ -60,7 +60,7 @@ const {pro}=useParams()
                       style={{ width: "50px", height: "50px" }}
                     />
                     <Link
-                      to={`/${pro}`}
+                      to={`/product/${e.id}`}
                       onClick={() =>
                         dispatch({ type: "SEARCH", payload: false })
                       }

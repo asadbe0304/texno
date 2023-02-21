@@ -34,18 +34,20 @@ const initialState = {
   search: false,
   searchMobile: false,
   modal: false,
+  clear: false,
+  open: false,
   like: storageLike,
   ...sumLike,
   cart: storage,
   ...sumCart,
   byRating: 0,
   byPrice: 0,
-  clear: false
   // checkout: true
 };
 
+
 export const AuthProvider = ({ children }) => {
-  const [auth, setAuth] = useState({});
+  // const [auth, setAuth] = useState({});
   const [state, dispatch] = useReducer(cartReducer, initialState);
 
   // get all product
@@ -79,7 +81,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ auth, setAuth, state, dispatch }}>
+    <AuthContext.Provider value={{state, dispatch }}>
       {children}
     </AuthContext.Provider>
   );

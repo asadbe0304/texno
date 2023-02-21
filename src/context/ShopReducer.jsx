@@ -104,6 +104,11 @@ export const cartReducer = (state, action) => {
         ...state,
         modal: action.payload,
       };
+    case "OPEN":
+      return {
+        ...state,
+        open: action.payload,
+      };
     case "SEARCHMOB":
       return {
         ...state,

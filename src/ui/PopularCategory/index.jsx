@@ -140,8 +140,8 @@ const index = () => {
   };
   return (
     <>
-      <div className="recomendation-slick">
-        <h3 className="m-0">Популярные категории</h3>
+      <div className="recomendation-slick mt-4">
+        <h3 className="m-0 ">Популярные категории</h3>
         <Slider className="p-0" {...settings}>
           {product.map((e) => {
             return <Card key={e.id} prop={e} />;

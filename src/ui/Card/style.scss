@@ -34,7 +34,36 @@
     display: block;
     animation: after .2s both;
 }
-
+@media screen and (max-width:530px) {
+  .card__popular {
+    width: 140px !important;
+    height: 180px;
+   
+    img {
+      width: 50%;
+      height: 45%;
+      top: 20px;
+    }  
+  }
+  .category-cap{
+    margin-top: 120px!important;
+  }
+}
+@media screen and (max-width:336px) {
+  .card__popular {
+    width: 120px !important;
+    height: 160px;
+   
+    img {
+      width: 50%;
+      height: 45%;
+      top: 20px;
+    }  
+  }
+  .category-cap{
+    margin-top: 100px!important;
+  }
+}
 @keyframes after{
     0%{
         clip-path: circle(8% at 5% 6%);

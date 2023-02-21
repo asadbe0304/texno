@@ -17,12 +17,12 @@ import { CartState } from "./../../context/Auth";
 import "./style.scss";
 
 const index = () => {
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
   const [sticky, setSticky] = useState("");
   const [favaourite, setFavaourite] = useState(false);
 
   const {
-    state: { cart, like, opencart, searchQuery, category },
+    state: { cart, like, opencart, searchQuery, category, open },
     dispatch,
   } = CartState();
 
@@ -94,6 +94,7 @@ const index = () => {
                     <div className="like-top my-3">
                       <h5>Like order</h5>
                     </div>
+                    {/* wishlist */}
                     <ul className="like-list w-100">
                       <WishList />
                     </ul>
@@ -114,21 +115,14 @@ const index = () => {
                 </p>
                 <GiHamburgerMenu
                   className="Hambur"
-                  onClick={() => setOpen((e) => !e)}
+                  onClick={() => dispatch({ type: "OPEN", payload: true })}
                 />
               </div>
             </div>
           </div>
         </div>
-
         {/* modal menu */}
-        <Modal open={open} />
-        <IoMdClose
-          className={`position-absolute modal-close ${
-            open ? "d-block" : "d-none"
-          }`}
-          onClick={() => setOpen((e) => !e)}
-        />
+        <Modal />
       </header>
     </>
   );

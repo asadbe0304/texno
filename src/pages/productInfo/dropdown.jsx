@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const dropdown = () => {
   return (
     <>
-      <Dropdown className="drop">
+      <Dropdown className="drop w-75">
         <Link to={"/"} className="underline-none text-secondary m-0 p-0">
           Home
         </Link>

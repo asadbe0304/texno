@@ -38,8 +38,8 @@
   .cetegorytop{
     width: 95%!important;
   }
-  .cetegorytop::before{
-    width: 95%;
+  .cetegorytop:hover::before{
+    width: 303px!important;
     // transform: scaleX(1.5);
   }
 }
