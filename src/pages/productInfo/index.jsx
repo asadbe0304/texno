@@ -17,24 +17,29 @@ const index = () => {
   const [postsPerPage, setPostsPerPage] = useState(10);
 
   const {
-    state: { product, cart, like, byRating },
+    state: { product, byRating, byPrice },
     dispatch,
   } = CartState();
 
   const transform = () => {
-    let sortprod = product;
+    // const [sortprod, setSortprod] = useState([])
+    let sortprod = product
 
     if (byRating) {
-    sortprod = product.filter((prod) => prod.rating.rate >= byRating);
+      sortprod = product.filter((prod) => prod.rating.rate >= byRating);
     }
-
+    if (byPrice) {
+      sortprod = product.filter((prod) => prod.price >= byPrice);
+    }
+    
     const lastPostIndex = currentPage * postsPerPage;
     const firstPostIndex = lastPostIndex - postsPerPage;
     const currentPosts = sortprod.slice(firstPostIndex, lastPostIndex);
-    // console.log(sortprod);
+    console.log(sortprod);
     return sortprod;
   };
 
+  // console.log(sortprod);
   // return sortprod
   // const [categories, setCategory] = useState([]);
 
@@ -58,7 +63,9 @@ const index = () => {
           <div className="product-info d-flex flex-column align-itmes-start justify-content-between">
             <div className="info-top my-3 text-secondaryflex-wrap  w-100">
               <Dropdown />
-              <div className="text-secondary text-end">{product.length} товара</div>
+              <div className="text-secondary text-end">
+                {product.length} товара
+              </div>
             </div>
             <h3>Телевизоры</h3>
             <div className="d-flex justify-content-center product-all-filter align-items-start w-100">

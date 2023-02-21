@@ -57,7 +57,6 @@ const singleCard = ({ prod }) => {
                 ) : (
                   <AiOutlineStar className="text-warning" fontSize="15px" />
                 )}
-            
               </span>
             ))}
             {/* {rating.rate} */}
@@ -109,6 +108,9 @@ const singleCard = ({ prod }) => {
               />
             </button>
           )}
+          {/* <button className="btn btn-info">
+            <Link to={`/product/${id}`}>One click</Link>
+          </button> */}
         </div>
       </div>
     </>

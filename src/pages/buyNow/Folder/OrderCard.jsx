@@ -2,12 +2,17 @@ import React from "react";
 import { RiErrorWarningLine } from "react-icons/ri";
 import { CartState } from "../../../context/Auth";
 
+
 const OrderCard = () => {
   const {
-    state: { cart },
+    state: { cart, checkout},dispatch
   } = CartState();
+
+
   return (
     <>
+
+  
       <div className="check-card py-4">
         <ul
           className="m-0 p-0 flex-wrap d-flex justify-content-between gap-3"

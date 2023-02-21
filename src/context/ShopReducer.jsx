@@ -128,13 +128,27 @@ export const cartReducer = (state, action) => {
         error: "",
       };
     case "SORT_BY_PRICE":
-      return { ...state, sort: action.payload };
+      return { ...state, byPrice: action.payload };
     case "FILTER_BY_RATING":
       return { ...state, byRating: action.payload };
     case "FILTER_BY_SEARCH":
       return { ...state, searchQuery: action.payload };
-    case "UPDATE__RANGE":
-      return {};
+    
+    
+    
+    
+    //   case "CHECK":
+    //   return {
+    //     cart: [],
+    //     checkout: true,
+    //     ...sumCart([]),
+    //   };
+    case "CLEAR":
+      return {
+        ...state,
+        byPrice: 0,
+        byRating: 0,
+      };
     default:
       return state;
   }

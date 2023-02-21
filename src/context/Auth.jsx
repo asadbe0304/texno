@@ -20,23 +20,33 @@ const storageLike = localStorage.getItem("like")
   ? JSON.parse(localStorage.getItem("like"))
   : [];
 
+//   const handleCheckout = () => {
+//     console.log('CHECK');
+//     dispatch({type: 'CHECK'})
+// }
+
+const initialState = {
+  product: [],
+  category: [],
+  searchQuery: [],
+  auth: {},
+  opencart: false,
+  search: false,
+  searchMobile: false,
+  modal: false,
+  like: storageLike,
+  ...sumLike,
+  cart: storage,
+  ...sumCart,
+  byRating: 0,
+  byPrice: 0,
+  clear: false
+  // checkout: true
+};
+
 export const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState({});
-  const [state, dispatch] = useReducer(cartReducer, {
-    product: [],
-    category: [],
-    searchQuery: [],
-    auth: {},
-    opencart: false,
-    search: false,
-    searchMobile: false,
-    modal: false,
-    like: storageLike,
-    ...sumLike,
-    cart: storage,
-    ...sumCart,
-    byRating: 0,
-  });
+  const [state, dispatch] = useReducer(cartReducer, initialState);
 
   // get all product
   useEffect(() => {

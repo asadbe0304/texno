@@ -6,17 +6,20 @@ import { useReactToPrint } from "react-to-print";
 import { BiPrinter } from "react-icons/bi";
 import Img from "./../../assets/images/im-removebg-preview.png";
 import CheckCard from "./Folder/OrderCard";
+// import { ToastContainer, toast } from "react-bootstrap";
 import { RiErrorWarningLine } from "react-icons/ri";
 import { CartState } from "../../context/Auth";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./style.scss";
+import "react-toastify/dist/ReactToastify.css";
 
 const index = () => {
   const {
-    state: { cart, product },
+    state: { cart, checkout },
     dispatch,
   } = CartState();
 
+  // const notify = () => toast.succes("Wow Successfully!");
   console.log(cart);
   // console.log(product);
   const componentRef = useRef();
