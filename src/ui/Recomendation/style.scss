@@ -47,7 +47,7 @@
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important ;
-  justify-content: flex-start !important;
+  justify-content: space-between !important;
   transition: all 0.3s ease-in-out;
 }
 .card-heart {
@@ -80,8 +80,8 @@
   }
 }
 .img-slick {
-  width: 200px;
-  height: 200px;
+  width: 160px;
+  height: 160px;
   margin-bottom: 20px;
 }
 .card-slick-title {

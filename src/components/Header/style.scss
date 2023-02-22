@@ -94,8 +94,8 @@
   font-size: 12px;
   width: 20px;
   height: 20px;
-  top: 2px;
-  right: 10px;
+  top: -5px;
+  right: 25px;
 }
 .modal-link {
   border: 0;
@@ -151,8 +151,8 @@
   height: 25px;
 }
 .like__icon {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 }
 .header__shopping--cart {
   width: 28px;
@@ -168,9 +168,9 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 0px;
+  top: -5px;
   z-index: 2;
-  right: 110px;
+  right: -4px;
 }
 .close-arrow {
   z-index: 2455;
@@ -198,6 +198,14 @@
   .header__search {
     width: 30%;
   }
+}
+@media screen and (max-width:1161px) {
+  .badge{
+    right: 10px;
+      }
+      .like-badge{
+    right: 28px;
+      }
 }
 @media screen and (max-width: 1115px) {
   .header__search {
@@ -246,8 +254,8 @@
     display: block;
   }
   .badge {
-    top: -8px;
-    right: -16px;
+    top: -5px;
+    right: -2px;
   }
 }
 .hide-modal {
@@ -270,6 +278,9 @@
   }
   .header__search {
     width: 40% !important;
+  }
+  .profile-title{
+    display: none;
   }
   .search-bar {
     width: 100%;

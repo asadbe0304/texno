@@ -6,6 +6,7 @@ import {
   faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import axios from "./../../api/axios";
 import axios from "./../../api/axios";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -13,7 +14,8 @@ import { useNavigate } from "react-router-dom";
 import Login from "./../Login/index";
 import "./style.scss";
 
-const REGISTER_URL = "https://api.storerestapi.com/auth/register";
+const REGISTER_URL = "http://localhost:3000";
+// console.log(axios);
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
@@ -38,7 +40,7 @@ const index = () => {
   const [success, setSuccess] = useState(false);
 
   // console.log(user)
-  console.log(pwd);
+  // console.log(pwd);
   // console.log(matchPwd)
   useEffect(() => {
     userRef.current.focus();
@@ -67,7 +69,7 @@ const index = () => {
       return;
     }
     console.log(user, pwd);
-    setSuccess(true);
+    // setSuccess(true);
     try {
       const response = await axios.post(
         REGISTER_URL,

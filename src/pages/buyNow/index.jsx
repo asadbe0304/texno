@@ -1,40 +1,36 @@
 import React from "react";
 import Address from "./Folder/adress";
 import Input from "./Folder/Input";
-import { useRef, useState } from "react";
-import { useReactToPrint } from "react-to-print";
-import { BiPrinter } from "react-icons/bi";
 import Img from "./../../assets/images/im-removebg-preview.png";
 import CheckCard from "./Folder/OrderCard";
-// import { ToastContainer, toast } from "react-bootstrap";
-import { RiErrorWarningLine } from "react-icons/ri";
+import Order from "./cardProduct";
 import { CartState } from "../../context/Auth";
 import { Link, useNavigate } from "react-router-dom";
 import "./style.scss";
 import "react-toastify/dist/ReactToastify.css";
+// import { RiErrorWarningLine } from "react-icons/ri";
 
 const index = () => {
   const {
-    state: { cart, checkout },
+    state: { cart, checkout, oneCart },
     dispatch,
   } = CartState();
 
   // const notify = () => toast.succes("Wow Successfully!");
-  console.log(cart);
-  // console.log(product);
-  const componentRef = useRef();
+  // console.log(cart);
+  // console.log(cart[0].id);
 
-  const handlePrint = useReactToPrint({
-    content: () => componentRef.current,
-  });
   return (
     <>
-      <div className="checkOut mt-4 mb-2" ref={componentRef}>
+      <div className="checkOut mt-4 mb-2">
         <div className="container">
           <div className="chek_out  d-flex justify-content-betweeen align-items-center flex-column">
             <div className="check__out-top w-75 d-flex justify-content-between align-items-center flex-column">
               <div className="d-flex justify-content-between w-100 py-2  align-items-center flex-wrap">
-                <h3 className="fw-bold">Оформление заказа {cart.length}</h3>
+                <h3 className="fw-bold">
+                  Оформление заказа 
+                     {""} {oneCart.length}
+                </h3>
                 <div>
                   <Link to="/" className="text-danger">
                     Вернуться в корзину
@@ -59,41 +55,7 @@ const index = () => {
             <Input />
             <Address />
             <div className="prodcut__check-list bg-white w-75 p-4">
-              <div className="check-list-top border py-4 px-2 my-3">
-                <div className="d-flex justify-content-between align-items-center">
-                  <h5>Состав заказа</h5>
-                  <button
-                    onClick={handlePrint}
-                    className="btn btn-outline-warning text-secondary"
-                  >
-                    Print <BiPrinter />
-                  </button>
-                </div>
-                <ul className="check-list my-4 d-flex jsutify-content-between align-items-start gap-3 flex-column w-100">
-                  {cart.map((e) => {
-                    <li className="d-flex justify-content-between align-items-center gap-2 w-100">
-                      <img
-                        src={e.image}
-                        style={{ width: "80px", height: "80px" }}
-                        alt="images"
-                      />
-                      <div className="m-0">
-                        <h5>{e.title}</h5>
-                      </div>
-                      <div className="count-prod M-0">
-                        <h6 className="text-secondary p-0 m-0 fw-normal">
-                          Кол-во: 5 шт.
-                        </h6>
-                      </div>
-                      <div className="m-0 p-0">
-                        <h6 className="total-price fw-normal">
-                          Сумма: 95 575 ₽
-                        </h6>
-                      </div>
-                    </li>;
-                  })}
-                </ul>
-              </div>
+              <Order />
               <CheckCard />
             </div>
           </div>

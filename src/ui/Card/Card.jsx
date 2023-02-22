@@ -1,5 +1,7 @@
 import React from "react";
 import "./style.scss";
+import { motion } from "framer-motion";
+
 import Img from "./../../assets/images/im-removebg-preview.png";
 
 const Card = ({ prop }) => {
@@ -7,7 +9,7 @@ const Card = ({ prop }) => {
   // console.log(prop);
   return (
     <>
-      <div key={prop.id} className="m-0 p-0">
+      <motion.div whileTap={{scale: 0.9}} whileHover={{scale: 1.}} key={prop.id} className="m-0 p-0">
         <div className="card__popular d-flex align-items-center gap-2 flex-column justify-content-between bg-dark p-2">
           <img
             src={prop.image}
@@ -20,7 +22,7 @@ const Card = ({ prop }) => {
             </h6>
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };

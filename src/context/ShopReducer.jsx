@@ -5,6 +5,12 @@ const Storage = (cart) => {
 const StorageLike = (like) => {
   localStorage.setItem("like", JSON.stringify(like.length > 0 ? like : []));
 };
+const StorageOneCart = (oneCart) => {
+  localStorage.setItem(
+    "oneCart",
+    JSON.stringify(oneCart.length > 0 ? oneCart : [])
+  );
+};
 
 export const sumCart = (cart) => {
   Storage(cart);
@@ -38,6 +44,20 @@ export const sumLike = (like) => {
 
   return { LikeCount, totalLike };
 };
+export const sumOne = (oneCart) => {
+  StorageOneCart(oneCart);
+
+  let oneCount = oneCart.reduce(
+    (totalOne, product) => totalOne + product.quantity,
+    0
+  );
+
+  let totalOne = oneCart
+    .reduce((totaOne, product) => totaOne + product.price * product.quantity, 0)
+    .toFixed(2);
+
+  return { totalOne, oneCount };
+};
 
 export const cartReducer = (state, action) => {
   switch (action.type) {
@@ -58,6 +78,15 @@ export const cartReducer = (state, action) => {
         ...state,
         ...sumLike(state.like),
         like: [...state.like],
+      };
+    case "ADD__TO__ONE":
+      if (!state.oneCart.find((e) => e.id === action.payload.id)) {
+        state.oneCart.push({ ...action.payload, quantity: 1 });
+      }
+      return {
+        ...state,
+        ...sumOne(state.oneCart),
+        oneCart: [...state.oneCart],
       };
     case "REMOVE__TO__LIKE":
       return {
@@ -138,7 +167,7 @@ export const cartReducer = (state, action) => {
       return { ...state, byRating: action.payload };
     case "FILTER_BY_SEARCH":
       return { ...state, searchQuery: action.payload };
-    
+
     //   case "CHECK":
     //   return {
     //     cart: [],

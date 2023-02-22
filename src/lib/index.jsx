@@ -11,9 +11,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./style.scss";
 const Responsive = () => {
-  // let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   const {
-    state: { product, cart, like },
+    state: { product, cart, like, oneCart },
     dispatch,
   } = CartState();
 
@@ -174,6 +173,33 @@ const Responsive = () => {
                       </button>
                     )}
                   </div>
+                  {oneCart.some((p) => p.id === e.id) ? (
+                    <Link to={"/check"} className="p-0 w-100">
+                      <button
+                        className="btn btn-outline-warning mt-2 w-100"
+                        onClick={() =>
+                          dispatch({
+                            type: "ADD__TO__ONE",
+                            payload: e,
+                          })
+                        }
+                      >
+                        One Click
+                      </button>
+                    </Link>
+                  ) : (
+                    <button
+                      className="btn btn-outline-warning mt-2 w-100"
+                      onClick={() =>
+                        dispatch({
+                          type: "ADD__TO__ONE",
+                          payload: e,
+                        })
+                      }
+                    >
+                      One
+                    </button>
+                  )}
                 </div>
               </div>
             );

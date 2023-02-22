@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { FiShoppingCart } from "react-icons/fi";
 import { CgProfile } from "react-icons/cg";
 import { BiHeart } from "react-icons/bi";
+import { motion } from "framer-motion";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
 import { NavLink } from "react-router-dom";
@@ -70,21 +71,31 @@ const index = () => {
                       "text-black underline-none d-flex flex-column align-items-center justify-content-center"
                     }
                   >
-                    <CgProfile className="admin__icon" />
-                    {/* <span className="profile-title">Profile</span> */}
+                    <motion.div
+                      whileTap={{ scale: 0.9 }}
+                      className="d-flex justify-content-center flex-column align-items-center"
+                    >
+                      <CgProfile className="admin__icon" />
+                      <span className="profile-title">Войти</span>
+                    </motion.div>
                   </NavLink>
                   {/* sign in component */}
                 </div>
-                <div className="like position-relative">
-                  <BiHeart
-                    className="like__icon"
-                    style={{ cursor: "pointer" }}
+                <div className="like position-relative ">
+                  <motion.div
+                    whileTap={{ scale: 0.9 }}
                     onClick={() => setFavaourite((e) => !e)}
-                  />
+                    className="d-flex flex-column align-items-center justify-content-center"
+                  >
+                    <BiHeart
+                      className="like__icon"
+                      style={{ cursor: "pointer" }}
+                    />
+                    <p className="profile-title">Избранные</p>
+                  </motion.div>
                   <span className="like-badge text-white fw-bold position-absolute bg-danger px-2 py-0 rounded-3">
                     {like.length}
                   </span>
-
                   {/* drop like menu */}
                   <div
                     className={`drop__like position-absolute bg-light shadow p-2 ${
@@ -102,17 +113,18 @@ const index = () => {
                   {/* drop like menu end */}
                 </div>
               </div>
-              <div className="header__cart position-relative gap-2 d-flex align-items-center justify-content-between">
-                <FiShoppingCart
+              <div className="header__cart position-relative gap-2  d-flex align-items-center justify-content-between">
+                <motion.div
+                  whileTap={{ scale: 0.9 }}
                   onClick={() => dispatch({ type: "SHOW", payload: true })}
-                  className="header__shopping--cart pointer"
-                />
+                  className="d-flex justify-content-center align-items-center flex-column"
+                >
+                  <FiShoppingCart className="header__shopping--cart pointer" />
+                  <p className="m-0 p-0 profile-title">Корзина</p>
+                </motion.div>
                 <Badge bg="danger" className="badge rounded-3">
                   {cart.length}
                 </Badge>
-                <p className="p-0 mx-2 my-0 order__text">
-                  В корзине {cart.length} товаров
-                </p>
                 <GiHamburgerMenu
                   className="Hambur"
                   onClick={() => dispatch({ type: "OPEN", payload: true })}

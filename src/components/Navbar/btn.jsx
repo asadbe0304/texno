@@ -20,7 +20,7 @@ const btn = () => {
           ) : (
             <GiHamburgerMenu className="menu__category" />
           )}
-          Category
+           Каталог&nbsp; товаров
         </button>
       </div>
     </>

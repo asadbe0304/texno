@@ -14,7 +14,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "./style.scss";
 const index = () => {
   const {
-    state: { product, cart, like },
+    state: { product, cart, like, oneCart },
     dispatch,
   } = CartState();
 
@@ -173,6 +173,33 @@ const index = () => {
                       </button>
                     )}
                   </div>
+                  {oneCart.some((p) => p.id === e.id) ? (
+                  <Link to={"/check"} className="p-0 w-100">
+                    <button
+                      className="btn btn-outline-warning mt-2 w-100"
+                      onClick={() =>
+                        dispatch({
+                          type: "ADD__TO__ONE",
+                          payload: e,
+                        })
+                      }
+                    >
+                      One Click
+                    </button>
+                  </Link>
+                ) : (
+                  <button
+                    className="btn btn-outline-warning mt-2 w-100"
+                    onClick={() =>
+                      dispatch({
+                        type: "ADD__TO__ONE",
+                        payload: e,
+                      })
+                    }
+                  >
+                    One
+                  </button>
+                )}
                 </div>
               </div>
             );

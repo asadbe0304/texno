@@ -6,7 +6,6 @@ import { IoMdClose } from "react-icons/io";
 import { NavLink, Link } from "react-router-dom";
 import { CartState } from "../../context/Auth";
 const Modal = () => {
-
   const {
     state: { modal },
     dispatch,
@@ -28,14 +27,16 @@ const Modal = () => {
           <button
             href="#li"
             className="underline-none btn fw-bold btn btn-warning rounded-0 d-flex text-black gap-2 align-items-center"
-            onClick={(e) => dispatch({ type: "MODAL", payload: modal ? false : true })}
+            onClick={(e) =>
+              dispatch({ type: "MODAL", payload: modal ? false : true })
+            }
           >
             {modal ? (
               <IoMdClose className="menu__category" />
             ) : (
               <GiHamburgerMenu className="menu__category" />
             )}
-            Category
+            Каталог&nbsp; товаров
           </button>
         </li>
         <li className="list-items">

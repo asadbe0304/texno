@@ -9,7 +9,11 @@ import Slick from "./../../lib/index";
 import XitProduct from "./../../ui/XitProduct/index";
 // import { Outlet, Link } from "react-router-dom";
 import "./style.scss";
+import { CartState } from "../../context/Auth";
 const index = () => {
+  const {
+    state: { cart },
+  } = CartState();
   return (
     <>
       <section className="main__section bg-white">
@@ -51,7 +55,9 @@ const index = () => {
         </div>
         <div className="container">
           <div className="d-flex w-75 py-4 mx-auto justify-content-center align-items-center flex-column gap-1">
-            <h3 className="about-title text-center">Интернет-магазин «Империя Техно»</h3>
+            <h3 className="about-title text-center">
+              Интернет-магазин «Империя Техно»
+            </h3>
             <p className="text-secondary my-2 p-0 text-center">
               Мы работаем с 2012 года и вот уже 10 лет показываем стабильность в
               высоком качестве обслуживания, завоевываем доверие все большего

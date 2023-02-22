@@ -6,7 +6,7 @@ import {
   useEffect,
 } from "react";
 import axios from "axios";
-import { cartReducer, sumCart, sumLike } from "./ShopReducer";
+import { cartReducer, sumCart, sumLike, sumOne } from "./ShopReducer";
 
 // create context  provider
 const AuthContext = createContext({});
@@ -18,6 +18,10 @@ const storage = localStorage.getItem("cart")
 
 const storageLike = localStorage.getItem("like")
   ? JSON.parse(localStorage.getItem("like"))
+  : [];
+
+const storageOne = localStorage.getItem("oneCart")
+  ? JSON.parse(localStorage.getItem("oneCart"))
   : [];
 
 //   const handleCheckout = () => {
@@ -36,6 +40,8 @@ const initialState = {
   modal: false,
   clear: false,
   open: false,
+  oneCart: storageOne,
+  ...sumOne,
   like: storageLike,
   ...sumLike,
   cart: storage,
@@ -44,7 +50,6 @@ const initialState = {
   byPrice: 0,
   // checkout: true
 };
-
 
 export const AuthProvider = ({ children }) => {
   // const [auth, setAuth] = useState({});
@@ -81,7 +86,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{state, dispatch }}>
+    <AuthContext.Provider value={{ state, dispatch }}>
       {children}
     </AuthContext.Provider>
   );

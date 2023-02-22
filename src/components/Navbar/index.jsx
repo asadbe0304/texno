@@ -30,8 +30,8 @@ const index = () => {
       <div className={`navbar position-relative ${sticky}`}>
         <div className="container">
           <nav className="d-flex justify-content-between nav flex-row align-items-center">
-            <NavSearch />
             <NavBtn />
+            <NavSearch />
             {/* modal desktop */}
             <ModalDesktop />
             {/* modal desktop */}
