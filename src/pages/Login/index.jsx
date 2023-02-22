@@ -4,13 +4,15 @@ import Form from "react-bootstrap/Form";
 import { NavLink } from "react-router-dom";
 import { useState, useRef, useEffect, useContext } from "react";
 // import useAuth from "../../hooks/useAuth";
+// import AuthRegister from "../../context/AuthResgister";
+import { useAuth } from "./../../context/AuthResgister";
 import "./style.scss";
 import axios from "../../api/axios";
 
 const LOGIN_URL = "'https://fakestoreapi.com/auth/login";
 
 const index = () => {
-  // const { setAuth } = useAuth();
+  const { setAuth } = useAuth();
 
   const userRef = useRef();
   const errRef = useRef();
