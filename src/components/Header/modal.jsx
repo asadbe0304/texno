@@ -116,7 +116,7 @@ const modal = () => {
             <CgProfile style={{ width: "35px", height: "35px" }} /> Войти
           </Link>
         </div>
-        <ul className="flex-row w-100 mt-2 list-group d-flex flex-column justify-content-between p-0 px-3 modal-mobile-list align-items-start gap-3">
+        <ul className="flex-row w-100 mt-2 pb-4 list-group d-flex flex-column justify-content-between p-0 px-3 modal-mobile-list align-items-start gap-3">
           <li className="list-items">
             <a
               href="#li"
