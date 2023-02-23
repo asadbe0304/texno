@@ -72,8 +72,8 @@
 }
 @media screen and (max-width: 1165px) {
   .img-slick {
-    width: 134px;
-    height: 134px;
+    width: 100px;
+    height: 100px;
   }
   .card-slick {
     height: 380px !important;
@@ -118,5 +118,11 @@
     left: 0;
     top: 100% !important;
     bottom: 0 !important;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .card-slick-title {
+    margin-bottom: 0 !important;
   }
 }

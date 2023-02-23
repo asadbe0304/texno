@@ -107,8 +107,8 @@
 }
 @media screen and (max-width: 1165px) {
   .img-slick {
-    width: 134px;
-    height: 134px;
+    width: 100px;
+    height: 100px;
   }
   .card-slick {
     height: 380px !important;
@@ -166,5 +166,12 @@
 @media screen and (max-width: 580px) {
   .recomendation__title {
     font-size: 18px !important;
+  }
+}
+
+
+@media screen and (max-width:380px) {
+  .card-slick-title{
+    margin-bottom: 0!important;
   }
 }

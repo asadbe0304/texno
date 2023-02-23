@@ -13,7 +13,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "./style.scss";
 const index = () => {
   const {
-    state: { product, cart, like, oneCart },
+    state: { product, cart, like },
     dispatch,
   } = CartState();
 
@@ -146,70 +146,70 @@ const index = () => {
                       <h5>{e.title}</h5>
                     </Link>
                   </div>
-                </div>
-                <div className="card-slick-footer  w-100 d-flex justify-content-between align-items-center">
-                  <div className="text-black fw-bold">{e.price} $</div>
-                  {cart.some((p) => p.id === e.id) ? (
-                    <motion.div
-                      whileTap={{ scale: 0.9 }}
-                      className="bg-danger  border-0 px-2 py-1 rounded-2"
-                    >
-                      <BsCartDashFill
-                        className="shop-cart"
-                        type="button"
-                        onClick={() =>
-                          dispatch({
-                            type: "REMOVE__TO__PRODUCT",
-                            payload: e,
-                          })
-                        }
-                      />
-                    </motion.div>
-                  ) : (
-                    <motion.div
-                      whileTap={{ scale: 0.9 }}
-                      className="bg-warning  border-0 px-2 py-1 rounded-2"
-                    >
-                      <BsCartPlusFill
-                        className="shop-cart"
-                        type="button"
+                  <div className="card-slick-footer  w-100 d-flex justify-content-between align-items-center">
+                    <div className="text-black fw-bold">{e.price} $</div>
+                    {cart.some((p) => p.id === e.id) ? (
+                      <motion.div
+                        whileTap={{ scale: 0.9 }}
+                        className="bg-danger  border-0 px-2 py-1 rounded-2"
+                      >
+                        <BsCartDashFill
+                          className="shop-cart"
+                          type="button"
+                          onClick={() =>
+                            dispatch({
+                              type: "REMOVE__TO__PRODUCT",
+                              payload: e,
+                            })
+                          }
+                        />
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        whileTap={{ scale: 0.9 }}
+                        className="bg-warning  border-0 px-2 py-1 rounded-2"
+                      >
+                        <BsCartPlusFill
+                          className="shop-cart"
+                          type="button"
+                          onClick={() =>
+                            dispatch({
+                              type: "ADD__TO__PRODUCT",
+                              payload: e,
+                            })
+                          }
+                        />
+                      </motion.div>
+                    )}
+                  </div>
+                  <Link to={"/check"} className="p-0 w-100">
+                    {cart.some((p) => p.id === e.id) ? (
+                      <button
+                        className="btn btn-outline-warning mt-2 w-100"
                         onClick={() =>
                           dispatch({
                             type: "ADD__TO__PRODUCT",
                             payload: e,
                           })
                         }
-                      />
-                    </motion.div>
-                  )}
-                </div>
-                {oneCart.some((p) => p.id === e.id) ? (
-                  <Link to={"/check"} className="p-0 w-100">
-                    <button
-                      className="btn btn-outline-warning mt-2 w-100"
-                      onClick={() =>
-                        dispatch({
-                          type: "ADD__TO__ONE",
-                          payload: e,
-                        })
-                      }
-                    >
-                      One Click
-                    </button>
+                      >
+                        One Click
+                      </button>
+                    ) : (
+                      <button
+                        className="btn btn-outline-warning mt-2 w-100"
+                        onClick={() =>
+                          dispatch({
+                            type: "ADD__TO__PRODUCT",
+                            payload: e,
+                          })
+                        }
+                      >
+                        One Click
+                      </button>
+                    )}
                   </Link>
-                ) : (
-                  <button
-                    className="btn btn-outline-warning mt-2 w-100"
-                    onClick={() =>
-                      dispatch({
-                        type: "ADD__TO__ONE",
-                        payload: e,
-                      })
-                    }
-                  >
-                    One
-                  </button>
-                )}
+                </div>
               </div>
             );
           })}

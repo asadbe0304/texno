@@ -12,7 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const index = () => {
   const {
-    state: { cart, checkout, oneCart },
+    state: { cart, checkout, },
     dispatch,
   } = CartState();
 
@@ -29,7 +29,7 @@ const index = () => {
               <div className="d-flex justify-content-between w-100 py-2  align-items-center flex-wrap">
                 <h3 className="fw-bold">
                   Оформление заказа 
-                     {""} {oneCart.length}
+                     {""} {cart.length}
                 </h3>
                 <div>
                   <Link to="/" className="text-danger">
@@ -42,10 +42,10 @@ const index = () => {
                   Уже покупали у нас? Войдите в свой аккаунт, чтобы отслеживать
                   доставку заказов и сохранять историю покупок
                 </p>
-                <button className="btn btn-outline-dark py-1 px-4">
+                <button className="btn btn-outline-danger py-1 px-4">
                   <Link
                     to={"/login"}
-                    className="underline-none text-black p-0 "
+                    className="underline-none p-0 text-black"
                   >
                     Login
                   </Link>

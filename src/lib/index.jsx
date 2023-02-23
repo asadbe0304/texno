@@ -173,33 +173,33 @@ const Responsive = () => {
                       </button>
                     )}
                   </div>
-                  {oneCart.some((p) => p.id === e.id) ? (
-                    <Link to={"/check"} className="p-0 w-100">
+                  <Link to={"/check"} className="p-0 w-100">
+                    {cart.some((p) => p.id === e.id) ? (
                       <button
                         className="btn btn-outline-warning mt-2 w-100"
                         onClick={() =>
                           dispatch({
-                            type: "ADD__TO__ONE",
+                            type: "ADD__TO__PRODUCT",
                             payload: e,
                           })
                         }
                       >
                         One Click
                       </button>
-                    </Link>
-                  ) : (
-                    <button
-                      className="btn btn-outline-warning mt-2 w-100"
-                      onClick={() =>
-                        dispatch({
-                          type: "ADD__TO__ONE",
-                          payload: e,
-                        })
-                      }
-                    >
-                      One
-                    </button>
-                  )}
+                    ) : (
+                      <button
+                        className="btn btn-outline-warning mt-2 w-100"
+                        onClick={() =>
+                          dispatch({
+                            type: "ADD__TO__PRODUCT",
+                            payload: e,
+                          })
+                        }
+                      >
+                        One Click
+                      </button>
+                    )}
+                  </Link>
                 </div>
               </div>
             );

@@ -1,13 +1,14 @@
 import React from "react";
 import { RiErrorWarningLine } from "react-icons/ri";
+import { useState } from "react";
 import { CartState } from "../../../context/Auth";
 
 
 const OrderCard = () => {
   const {
-    state: { cart, checkout},dispatch
+    state: { cart, cartCount,totals },dispatch
   } = CartState();
-
+const [money, setMoney] = useState(5)
 
   return (
     <>
@@ -70,16 +71,16 @@ const OrderCard = () => {
               style={{ listStyle: "none" }}
             >
               <li className="text-black w-100 d-flex justify-content-between align-items-start">
-                <p className="fw-bold text-secondary ">Товары (5):</p>
-                <p className="text-secondary fw-normal">95 575 ₽</p>
+                <p className="fw-bold text-secondary ">Товары ({Number(cartCount)}):</p>
+                <p className="text-secondary fw-normal">{Number(totals)} $</p>
               </li>
               <li className="text-black w-100 d-flex justify-content-between align-items-start">
                 <p className="fw-bold text-secondary">Доставка:</p>
-                <p className="text-secondary fw-normal">575 ₽</p>
+                <p className="text-secondary fw-normal">  {money} $</p>
               </li>
               <li className="text-black w-100 d-flex justify-content-between align-items-start">
                 <p className="fw-bold">Итого:</p>
-                <p className="text-secondary fw-normal">96 575 ₽</p>
+                <p className="text-secondary fw-normal">{money + Number(totals)} $</p>
               </li>
             </ul>
           </li>

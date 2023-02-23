@@ -6,7 +6,7 @@ import {
   useEffect,
 } from "react";
 import axios from "axios";
-import { cartReducer, sumCart, sumLike, sumOne } from "./ShopReducer";
+import { cartReducer, sumCart, sumLike} from "./ShopReducer";
 
 // create context  provider
 const AuthContext = createContext({});
@@ -20,9 +20,6 @@ const storageLike = localStorage.getItem("like")
   ? JSON.parse(localStorage.getItem("like"))
   : [];
 
-const storageOne = localStorage.getItem("oneCart")
-  ? JSON.parse(localStorage.getItem("oneCart"))
-  : [];
 
 //   const handleCheckout = () => {
 //     console.log('CHECK');
@@ -33,15 +30,12 @@ const initialState = {
   product: [],
   category: [],
   searchQuery: [],
-  auth: {},
   opencart: false,
   search: false,
   searchMobile: false,
   modal: false,
   clear: false,
   open: false,
-  oneCart: storageOne,
-  ...sumOne,
   like: storageLike,
   ...sumLike,
   cart: storage,

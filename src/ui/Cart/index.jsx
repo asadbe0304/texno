@@ -1,4 +1,6 @@
+import React from "react";
 import "./style.scss";
+
 import Img from "./../../assets/images/car.png";
 import { Link } from "react-router-dom";
 import { BiTrash } from "react-icons/bi";
@@ -19,13 +21,13 @@ const index = () => {
             <div className="d-flex justify-content-between align-items-center w-100">
               <h2 className="cart__title my-2 p-0">
                 В корзине {cartCount} товара
-              </h2> 
+              </h2>
               <IoMdClose
-                  className={`position-fixed close-arrow ${
-                    opencart ? "show" : "hide"
-                  }`}
-                  onClick={() => dispatch({ type: "SHOW", payload: false })}
-                />
+                className={`position-fixed close-arrow ${
+                  opencart ? "show" : "hide"
+                }`}
+                onClick={() => dispatch({ type: "SHOW", payload: false })}
+              />
             </div>
           </div>
           <div className="cart__body w-100 d-flex  flex-column align-items-start justify-content-start">
@@ -60,9 +62,9 @@ const index = () => {
                     </div>
                     <div className="d-flex flex-column h-100 align-items-start justify-content-between">
                       <span className="fw-bold price-cart"> {e.price} $</span>
-                      <div className="count d-flex flex-row align-items-start justify-content-between">
+                      <div className="count border rounded m-0 p-0  d-flex flex-row align-items-center justify-content-between">
                         <button
-                          className="btn btn-white m-0 p-0 px-1 fw-bold"
+                          className="btn btn-outline-dark p-0 py-0 px-2 text-danger w-100 rounded-start rounded-0 fw-bold"
                           onClick={() => {
                             if (e.quantity > 1) {
                               dispatch({
@@ -79,11 +81,9 @@ const index = () => {
                         >
                           -
                         </button>
-                        <p className=" border-1 rounded-0 py-1 px-2 m-0 border ">
-                          {e.quantity}
-                        </p>
+                        <p className="rounded-0 m-0 mx-2">{e.quantity}</p>
                         <button
-                          className="btn btn-white fw-bold m-0 p-0 px-1"
+                          className="btn m-0  p-0 py-0 px-2 btn-outline-dark rounded-end rounded-0  text-danger fw-bold"
                           onClick={() =>
                             dispatch({ type: "INCREASE", payload: e })
                           }
@@ -110,7 +110,7 @@ const index = () => {
               <button
                 className="btn btn-warning"
                 disabled={cart.length === 0}
-                onClick={() => dispatch({ type: "SHOW" , payload:false})}
+                onClick={() => dispatch({ type: "SHOW", payload: false })}
               >
                 <Link to={"/check"} className="p-0 text-black underline-none">
                   Оформить заказ
@@ -124,4 +124,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default React.memo(index);
