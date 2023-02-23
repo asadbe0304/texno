@@ -4,7 +4,7 @@ import { useState } from "react";
 import { CartState } from "../../../context/Auth";
 
 
-const OrderCard = () => {
+  const OrderCard = () => {
   const {
     state: { cart, cartCount,totals },dispatch
   } = CartState();
