@@ -2,76 +2,43 @@ import React from "react";
 import Img from "./../../assets/images/22.webp";
 import { ToastContainer, toast } from "react-toastify";
 import { Form } from "react-bootstrap";
+import axios from "axios";
 import { useState, useEffect } from "react";
-import uuid from 'react-uuid';
+import uuid from "react-uuid";
 
 import "react-toastify/dist/ReactToastify.css";
 
 const form = ({ prop }) => {
   const [title, setTitle] = useState("");
   const [categories, setCategories] = useState("");
-  const [price, setPrice] = useState("");
+  const [price, setPrice] = useState(0);
   const [description, setDescription] = useState("");
-  const [prod, setProd] = useState([]);
-  const newProduct = useEffect(() => {
-    fetch("https://fakestoreapi.com/products", {
-      method: "POST",
-      body: JSON.stringify({
-        id: uuid(),
-        title: title,
-        price: price,
-        description: description,
-        image: "https://i.pravatar.cc",
-        category: categories,
-      }),
-    })
-      .then((res) => res.json())
-      .then((json) => setProd(json));
-  }, []);
-  // console.log(prod);
-  
-  // console.log(title);
-  // console.log(price);
-  // console.log(description);
-  // console.log(categories);
-  const addProduct = (e) => {
-    const check = {
-      title: title.trim().length === 0,
-      price: price.trim().length === 0,
-    };
-    if (check.title || check.price) {
-      toast.error("🦄 Wow sy!", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-      setProd([...prod, newProduct])
-    } else {
-      toast("🦄 Wow so easy!", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-      setDescription("");
-      setTitle("");
-      setPrice("");
-    }
+
+  const data = {
+    title: title,
+    price: price,
+    description: description,
+    categories: categories,
+    image: "https://i.pravatar.cc",
   };
+  function addProduct(e) {
+    e.preventDefault();
+    axios
+      .post("http://localhost:3000/product", data)
+      .then((res) => toast.success("add porduct"), window.location.reload)
+      setTitle("")
+      setPrice("")
+      setCategories("")
+      setDescription("")
+  }
+
+ 
+
   return (
     <>
       <ToastContainer
         position="top-right"
-        autoClose={5000}
+        autoClose={2000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -149,7 +116,7 @@ const form = ({ prop }) => {
           <button
             className="btn btn-warning"
             type="button"
-            onClick={() => addProduct()}
+            onClick={addProduct}
           >
             Add Product
           </button>

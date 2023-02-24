@@ -1,22 +1,100 @@
 import React, { memo } from "react";
-import { useState } from "react";
-import { Form, Table } from "react-bootstrap";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { Form, Modal, Button } from "react-bootstrap";
+import Table from 'react-bootstrap/Table';
 import AllPostPagination from "./postPagination";
 import { CartState } from "../context/Auth";
-const allproduct = memo(() => {
+const allproduct = () => {
   const {
-    state: { product },
+    state: { product, category },
     dispatch,
   } = CartState();
 
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+
+  const [data, setData] = useState([]);
+  const [newData, setNewData] = useState([]);
+  function loadUsers() {
+    axios.get("http://localhost:3000/product").then((res) => {
+      setData(res.data);
+    });
+  }
+  useEffect(() => {
+    loadUsers();
+  }, []);
+
+  const deleteProduct = (id) => {
+    axios.delete(`http://localhost:3000/product/${id}`).then(loadUsers());
+    setNewData(
+      newData.filter((e) => {
+        return e.id !== id;
+      })
+    );
+  };
+  console.log(newData);
   const [allcurrentPage, setAllCurrentPage] = useState(1);
   const [allpostsPerPage, setAllPostsPerPage] = useState(5);
 
   const allPostIndex = allcurrentPage * allpostsPerPage;
   const firstPostIndex = allPostIndex - allpostsPerPage;
   const allcurrentPosts = product.slice(firstPostIndex, allPostIndex);
+
   return (
     <>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Edit Product</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Product Title</Form.Label>
+              <Form.Control type="text" placeholder="Edit name" autoFocus />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Categories</Form.Label>
+              <Form.Select className="text-capitalize">
+                <option disabled>Categories select</option>
+                {category.map((e) => {
+                  return (
+                    <option key={e} className="text-capitalize">
+                      {e}
+                    </option>
+                  );
+                })}
+              </Form.Select>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput2">
+              <Form.Label>Product Price</Form.Label>
+              <Form.Control type="number" placeholder="Edit Price" autoFocus />
+            </Form.Group>
+            <Form.Group
+              className="mb-3"
+              controlId="exampleForm.ControlTextarea1"
+            >
+              <Form.Label>Description</Form.Label>
+              <Form.Control as="textarea" rows={3} />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="dark" onClick={handleClose}>
+            Close
+          </Button>
+          <Button
+            variant="warning"
+            // onClick={updateAPIData}
+          >
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
       <div className="product-table bg-white  my-3 mx-auto">
         <h5>All Product</h5>
         <hr />
@@ -40,13 +118,10 @@ const allproduct = memo(() => {
             </tr>
           </thead>
           <tbody>
-            {allcurrentPosts.length > 0
-              ? allcurrentPosts.map((e) => {
+            {data.length > 0
+              ? data.map((e, i) => {
                   return (
-                    <tr
-                      key={e.id}
-                      style={{ height: "40px", overflowY: "scroll" }}
-                    >
+                    <tr key={i} style={{ height: "40px", overflowY: "scroll" }}>
                       <td>{e.id}</td>
                       <td>
                         <img
@@ -57,23 +132,30 @@ const allproduct = memo(() => {
                           alt="images"
                         />
                       </td>
+
                       <td>{e.title}</td>
-                      <td className="text-capitalize">{e.category}</td>
+                      <td className="text-capitalize">{e.categories}</td>
                       <td className="overflow-hidden td-table w-25">
                         {e.description}
                       </td>
                       <td>{e.price} $</td>
                       <td className="p-0 text-center">
-                        <button className="btn btn-danger admin-btn text-white mt-2 py-0 px-4">
+                        <button
+                          onClick={() => deleteProduct(e.id)}
+                          className="btn btn-danger admin-btn text-white mt-2 py-0 px-4"
+                        >
                           Delete
                         </button>
                       </td>
                       <td className="p-0 text-center ">
-                        <button className="btn btn-success admin-btn text-white mt-2 py-0 px-4">
+                        <button
+                          onClick={handleShow}
+                          className="btn btn-success admin-btn text-white mt-2 py-0 px-4"
+                        >
                           Edit
                         </button>
                       </td>
-                    </tr>
+                     </tr>
                   );
                 })
               : "Not product"}
@@ -90,6 +172,6 @@ const allproduct = memo(() => {
       </div>
     </>
   );
-});
+};
 
 export default allproduct;

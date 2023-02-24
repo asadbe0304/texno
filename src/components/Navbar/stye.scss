@@ -81,27 +81,11 @@
 .category__tab {
   display: none;
 }
-.dropdown-search-mobile {
-  position: absolute;
-  top: 37px;
-  left: -255px;
-  right: 0px;
-  margin: 0 auto;
-  z-index: 5555;
-  border: 0!important;
-  width: 400px;
-  background-color: #e9e9e9;
-  display: none;
-  flex-direction: column;
-  border: 1px solid gray;
-  border-radius: 10px;
-  overflow-y: scroll;
-}
 
-.searchopen{
+.searchopen {
   display: flex;
 }
-.searchclose{
+.searchclose {
   display: none;
 }
 @media screen and (max-width: 1280px) {
@@ -121,9 +105,9 @@
     padding: 8px 12px;
   }
 }
-@media screen and (max-width:991px) {
-  .modal-layer{
-    top: 131px!important;
+@media screen and (max-width: 991px) {
+  .modal-layer {
+    top: 131px !important;
   }
 }
 @media screen and (max-width: 853px) {
@@ -149,7 +133,7 @@
 }
 @media screen and (max-width: 830px) {
   .navsticky {
-  position: static!important;
+    position: static !important;
   }
 }
 @media screen and (max-width: 805px) {
@@ -198,15 +182,7 @@
   }
 }
 
-@media screen and (max-width:752px) {
-  .dropdown-search-mobile{
-    left: 0;
-  }
-}
 @media screen and (max-width: 530px) {
-  .dropdown-search-mobile{
-    width: 300px;
-  }
   .modal-layer {
     top: 133px;
   }
@@ -214,11 +190,7 @@
     top: 50px;
   }
 }
-@media screen and (max-width:310px) {
-  .dropdown-search-mobile{
-    width: 90%;
-  }
-}
+
 @keyframes smoothScroll {
   0% {
     transform: translateY(-100px);

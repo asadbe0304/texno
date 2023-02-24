@@ -1,19 +1,20 @@
 {
-  "posts": [
+  "product": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "title": "sdfgbhn",
+      "price": "40",
+      "description": "lroemfknnacddsc",
+      "categories": "electronics",
+      "image": "https://i.pravatar.cc",
+      "id": 2
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "title": "title",
+      "price": "13",
+      "description": "fewffdfweffweffefw",
+      "categories": "men's clothing",
+      "image": "https://i.pravatar.cc",
+      "id": 3
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

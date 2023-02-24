@@ -2,7 +2,7 @@ import React from "react";
 import { CartState } from "../../context/Auth";
 import { IoMdClose } from "react-icons/io";
 import { NavLink } from "react-router-dom";
-import Skeloton from "./../../lib/Skeletono/Skeleton"
+import Skeloton from "../../lib/Skeletono/skeletono"
 
 const ModalMobile = () => {
   const {

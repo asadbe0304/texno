@@ -1,6 +1,5 @@
 import React from "react";
 import ModalNav from "./NavbarModal";
-import NavSearch from "./NavSearch";
 import MobileDeviceModal from "./ModalMobile";
 import ModalDesktop from "./Modal";
 import NavBtn from "./btn";
@@ -23,7 +22,6 @@ const index = () => {
       windowHeight > 152 ? setSticky("navsticky") : setSticky("");
     }
   };
-  
 
   return (
     <>
@@ -31,7 +29,6 @@ const index = () => {
         <div className="container">
           <nav className="d-flex justify-content-between nav flex-row align-items-center">
             <NavBtn />
-            <NavSearch />
             {/* modal desktop */}
             <ModalDesktop />
             {/* modal desktop */}

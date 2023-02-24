@@ -11,7 +11,9 @@
     border: none;
   }
 }
-
+.mobile-btn-search{
+  display: none;
+}
 .dropdown-search {
   position: absolute;
   top: 65px;
@@ -194,6 +196,17 @@
 .mobile_logo {
   display: none;
 }
+
+
+@keyframes animate {
+  0% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(5px);
+  }
+}
+
 @media screen and (max-width: 1190px) {
   .header__search {
     width: 30%;
@@ -263,6 +276,12 @@
 }
 .open-modal {
   animation: modal 0.2s both;
+}
+
+@media screen and (max-width:805px) {
+  .mobile-btn-search{
+    display: block;
+  }
 }
 @keyframes modal {
   0% {
@@ -342,6 +361,10 @@
   }
   .search-bar {
     display: none;
+  }
+  .header{
+    padding-top: 5px!important;
+    padding-bottom: 5px!important;
   }
 }
 @media screen and (max-width: 530px) {

@@ -40,9 +40,6 @@ const index = () => {
             <Category />
           </div>
         </div>
-        <div>
-          <Brand />
-        </div>
         <div className="">
           <div className="container">
             <XitProduct />
@@ -52,6 +49,9 @@ const index = () => {
           <div className="container">
             <Slick />
           </div>
+        </div>
+        <div>
+          <Brand />
         </div>
         <div className="container">
           <div className="d-flex w-75 py-4 mx-auto justify-content-center align-items-center flex-column gap-1">

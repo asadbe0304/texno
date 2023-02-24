@@ -255,17 +255,28 @@ const index = () => {
                         Remove to Cart
                       </button>
                     ) : (
-                      <button className="btn cart-btn btn-warning"
+                      <button
+                        className="btn cart-btn btn-warning"
+                        onClick={() =>
+                          dispatch({
+                            type: "ADD__TO__PRODUCT",
+                            payload: data,
+                          })
+                        }
+                      >
+                        Add to Cart
+                      </button>
+                    )}
+                    <Link
+                      to="/check"
                       onClick={() =>
                         dispatch({
                           type: "ADD__TO__PRODUCT",
                           payload: data,
                         })
-                      }>
-                        Add to Cart
-                      </button>
-                    )}
-                    <Link to="/check" className="btn cart-btn btn-outline-warning">
+                      }
+                      className="btn cart-btn btn-outline-warning"
+                    >
                       Buy one click
                     </Link>
                   </div>

@@ -118,7 +118,7 @@ export const cartReducer = (state, action) => {
       return {
         ...state,
         product: action.payload.data,
-        error: "",
+        loading: true,
       };
     case "FETCH_DATA_FAILURE":
       return {

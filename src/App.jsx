@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar/index";
 import Footer from "./components/Footer";
 import PageFooter from "./components/Footer/InnerFooter/index";
 import Roters from "./Routes/route";
+import Loading from "./ui/Upload/index"
 import { useState, useEffect } from "react";
 const App = () => {
   const [padding, setPadding] = useState("");
@@ -21,6 +22,7 @@ const App = () => {
   };
   return (
     <>
+    <Loading/>
       <Header />
       <Navbar />
       <main className={`site-main ${padding}`}>

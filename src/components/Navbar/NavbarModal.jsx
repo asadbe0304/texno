@@ -3,7 +3,7 @@ import Img from "./../../assets/images/holod.png";
 import { useState, useEffect } from "react";
 import { Link, NavLink, useParams } from "react-router-dom";
 import { CartState } from "../../context/Auth";
-import Skeleton from "./../../lib/Skeletono/Skeleton";
+import Skeleton from "../../lib/Skeletono/skeletono";
 const NavbarModal = () => {
   const {
     state: { category, modal },

@@ -2,9 +2,7 @@ import React from "react";
 import { CartState } from "../../context/Auth";
 import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
-import { BiPrinter } from "react-icons/bi";
 import { BiPrinter, BiTrash } from "react-icons/bi";
-import { useReactToPrint } from "react-to-print";
 
 const orderCard = () => {
   const {

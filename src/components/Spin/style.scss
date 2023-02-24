@@ -1,4 +1,29 @@
-.loader{
-  z-index: 44444;
-  background:#ededed !important;
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+}
+.wrapper .dot {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background: #ffc107;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  animation: animate 1s ease-in-out infinite alternate;
+}
+.dot:nth-child(1) {
+  animation-delay: -0.25s;
+}
+.dot:nth-child(2) {
+  background: #ffc100;
+  animation-delay: -0.5s;
+}
+.dot:nth-child(3) {
+  background: #ffcc00;
+  animation-delay: -0.75s;
+}
+.dot:nth-child(4) {
+  background: #f0cb5d;
+  animation-delay: -1s;
 }

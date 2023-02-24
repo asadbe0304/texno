@@ -3,19 +3,25 @@ import { FiShoppingCart } from "react-icons/fi";
 import { CgProfile } from "react-icons/cg";
 import { BiHeart } from "react-icons/bi";
 import { motion } from "framer-motion";
+import { FaSearch } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import Location from "./location";
 import Tel from "./../../ui/Call";
 import SearchBar from "./search";
 import Call from "./Call";
+import Form from "react-bootstrap/Form";
+import InputGroup from "react-bootstrap/InputGroup";
 import { Badge } from "react-bootstrap";
 import Cart from "../../ui/Cart/index";
 import WishList from "./wishList";
-import Modal from "./modal";
+import Modals from "./modal";
+import Load from "./../Spin/MyLoader";
 import { CartState } from "./../../context/Auth";
 import "./style.scss";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 
 const index = () => {
   // const [open, setOpen] = useState(false);
@@ -23,7 +29,7 @@ const index = () => {
   const [favaourite, setFavaourite] = useState(false);
 
   const {
-    state: { cart, like, opencart, searchQuery, category, open },
+    state: { cart, like, opencart, searchQuery, product, open },
     dispatch,
   } = CartState();
 
@@ -49,9 +55,94 @@ const index = () => {
     }
   };
 
+  let sortedProducts = product;
+  if (searchQuery) {
+    sortedProducts = sortedProducts.filter((e) =>
+      e.title.toLowerCase().includes(searchQuery)
+    );
+  }
+  console.log(searchQuery);
+  console.log(sortedProducts);
+
+  const values = [true];
+  const [fullscreen, setFullscreen] = useState(true);
+  const [show, setShow] = useState(false);
+
+  function handleShow(breakpoint) {
+    setFullscreen(breakpoint);
+    setShow(true);
+  }
+
   return (
     <>
       <Tel />
+
+      <Modal show={show} fullscreen={fullscreen} onHide={() => setShow(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Search Product</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <InputGroup>
+            <Form.Control
+              placeholder="Search Products"
+              aria-label="Username"
+              className="text-lowercase"
+              value={searchQuery}
+              onFocus={() => dispatch({ type: "SEARCH", payload: true })}
+              onChange={(e) => {
+                dispatch({
+                  type: "FILTER_BY_SEARCH",
+                  payload: e.target.value,
+                });
+              }}
+              aria-describedby="basic-addon1"
+            />
+            <InputGroup.Text
+              id="basic-addon1"
+              // onClick={handlePush()}
+              className="bg-warning header_search-btn border-0 rounded-0"
+            >
+              <FaSearch className="text-white fw-bold" />
+            </InputGroup.Text>
+          </InputGroup>
+          <div
+            className={`${
+              searchQuery.length > 1 ? "d-block" : "d-none"
+            } mt-2 py-3 bg-light`}
+          >
+            {sortedProducts.length > 0 ? (
+              sortedProducts.slice(0, 4).map((e) => {
+                return (
+                  <div
+                    key={e.id}
+                    className={`d-flex justify-content-between px-4 py-2 align-items-center  w-100 gap-3 my-0 border bg-white `}
+                    style={{ width: "400px" }}
+                  >
+                    <div className="d-flex justify-content-start gap-2 align-items-center">
+                      <img
+                        src={e.image}
+                        alt="images"
+                        style={{ width: "50px", height: "50px" }}
+                      />
+                      <Link
+                        to={`/product/${e.id}`}
+                        onClick={() => setShow((e) => !e)}
+                        className="underline-none text-black"
+                      >
+                        <div>{e.title}</div>
+                      </Link>
+                    </div>
+                    <div>{e.price} $</div>
+                  </div>
+                );
+              })
+            ) : (
+              <Load />
+            )}
+          </div>
+        </Modal.Body>
+      </Modal>
+
       <header className={`w-100 bg-white ${sticky}`}>
         <div className="container">
           <Cart />
@@ -60,6 +151,7 @@ const index = () => {
               <Location />
             </div>
             <SearchBar />
+
             <Call />
             <div className="header__inner align-items-center d-flex justify-content-between gap-3">
               <div className="header__like--order d-flex justify-content between">
@@ -82,6 +174,14 @@ const index = () => {
                   {/* sign in component */}
                 </div>
                 <div className="like position-relative ">
+                  {values.map((v, idx) => (
+                    <FaSearch
+                      key={idx}
+                      className="me-2 mobile-btn-search"
+                      onClick={() => handleShow(v)}
+                      style={{ width: "25px", height: "25px" }}
+                    />
+                  ))}
                   <motion.div
                     whileTap={{ scale: 0.9 }}
                     onClick={() => setFavaourite((e) => !e)}
@@ -134,7 +234,7 @@ const index = () => {
           </div>
         </div>
         {/* modal menu */}
-        <Modal />
+        <Modals />
       </header>
     </>
   );
