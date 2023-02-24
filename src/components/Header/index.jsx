@@ -3,7 +3,7 @@ import { FiShoppingCart } from "react-icons/fi";
 import { CgProfile } from "react-icons/cg";
 import { BiHeart } from "react-icons/bi";
 import { motion } from "framer-motion";
-import { FaSearch } from "react-icons/fa";
+import { BsSearch } from "react-icons/bs";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
 import { NavLink, Link } from "react-router-dom";
@@ -97,13 +97,7 @@ const index = () => {
               }}
               aria-describedby="basic-addon1"
             />
-            <InputGroup.Text
-              id="basic-addon1"
-              // onClick={handlePush()}
-              className="bg-warning header_search-btn border-0 rounded-0"
-            >
-              <FaSearch className="text-white fw-bold" />
-            </InputGroup.Text>
+  
           </InputGroup>
           <div
             className={`${
@@ -175,11 +169,11 @@ const index = () => {
                 </div>
                 <div className="like position-relative ">
                   {values.map((v, idx) => (
-                    <FaSearch
+                    <BsSearch
                       key={idx}
                       className="me-2 mobile-btn-search"
                       onClick={() => handleShow(v)}
-                      style={{ width: "25px", height: "25px" }}
+                      style={{ width: "18px", height: "18px" }}
                     />
                   ))}
                   <motion.div
