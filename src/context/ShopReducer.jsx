@@ -20,7 +20,6 @@ export const sumCart = (cart) => {
 
   return { cartCount, totals };
 };
-
 export const sumLike = (like) => {
   StorageLike(like);
 

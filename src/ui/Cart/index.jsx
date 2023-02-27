@@ -71,7 +71,8 @@ const index = () => {
                                 type: "DECREASE",
                                 payload: e,
                               });
-                            } else {
+                            } 
+                            else {
                               dispatch({
                                 type: "REMOVE__TO__PRODUCT",
                                 payload: e,

@@ -61,6 +61,7 @@ const index = () => {
       e.title.toLowerCase().includes(searchQuery)
     );
   }
+  
   console.log(searchQuery);
   console.log(sortedProducts);
 

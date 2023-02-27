@@ -1,7 +1,7 @@
 import React from "react";
 import { CgProfile } from "react-icons/cg";
 import { CgAdd } from "react-icons/cg";
-import Img from "./../../assets/images/2.jpg";
+import Img from "./../../assets/images/df.png";
 import "./style.scss";
 const cabinet = () => {
   return (
