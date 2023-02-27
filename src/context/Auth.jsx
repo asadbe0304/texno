@@ -36,7 +36,7 @@ const initialState = {
   modal: false,
   clear: false,
   open: false,
-  loading:true,
+  loading:false,
   like: storageLike,
   ...sumLike,
   cart: storage,
