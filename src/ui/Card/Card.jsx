@@ -5,8 +5,14 @@ import { motion } from "framer-motion";
 import Img from "./../../assets/images/im-removebg-preview.png";
 
 const Card = ({ prop }) => {
-  // const  {prod: {id , image}} = prod
-  // console.log(prop);
+ 
+  
+  const goToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <>
       <motion.div whileTap={{scale: 0.9}} whileHover={{scale: 1.}} key={prop.id} className="m-0 p-0">

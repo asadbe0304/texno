@@ -93,6 +93,13 @@ const Responsive = () => {
       },
     ],
   };
+
+  const goToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <>
       <div>
@@ -138,6 +145,7 @@ const Responsive = () => {
                   <div className="card-slick-title w-100">
                     <Link
                       to={`/product/${e.id}`}
+                      onClick={goToTop}
                       className="text-black linl-slick"
                     >
                       <h5>{e.title}</h5>
@@ -145,7 +153,7 @@ const Responsive = () => {
                   </div>
                   <div className="card-slick-footer w-100 d-flex justify-content-between align-items-center">
                     <div className="text-black fw-bold">{e.price} $</div>
-                     {cart.some((p) => p.id === e.id) ? (
+                    {cart.some((p) => p.id === e.id) ? (
                       <button className="bg-danger  border-0 px-2 py-1 rounded-2">
                         <BsCartDashFill
                           className="shop-cart"

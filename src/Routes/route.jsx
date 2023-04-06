@@ -33,15 +33,15 @@ function index() {
         <Route path="/info" element={<Info />} />
         <Route path="/check" element={<Check />} />
         <Route path="/" element={<Layout />}>
-          <Route element={<RequireAuth allowedRoles={[ROLES.User]} />}>
+          {/* <Route element={<RequireAuth allowedRoles={[ROLES.User]} />}> */}
             <Route path="/admin" element={<Private />}>
               <Route index element={<Cabinet />} />
               <Route path="order" element={<Order />} />
-              <Route element={<RequireAuth allowedRoles={[ROLES.Editor, ROLES.Admin]} />}>
+              {/* <Route element={<RequireAuth allowedRoles={[ROLES.Editor, ROLES.Admin]} />}> */}
                 <Route path="addorder" element={<AddProduct />} />
-              </Route>
+              {/* </Route> */}
             </Route>
-          </Route>
+          {/* </Route> */}
         </Route>
       </Routes>
     </>

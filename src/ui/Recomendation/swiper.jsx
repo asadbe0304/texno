@@ -17,6 +17,13 @@ const index = () => {
     dispatch,
   } = CartState();
 
+
+  const goToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   var settings = {
     dots: false,
     infinite: false,
@@ -141,6 +148,7 @@ const index = () => {
                   <div className="card-slick-title w-100">
                     <Link
                       to={`/product/${e.id}`}
+                      onClick={goToTop}
                       className="text-black linl-slick"
                     >
                       <h5>{e.title}</h5>

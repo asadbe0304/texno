@@ -12,6 +12,7 @@ const index = () => {
   const {
     state: { product },
   } = CartState();
+
   return (
     <>
       <div className="bg-white pt-4">
